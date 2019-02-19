@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://baseTower.tres.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/tower.gd" type="Script" id=1]
 
 [sub_resource type="CapsuleMesh" id=1]
 
@@ -15,7 +15,7 @@ rings = 8
 radius = 1.0
 height = 1.0
 
-[node name="baseTower" type="Spatial"]
+[node name="baseTower" type="Spatial" index="0"]
 
 script = ExtResource( 1 )
 
