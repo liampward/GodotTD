@@ -1,16 +1,16 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://HUD Scripts/Sell Button.gd" type="Script" id=1]
-[ext_resource path="res://HUD Scripts/money.gd" type="Script" id=2]
-[ext_resource path="res://HUD Scripts/purchase Button.gd" type="Script" id=3]
-[ext_resource path="res://HUD Scripts/Damage.gd" type="Script" id=4]
-[ext_resource path="res://HUD Scripts/fire rate.gd" type="Script" id=5]
-[ext_resource path="res://HUD Scripts/range.gd" type="Script" id=6]
-[ext_resource path="res://HUD Scripts/upgrade select 1.gd" type="Script" id=7]
-[ext_resource path="res://HUD Scripts/upgrade select 2.gd" type="Script" id=8]
-[ext_resource path="res://HUD Scripts/upgrade select 3.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/Sell Button.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/money.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/purchase Button.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Damage.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/fire rate.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/range.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/upgrade select 1.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/upgrade select 2.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/upgrade select 3.gd" type="Script" id=9]
 
-[node name="main panel" type="Panel" index="0"]
+[node name="main panel" type="Panel"]
 
 anchor_left = 0.0
 anchor_top = 0.0

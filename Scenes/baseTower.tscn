@@ -15,7 +15,7 @@ rings = 8
 radius = 1.0
 height = 1.0
 
-[node name="baseTower" type="Spatial"]
+[node name="baseTower" type="Spatial" index="0"]
 
 script = ExtResource( 1 )
 
