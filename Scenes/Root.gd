@@ -13,7 +13,7 @@ func _ready():
 	
 	OS.set_window_fullscreen(true)
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+func _process(delta):
+	if(Input.is_key_pressed(KEY_ESCAPE)):
+		get_tree().quit()
+		
