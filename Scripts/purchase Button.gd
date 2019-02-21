@@ -2,7 +2,7 @@ extends Button
 
 var root_node
 var board_node
-var new_tower_resource = preload("res://Scenes/baseTower.tscn");
+var new_tower_resource
 
 func _ready():
 	root_node = get_tree().get_root().get_node("Root")
@@ -11,8 +11,12 @@ func _ready():
 
 func _pressed():
 	var tile = board_node.selected_tile
+	var tile_scale = tile.get_scale();
 	
-	if(tile.tower == null):
+	if(tile.tower == null && root_node.money >= 10):
 		var new_tower = new_tower_resource.instance();
-		new_tower.set_translation(Vector3(0, 10, 0))
+		new_tower.set_translation(Vector3(0, 3, 0))
+		new_tower.set_scale(Vector3(1, 1 / tile_scale.y, 1))
 		tile.add_child(new_tower);
+		tile.tower = new_tower;
+		root_node.money -= 10;

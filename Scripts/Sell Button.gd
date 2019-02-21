@@ -1,9 +1,16 @@
 extends Button
 
 var root_node;
+var board_node;
 
 func _ready():
 	root_node = get_tree().get_root().get_node("Root")
+	board_node = root_node.get_node("Board")
 
 func _pressed():
-	root_node.mode = root_node.Mode.SELL;
+	var tile = board_node.selected_tile;
+	
+	if(tile.tower != null):
+		tile.tower.queue_free();
+		tile.tower = null;
+		root_node.money += 7;
