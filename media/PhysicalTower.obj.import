@@ -1,0 +1,17 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/PhysicalTower.obj-41c72e0fa1c8666e7ed6f7a059f05779.mesh"
+
+[deps]
+
+files=[ "res://.import/PhysicalTower.obj-41c72e0fa1c8666e7ed6f7a059f05779.mesh" ]
+
+source_file="res://media/PhysicalTower.obj"
+dest_files=[ "res://.import/PhysicalTower.obj-41c72e0fa1c8666e7ed6f7a059f05779.mesh", "res://.import/PhysicalTower.obj-41c72e0fa1c8666e7ed6f7a059f05779.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
