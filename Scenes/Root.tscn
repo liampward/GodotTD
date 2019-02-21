@@ -4,7 +4,7 @@
 [ext_resource path="res://Scripts/Game_Board.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=3]
 
-[node name="Root" type="Node" index="0"]
+[node name="Root" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -14,7 +14,7 @@ script = ExtResource( 2 )
 
 [node name="Camera" type="Camera" parent="." index="1"]
 
-transform = Transform( 1, 0, 0, 0, 0.787628, 0.616151, 0, -0.616151, 0.787628, 0, 9.9079, 7.91678 )
+transform = Transform( 1, 0, 0, 0, 0.475883, 0.879509, 0, -0.879509, 0.475883, 0, 24.8541, 7.91678 )
 keep_aspect = 1
 cull_mask = 1048575
 environment = null
