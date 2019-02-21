@@ -1,20 +1,33 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Scenes/Root.gd" type="Script" id=1]
+<<<<<<< HEAD
+[ext_resource path="res://Scripts/Root.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/baseTower.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/baseTower.tres.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=5]
+=======
+[ext_resource path="res://Scenes/Root.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Game_Board.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/baseTower.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/baseTower.tres.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=6]
+>>>>>>> 20c1692df4a36d36b188c1530178e2ae869ffad2
 
-[node name="Root" type="Node"]
+
+
+[node name="Root" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
 [node name="Game_Board" type="Spatial" parent="." index="0"]
 
+script = ExtResource( 2 )
+
 [node name="Camera" type="Camera" parent="." index="1"]
 
-transform = Transform( 1, 0, 0, 0, 0.890536, 0.454913, 0, -0.454913, 0.890536, 0, 3.0867, 4.49295 )
+transform = Transform( 1, 0, 0, 0, 0.461296, 0.887247, 0, -0.887247, 0.461296, 0, 17.2133, 8.28375 )
 keep_aspect = 1
 cull_mask = 1048575
 environment = null
@@ -28,14 +41,14 @@ size = 1.0
 near = 0.05
 far = 100.0
 
-[node name="baseTower" parent="." index="2" instance=ExtResource( 2 )]
+[node name="baseTower" parent="." index="2" instance=ExtResource( 3 )]
 
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
-[node name="Enemy" parent="." index="3" instance=ExtResource( 4 )]
+[node name="Enemy" parent="." index="3" instance=ExtResource( 5 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.7497, 0, 0 )
 
-[node name="main panel" parent="." index="4" instance=ExtResource( 5 )]
+[node name="main panel" parent="." index="4" instance=ExtResource( 6 )]
 
 
