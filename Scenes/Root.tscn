@@ -1,10 +1,12 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scenes/Root.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Root.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/baseTower.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/baseTower.tres.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=5]
+
+
 
 [node name="Root" type="Node" index="0"]
 
