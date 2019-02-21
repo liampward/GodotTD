@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/Game_Tile.gd" type="Script" id=1]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -14,7 +16,6 @@ extents = Vector3( 1, 1, 1 )
 
 [node name="MeshInstance" type="MeshInstance"]
 
-editor/display_folded = true
 transform = Transform( 1.28789, 0, 0, 0, 0.316581, 0, 0, 0, 1.28789, 0, 0, 0 )
 layers = 1
 material_override = null
@@ -28,6 +29,7 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 1 )
 skeleton = NodePath("..")
 material/0 = null
+script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="." index="0"]
