@@ -7,7 +7,7 @@
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=6]
 
-[node name="Root" type="Node"]
+[node name="Root" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -17,7 +17,7 @@ script = ExtResource( 2 )
 
 [node name="Camera" type="Camera" parent="." index="1"]
 
-transform = Transform( 1, 0, 0, 0, 0.890536, 0.454913, 0, -0.454913, 0.890536, 0, 3.0867, 4.49295 )
+transform = Transform( 1, 0, 0, 0, 0.461296, 0.887247, 0, -0.887247, 0.461296, 0, 17.2133, 8.28375 )
 keep_aspect = 1
 cull_mask = 1048575
 environment = null

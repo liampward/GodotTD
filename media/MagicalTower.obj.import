@@ -1,0 +1,17 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/MagicalTower.obj-58f056eb5d0c1b5eddebe8ea30ad0544.mesh"
+
+[deps]
+
+files=[ "res://.import/MagicalTower.obj-58f056eb5d0c1b5eddebe8ea30ad0544.mesh" ]
+
+source_file="res://media/MagicalTower.obj"
+dest_files=[ "res://.import/MagicalTower.obj-58f056eb5d0c1b5eddebe8ea30ad0544.mesh", "res://.import/MagicalTower.obj-58f056eb5d0c1b5eddebe8ea30ad0544.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
