@@ -30,4 +30,11 @@ far = 100.0
 
 [node name="main panel" parent="." index="2" instance=ExtResource( 3 )]
 
+[node name="Timer" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = false
+autostart = false
+
 
