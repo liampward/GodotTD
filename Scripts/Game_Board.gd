@@ -6,11 +6,8 @@ extends Spatial
 var board_size = 5
 var RAY_LENGTH = 100
 var selected_tile = null
-var game_master
 
 func _ready():
-	var game_master = get_tree().get_root().get_node("Root")
-	
 	var Tile_Scene = load("res://Scenes/Game_Tile.tscn")
 	for i in range(0,board_size):
 		for j in range(0,board_size):
