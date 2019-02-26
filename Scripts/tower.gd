@@ -23,7 +23,7 @@ func attack():
 	if canFire:
 		var bullet = BULLET.instance()
 		bullet.set_name("myBullet")
-		bullet.set_transform(get_node("SpawnLoc").global_transform)
+		bullet.set_translation(self.get_translation())
 		get_parent().add_child(bullet)
 		canFire = false
 		
