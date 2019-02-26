@@ -4,9 +4,9 @@ extends Spatial
 # var a = 2
 # var b = "textvar"
 
-var damage = 20;
-var speed = 5;
-var velocity = Vector3(1,0,0);
+var damage = 100
+var speed = 5
+var velocity = Vector3(1,0,0)
 
 func move(delta):
 	translation += speed * velocity * delta;

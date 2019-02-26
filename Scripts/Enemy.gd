@@ -16,7 +16,8 @@ func _process(delta):
 
 	if hp_cur <= 0:
 		queue_free()
-		# TODO add money to player's balance
+		var root_node = get_tree().get_root().get_node("Root")
+		root_node.money += 10
 
 func hurt(dmg):
 	hp_cur -= dmg
