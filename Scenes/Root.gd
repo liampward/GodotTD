@@ -11,7 +11,7 @@ func _ready():
 	mode = Mode.NONE;
 	selected = null;
 
-	OS.set_window_fullscreen(true)
+	#OS.set_window_fullscreen(true)
 
 func _process(delta):
 	if(Input.is_key_pressed(KEY_ESCAPE)):

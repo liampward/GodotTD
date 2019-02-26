@@ -13,11 +13,7 @@ var canFire = true
 
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
 	preload("res://Scripts/Bullet.gd")
-	print("Turret Exists")
-	pass
 	
 func attack():
 	if canFire:

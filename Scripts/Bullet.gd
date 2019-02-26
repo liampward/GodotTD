@@ -4,7 +4,7 @@ extends Spatial
 # var a = 2
 # var b = "textvar"
 
-var damage = 2;
+var damage = 20;
 var speed = 5;
 var velocity = Vector3(1,0,0);
 
@@ -18,6 +18,4 @@ func _ready():
 
 func _process(delta):
 	move(delta)
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-	pass
+

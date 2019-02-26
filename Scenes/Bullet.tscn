@@ -71,7 +71,9 @@ _sections_unfolded = [ "Emission" ]
 
 radius = 1.0
 
-[node name="Bullet" type="Spatial"]
+[node name="Bullet" type="Spatial" groups=[
+"BULLET",
+]]
 
 transform = Transform( 0.432029, 0, 0, 0, 0.432029, 0, 0, 0, 0.432029, 0, 0, 0 )
 script = ExtResource( 1 )
