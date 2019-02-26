@@ -15,7 +15,6 @@ func _ready():
 			var tile = Tile_Scene.instance()
 			self.add_child(tile)
 			tile.set_translation(Vector3(i*3, 0, j*-3))
-			#game_master.tile_map[[i,j]] = tile
 
 func _process(delta):
 	if(Input.is_mouse_button_pressed(BUTTON_LEFT)):
