@@ -6,10 +6,12 @@ extends Spatial
 
 var damage = 100
 var speed = 5
-var velocity = Vector3(1,0,0)
+var dir
+var target
 
 func move(delta):
-	translation += speed * velocity * delta;
+	dir = self.get_translation() - target.get_translation()
+	translation += speed * dir * delta;
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
