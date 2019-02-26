@@ -1,16 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Scripts/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://media/PhysicalEnemy.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Scripts/Enemy.gd" type="Script" id=2]
 
-[sub_resource type="CubeMesh" id=1]
-
-custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
-size = Vector3( 2, 2, 2 )
-subdivide_width = 0
-subdivide_height = 0
-subdivide_depth = 0
-
-[sub_resource type="BoxShape" id=2]
+[sub_resource type="BoxShape" id=1]
 
 extents = Vector3( 1, 1, 1 )
 
@@ -25,10 +18,11 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = ExtResource( 1 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "material" ]
 
 [node name="Area" type="Area" parent="." index="0"]
 
@@ -55,7 +49,7 @@ reverb_bus_uniformity = 0.0
 
 [node name="CollisionShape" type="CollisionShape" parent="Area" index="0"]
 
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 disabled = false
 
 
