@@ -15,7 +15,7 @@ rings = 8
 radius = 1.0
 height = 1.0
 
-[node name="baseTower" type="Spatial"]
+[node name="baseTower" type="Spatial" index="0"]
 
 script = ExtResource( 1 )
 
@@ -38,6 +38,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="." index="1"]
 
+editor/display_folded = true
 input_ray_pickable = false
 input_capture_on_drag = false
 space_override = 0
@@ -61,10 +62,12 @@ reverb_bus_uniformity = 0.0
 
 [node name="CollisionShape" type="CollisionShape" parent="Area" index="0"]
 
-transform = Transform( 2, 0, 0, 0, -8.74228e-008, -1, 0, 2, -4.37114e-008, 0, 0, 0 )
+transform = Transform( 1.99989, 9.23506e-010, 0.0105637, 0.0211273, -8.74179e-008, -0.999944, 0, 2, -4.37114e-008, 0, 0, 0 )
 shape = SubResource( 2 )
 disabled = false
 _sections_unfolded = [ "Transform" ]
+
+[node name="SpawnLoc" type="Position3D" parent="." index="2"]
 
 [connection signal="area_entered" from="Area" to="." method="_on_Area_area_entered"]
 
