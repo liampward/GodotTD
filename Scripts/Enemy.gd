@@ -12,7 +12,7 @@ func _ready():
 	matl.albedo_color = Color(1, 0, 0)
 
 func _process(delta):
-	#translation += Vector3(1, 0, 0) * MOVE_SPEED * delta
+	translation += Vector3(1, 0, 0) * MOVE_SPEED * delta
 
 	if hp_cur <= 0:
 		queue_free()
