@@ -3,18 +3,18 @@ extends Spatial
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
-var board_size = 5
+var board_size = 10
 var RAY_LENGTH = 100
 var ignore_list = []
 var selected_tile = null
 
 func _ready():
 	var Tile_Scene = load("res://Scenes/Game_Tile.tscn")
-	for i in range(0,board_size):
+	for i in range(0,board_size * 1.7):
 		for j in range(0,board_size):
 			var tile = Tile_Scene.instance()
 			self.add_child(tile)
-			tile.set_translation(Vector3(i*3, 0, j*-3))
+			tile.set_translation(Vector3(i*2.75, 0, j*-2.75))
 			#game_master.tile_map[[i,j]] = tile
 
 func _process(delta):
