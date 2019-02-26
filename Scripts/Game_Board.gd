@@ -5,6 +5,7 @@ extends Spatial
 # var b = "textvar"
 var board_size = 5
 var RAY_LENGTH = 100
+var ignore_list = []
 var selected_tile = null
 
 func _ready():
@@ -25,14 +26,13 @@ func _process(delta):
 			collision.collider.get_parent().selected = true
 			selected_tile = collision.collider.get_parent()
 
-
 func get_object_under_mouse():
 	var camera = get_node("../Camera")
 	var mouse_pos = get_viewport().get_mouse_position()
 	var ray_from = camera.project_ray_origin(mouse_pos)
 	var ray_to = ray_from + camera.project_ray_normal(mouse_pos) * RAY_LENGTH
 	var space_state = camera.get_world().direct_space_state
-	var selection = space_state.intersect_ray(ray_from, ray_to)
+	var selection = space_state.intersect_ray(ray_from, ray_to, ignore_list)
 	return selection
 
 func a_star(start, goal):
