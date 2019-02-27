@@ -20,7 +20,9 @@ func attack(enemy):
 		var bullet = BULLET.instance()
 		bullet.set_name("myBullet")
 		bullet.set_translation(self.get_translation())
-		bullet.target = enemy
+		bullet.dir = enemy.get_global_transform().origin - self.get_global_transform().origin  
+		bullet.dir.y = 0
+		bullet.dir = bullet.dir.normalized()
 		get_parent().add_child(bullet)
 		var root_node = get_tree().get_root().get_node("Root")
 		var board_node = root_node.get_node("Board")

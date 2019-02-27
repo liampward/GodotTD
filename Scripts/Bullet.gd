@@ -7,11 +7,9 @@ extends Spatial
 var damage = 100
 var speed = 5
 var dir
-var target
 
 func move(delta):
-	dir = self.get_translation() - target.get_translation()
-	translation += speed * dir * delta;
+	translation += (dir * speed * delta)
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
