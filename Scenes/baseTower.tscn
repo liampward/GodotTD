@@ -1,14 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/tower.gd" type="Script" id=1]
 [ext_resource path="res://media/BaseTower.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://media/shoot.wav" type="AudioStream" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
 
 radius = 1.0
 height = 1.0
 
-[node name="baseTower" type="Spatial" index="0"]
+[node name="baseTower" type="Spatial"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -68,6 +69,15 @@ transform = Transform( 1.99989, 9.23506e-010, 0.0105637, 0.0211273, -8.74179e-00
 shape = SubResource( 1 )
 disabled = false
 _sections_unfolded = [ "Transform" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="2"]
+
+stream = ExtResource( 3 )
+volume_db = -30.0
+pitch_scale = 0.7
+autoplay = false
+mix_target = 0
+bus = "Master"
 
 [connection signal="area_entered" from="Area" to="." method="_on_Area_area_entered"]
 
