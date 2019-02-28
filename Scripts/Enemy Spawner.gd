@@ -20,11 +20,15 @@ func _process(delta):
 	pass
 
 func Spawn():
-	for i in range(0,Board_Node.board_size):
-		var Clone = Enemy.instance()
-		Root_Node.add_child(Clone)
-		Clone.set_translation(Vector3(0, 0, -i*2.75))
-		Board_Node.ignore_list.append(Clone.get_node("Area"))
+	var Clone = Enemy.instance()
+	Root_Node.add_child(Clone)
+	var size = Board_Node.board_size
+	Clone.set_translation(Vector3(0, 0, 0))
+	Board_Node.ignore_list.append(Clone.get_node("Area"))
+
+func SpawnWave(T):
+	for i in range(0,T):
+		Spawn()
 
 func _on_EnemyTimer_timeout():
-	self.Spawn()
+	self.SpawnWave(3)
