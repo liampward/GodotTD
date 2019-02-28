@@ -49,6 +49,7 @@ reverb_bus_enable = false
 reverb_bus_name = "Master"
 reverb_bus_amount = 0.0
 reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape" type="CollisionShape" parent="Area" index="0"]
 
@@ -77,5 +78,7 @@ omni_shadow_mode = 1
 omni_shadow_detail = 1
 
 [connection signal="area_entered" from="Area" to="." method="_on_Area_area_entered"]
+
+[connection signal="screen_exited" from="VisibilityNotifier" to="." method="_on_VisibilityNotifier_screen_exited"]
 
 
