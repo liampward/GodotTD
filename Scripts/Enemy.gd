@@ -8,8 +8,10 @@ var hp_cur = hp_max
 var matl = SpatialMaterial.new()
 
 var DEATH = preload("res://Scenes/EnemyDeathSound.tscn")
+var particle_scene
 
 func _ready():
+	particle_scene = preload("res://Scenes/SmokeParticle.tscn")
 	self.set_material_override(matl)
 	matl.albedo_color = Color(1, 0, 0)
 
