@@ -1,28 +1,20 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/tower.gd" type="Script" id=1]
+[ext_resource path="res://media/BaseTower.obj" type="ArrayMesh" id=2]
 
-[sub_resource type="CapsuleMesh" id=1]
-
-custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
-radius = 1.0
-mid_height = 1.0
-radial_segments = 64
-rings = 8
-
-[sub_resource type="CapsuleShape" id=2]
+[sub_resource type="CapsuleShape" id=1]
 
 radius = 1.0
 height = 1.0
 
-[node name="baseTower" type="Spatial"]
+[node name="baseTower" type="Spatial" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="MeshInstance" type="MeshInstance" parent="." index="0"]
 
-transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 0, 0, 0 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -32,9 +24,17 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = ExtResource( 2 )
 skeleton = NodePath("..")
 material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="." index="1"]
@@ -65,7 +65,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="CollisionShape" type="CollisionShape" parent="Area" index="0"]
 
 transform = Transform( 1.99989, 9.23506e-010, 0.0105637, 0.0211273, -8.74179e-008, -0.999944, 0, 2, -4.37114e-008, 0, 0, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 disabled = false
 _sections_unfolded = [ "Transform" ]
 
