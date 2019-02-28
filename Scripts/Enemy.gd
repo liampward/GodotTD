@@ -20,6 +20,9 @@ func _process(delta):
 		var deathSound = DEATH.instance()
 		self.get_parent().add_child(deathSound)
 		queue_free()
+		var particle_spawner = particle_scene.instance()
+		get_parent().add_child(particle_spawner)
+		particle_spawner.set_translation(self.get_translation() + Vector3(0, 3,0))
 		var root_node = get_tree().get_root().get_node("Root")
 		root_node.money += 10
 
@@ -32,3 +35,8 @@ func _on_Area_area_entered(area):
 	if area.get_parent().is_in_group("BULLET"):
 		area.get_parent().queue_free()
 		hurt(area.get_parent().damage)
+
+func _on_VisibilityNotifier_screen_exited():
+	queue_free()
+	var root_node = get_tree().get_root().get_node("Root")
+	root_node.money += 10
