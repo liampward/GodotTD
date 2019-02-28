@@ -7,7 +7,7 @@
 
 extents = Vector3( 1, 1, 1 )
 
-[node name="Enemy" type="MeshInstance" groups=[
+[node name="Enemy" type="MeshInstance" index="0" groups=[
 "ENEMY",
 ]]
 
@@ -49,12 +49,21 @@ reverb_bus_enable = false
 reverb_bus_name = "Master"
 reverb_bus_amount = 0.0
 reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape" type="CollisionShape" parent="Area" index="0"]
 
 shape = SubResource( 1 )
 disabled = false
 
+[node name="VisibilityNotifier" type="VisibilityNotifier" parent="." index="1"]
+
+transform = Transform( 1, 0, 0, 0, 2.51463, 0, 0, 0, 1, 0, 0, 0 )
+aabb = AABB( -1, -1, -1, 2, 2, 2 )
+_sections_unfolded = [ "Transform" ]
+
 [connection signal="area_entered" from="Area" to="." method="_on_Area_area_entered"]
+
+[connection signal="screen_exited" from="VisibilityNotifier" to="." method="_on_VisibilityNotifier_screen_exited"]
 
 

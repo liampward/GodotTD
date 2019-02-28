@@ -28,3 +28,8 @@ func _on_Area_area_entered(area):
 	if area.get_parent().is_in_group("BULLET"):
 		area.get_parent().queue_free()
 		hurt(area.get_parent().damage)
+
+func _on_VisibilityNotifier_screen_exited():
+	queue_free()
+	var root_node = get_tree().get_root().get_node("Root")
+	root_node.money += 10
