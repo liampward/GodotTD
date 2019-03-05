@@ -11,6 +11,7 @@ func _pressed():
 	var tile = board_node.selected_tile;
 	
 	if(tile.tower != null):
+		board_node.ignore_list.remove(board_node.ignore_list.find(tile.tower.get_node("Area")))
 		tile.tower.queue_free();
 		tile.tower = null;
 		root_node.money += 7;

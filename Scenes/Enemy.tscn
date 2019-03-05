@@ -7,7 +7,7 @@
 
 extents = Vector3( 1, 1, 1 )
 
-[node name="Enemy" type="MeshInstance" index="0" groups=[
+[node name="Enemy" type="MeshInstance" groups=[
 "ENEMY",
 ]]
 
