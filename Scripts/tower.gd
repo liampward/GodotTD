@@ -8,7 +8,9 @@ var BULLET = preload("res://Scenes/Bullet.tscn")
 
 export onready var price = 5
 
+const MAX_INTERVAL = 5
 var interval = 5
+var targ
 var canFire = true
 
 
@@ -33,10 +35,15 @@ func attack(enemy):
 
 func _process(delta):
 	if !canFire:
-		interval -= delta
-		if interval <= 0:
-			interval = 5
+		self.interval -= delta
+		if self.interval <= 0:
+			self.interval = self.MAX_INTERVAL
 			canFire = true
+	var targs = self.get_node("Area").get_overlapping_areas()
+	for i in range(len(targs)):
+		if targs[i].get_parent().is_in_group("ENEMY"):
+			attack(targs[i].get_parent())
+			break
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 #	pass
@@ -44,7 +51,7 @@ func _process(delta):
 
 func _on_Area_area_entered(badGuy):
 	if badGuy.get_parent().is_in_group("ENEMY"):
-		attack(badGuy.get_parent());
+		attack(badGuy.get_parent())
 	#emit_signal("intruder")
 	#attack();
 	pass # replace with function body
