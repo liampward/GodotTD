@@ -5,9 +5,11 @@ enum Mode{ NONE, SELL, BUY }
 var money;
 var mode;
 var selected;
+var health;
 
 func _ready():
 	money = 100;
+	health = 10;
 	mode = Mode.NONE;
 	selected = null;
 	var screen_size = OS.get_screen_size()

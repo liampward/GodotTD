@@ -5,18 +5,19 @@ var Root_Node
 var Board_Node
 var Enemy_Timer
 var Enemy
-var done_spawning
 
 func _ready():
+	# Called when the node is added to the scene for the first time.
+	# Initialization here
 	Root_Node = get_tree().get_root().get_node("Root")
 	Board_Node = Root_Node.get_node("Board")
+	Enemy_Timer = Root_Node.get_node("EnemyTimer")
 	Enemy = load("res://Scenes/Enemy.tscn")
-	done_spawning = true
 
-#func _process(delta):
+func _process(delta):
 	# Called every frame. Delta is time since last frame.
 	# Update game logic here.
-#	pass
+	pass
 
 func Spawn():
 	var Clone = Enemy.instance()
@@ -26,9 +27,9 @@ func Spawn():
 	Board_Node.ignore_list.append(Clone.get_node("Area"))
 
 func SpawnWave(T):
-	done_spawning = false
 	for i in range(0,T):
 		Spawn()
 		yield(get_tree().create_timer(1.0), "timeout")
-	done_spawning = true
 
+func _on_EnemyTimer_timeout():
+	self.SpawnWave(3)

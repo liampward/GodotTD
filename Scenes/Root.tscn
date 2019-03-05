@@ -50,4 +50,6 @@ near = 0.05
 far = 100.0
 script = ExtResource( 5 )
 
+[connection signal="timeout" from="EnemyTimer2" to="EnemySpawner2" method="_on_EnemyTimer_timeout"]
+
 
