@@ -26,7 +26,7 @@ func _process(delta):
 			selected_tile = collision.collider.get_parent()
 
 func get_object_under_mouse():
-	var camera = get_node("../Camera")
+	var camera = get_node("../CameraPivot/Camera")
 	var mouse_pos = get_viewport().get_mouse_position()
 	var ray_from = camera.project_ray_origin(mouse_pos)
 	var ray_to = ray_from + camera.project_ray_normal(mouse_pos) * RAY_LENGTH

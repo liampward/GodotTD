@@ -4,7 +4,7 @@ signal intruder
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
-var BULLET = preload("res://Scenes/Bullet.tscn")
+var BULLET
 
 export onready var price = 5
 
@@ -16,9 +16,11 @@ var canFire = true
 
 func _ready():
 	preload("res://Scripts/Bullet.gd")
+	BULLET = preload("res://Scenes/Bullet.tscn")
 	
 func attack(enemy):
 	if canFire:
+		self.get_node("AudioStreamPlayer").play()
 		var bullet = BULLET.instance()
 		bullet.set_name("myBullet")
 		bullet.set_translation(self.get_translation())
