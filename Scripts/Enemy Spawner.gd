@@ -30,5 +30,3 @@ func SpawnWave(T):
         Spawn()
         yield(get_tree().create_timer(1.0), "timeout")
 
-func _on_EnemyTimer_timeout():
-    self.SpawnWave(3)

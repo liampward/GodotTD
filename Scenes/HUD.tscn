@@ -1,14 +1,15 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Scripts/Sell Button.gd" type="Script" id=1]
-[ext_resource path="res://Scripts/money.gd" type="Script" id=2]
-[ext_resource path="res://Scripts/purchase Button.gd" type="Script" id=3]
-[ext_resource path="res://Scripts/Damage.gd" type="Script" id=4]
-[ext_resource path="res://Scripts/fire rate.gd" type="Script" id=5]
-[ext_resource path="res://Scripts/range.gd" type="Script" id=6]
-[ext_resource path="res://Scripts/upgrade select 1.gd" type="Script" id=7]
-[ext_resource path="res://Scripts/upgrade select 2.gd" type="Script" id=8]
-[ext_resource path="res://Scripts/upgrade select 3.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/SpawnButton.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Sell Button.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/money.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/purchase Button.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Damage.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/fire rate.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/range.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/upgrade select 1.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/upgrade select 2.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/upgrade select 3.gd" type="Script" id=10]
 
 [node name="MainPanel" type="Panel" index="0"]
 
@@ -27,7 +28,33 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="SellButton" type="Button" parent="." index="0"]
+[node name="SpawnButton" type="Button" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_top = 355.0
+margin_right = 153.0
+margin_bottom = 392.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Next Wave"
+flat = false
+align = 1
+script = ExtResource( 1 )
+
+[node name="SellButton" type="Button" parent="." index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -51,9 +78,9 @@ group = null
 text = "SELL"
 flat = false
 align = 1
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
-[node name="Money" type="TextEdit" parent="." index="1"]
+[node name="Money" type="TextEdit" parent="." index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -86,9 +113,9 @@ caret_block_mode = false
 caret_blink = false
 caret_blink_speed = 0.65
 caret_moving_by_right_click = true
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 
-[node name="AmountOfCash" type="Label" parent="." index="2"]
+[node name="AmountOfCash" type="Label" parent="." index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -109,7 +136,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="PurchaseButton" type="Button" parent="." index="3"]
+[node name="PurchaseButton" type="Button" parent="." index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -133,9 +160,9 @@ group = null
 text = "TOWER"
 flat = false
 align = 1
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
-[node name="DetailPanel" type="Panel" parent="." index="4"]
+[node name="DetailPanel" type="Panel" parent="." index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -185,7 +212,7 @@ caret_block_mode = false
 caret_blink = false
 caret_blink_speed = 0.65
 caret_moving_by_right_click = true
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 
 [node name="DamageLabel" type="Label" parent="DetailPanel" index="1"]
 
@@ -241,7 +268,7 @@ caret_block_mode = false
 caret_blink = false
 caret_blink_speed = 0.65
 caret_moving_by_right_click = true
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 
 [node name="FireRateLabel" type="Label" parent="DetailPanel" index="3"]
 
@@ -297,7 +324,7 @@ caret_block_mode = false
 caret_blink = false
 caret_blink_speed = 0.65
 caret_moving_by_right_click = true
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
 [node name="RangeLabel" type="Label" parent="DetailPanel" index="5"]
 
@@ -344,7 +371,7 @@ group = null
 text = "UPGRADE 1"
 flat = false
 align = 1
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 
 [node name="UpgradeSelect2" type="Button" parent="DetailPanel" index="7"]
 
@@ -370,7 +397,7 @@ group = null
 text = "UPGRADE 2"
 flat = false
 align = 1
-script = ExtResource( 8 )
+script = ExtResource( 9 )
 
 [node name="UpgradeSelect3" type="Button" parent="DetailPanel" index="8"]
 
@@ -396,6 +423,6 @@ group = null
 text = "UPGRADE 3"
 flat = false
 align = 1
-script = ExtResource( 9 )
+script = ExtResource( 10 )
 
 
