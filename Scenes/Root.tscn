@@ -6,7 +6,7 @@
 [ext_resource path="res://Scripts/Enemy Spawner.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/Camera.gd" type="Script" id=5]
 
-[node name="Root" type="Node"]
+[node name="Root" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -16,11 +16,20 @@ script = ExtResource( 2 )
 
 [node name="main panel" parent="." index="1" instance=ExtResource( 3 )]
 
-[node name="EnemySpawner" type="Spatial" parent="." index="2"]
+[node name="main panel" parent="." index="2" instance=ExtResource( 3 )]
+
+[node name="EnemySpawner" type="Spatial" parent="." index="3"]
 
 script = ExtResource( 4 )
 
-[node name="CameraPivot" type="Position3D" parent="." index="3"]
+[node name="EnemyTimer" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 1.04
+one_shot = false
+autostart = true
+
+[node name="CameraPivot" type="Position3D" parent="." index="5"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9554, 0, -10.3497 )
 
