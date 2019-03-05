@@ -11,6 +11,7 @@ func _ready():
 	Spawn_Node = Root_Node.get_node("EnemySpawner")
 
 func _pressed():
-	Spawn_Node.SpawnWave(3)
+	if Spawn_Node.done_spawning == true:
+		Spawn_Node.SpawnWave(3)
 	
 
