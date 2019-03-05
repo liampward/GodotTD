@@ -17,7 +17,10 @@ func _ready():
 
 func _process(delta):
 	translation += Vector3(1, 0, 0) * MOVE_SPEED * delta
-
+	
+	#if(!self.get_node("VisibilityNotifier").is_on_screen()):
+	#	queue_free()
+		
 	if hp_cur <= 0:
 		var deathSound = DEATH.instance()
 		self.get_parent().add_child(deathSound)
@@ -37,8 +40,3 @@ func _on_Area_area_entered(area):
 	if area.get_parent().is_in_group("BULLET"):
 		area.get_parent().queue_free()
 		hurt(area.get_parent().damage)
-
-func _on_VisibilityNotifier_screen_exited():
-	queue_free()
-	var root_node = get_tree().get_root().get_node("Root")
-	root_node.money += 10

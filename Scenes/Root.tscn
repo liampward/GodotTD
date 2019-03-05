@@ -6,7 +6,7 @@
 [ext_resource path="res://Scripts/Enemy Spawner.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/Camera.gd" type="Script" id=5]
 
-[node name="Root" type="Node" index="0"]
+[node name="Root" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -18,11 +18,11 @@ script = ExtResource( 2 )
 
 [node name="main panel" parent="." index="2" instance=ExtResource( 3 )]
 
-[node name="EnemySpawner" type="Spatial" parent="." index="3"]
+[node name="EnemySpawner2" type="Spatial" parent="." index="3"]
 
 script = ExtResource( 4 )
 
-[node name="EnemyTimer" type="Timer" parent="." index="4"]
+[node name="EnemyTimer2" type="Timer" parent="." index="4"]
 
 process_mode = 1
 wait_time = 10.0
@@ -61,6 +61,6 @@ near = 0.05
 far = 100.0
 script = ExtResource( 5 )
 
-[connection signal="timeout" from="EnemyTimer" to="EnemySpawner" method="_on_EnemyTimer_timeout"]
+[connection signal="timeout" from="EnemyTimer2" to="EnemySpawner2" method="_on_EnemyTimer_timeout"]
 
 
