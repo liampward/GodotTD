@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://media/button_font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scripts/SpawnButton.gd" type="Script" id=2]
@@ -11,6 +11,12 @@
 [ext_resource path="res://Scripts/upgrade select 1.gd" type="Script" id=9]
 [ext_resource path="res://Scripts/upgrade select 2.gd" type="Script" id=10]
 [ext_resource path="res://Scripts/upgrade select 3.gd" type="Script" id=11]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+
+render_priority = 0
+blend_mode = 0
+light_mode = 0
 
 [node name="MainPanel" type="Panel" index="0"]
 
@@ -85,8 +91,9 @@ align = 1
 script = ExtResource( 3 )
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Money" type="TextEdit" parent="." index="2"]
+[node name="Money" type="Label" parent="." index="2"]
 
+material = SubResource( 1 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -97,28 +104,34 @@ margin_right = 165.0
 margin_bottom = 41.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-focus_mode = 2
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 4 )
+_sections_unfolded = [ "Material", "Rect" ]
+
+[node name="ColorRect" type="ColorRect" parent="Money" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 95.0
+margin_bottom = 27.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-text = ""
-readonly = false
-highlight_current_line = false
-syntax_highlighting = false
-show_line_numbers = false
-highlight_all_occurrences = false
-override_selected_font_color = false
-context_menu_enabled = true
-smooth_scrolling = false
-v_scroll_speed = 80.0
-hiding_enabled = 0
-wrap_lines = false
-caret_block_mode = false
-caret_blink = false
-caret_blink_speed = 0.65
-caret_moving_by_right_click = true
-script = ExtResource( 4 )
+color = Color( 0.570313, 0.570313, 0.570313, 0.16 )
+_sections_unfolded = [ "Rect" ]
 
 [node name="AmountOfCash" type="Label" parent="." index="3"]
 
@@ -188,7 +201,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="Damage" type="TextEdit" parent="DetailPanel" index="0"]
+[node name="Damage" type="Label" parent="DetailPanel" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -200,28 +213,34 @@ margin_right = 103.0
 margin_bottom = 59.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-focus_mode = 2
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 6 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="ColorRect" type="ColorRect" parent="DetailPanel/Damage" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 91.0
+margin_bottom = 29.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-text = ""
-readonly = false
-highlight_current_line = false
-syntax_highlighting = false
-show_line_numbers = false
-highlight_all_occurrences = false
-override_selected_font_color = false
-context_menu_enabled = true
-smooth_scrolling = false
-v_scroll_speed = 80.0
-hiding_enabled = 0
-wrap_lines = false
-caret_block_mode = false
-caret_blink = false
-caret_blink_speed = 0.65
-caret_moving_by_right_click = true
-script = ExtResource( 6 )
+color = Color( 0.568627, 0.568627, 0.568627, 0.156863 )
+_sections_unfolded = [ "Rect" ]
 
 [node name="DamageLabel" type="Label" parent="DetailPanel" index="1"]
 
@@ -246,7 +265,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="FireRate" type="TextEdit" parent="DetailPanel" index="2"]
+[node name="FireRate" type="Label" parent="DetailPanel" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -258,28 +277,33 @@ margin_right = 105.0
 margin_bottom = 108.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
+mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
-size_flags_vertical = 1
-text = ""
-readonly = false
-highlight_current_line = false
-syntax_highlighting = false
-show_line_numbers = false
-highlight_all_occurrences = false
-override_selected_font_color = false
-context_menu_enabled = true
-smooth_scrolling = false
-v_scroll_speed = 80.0
-hiding_enabled = 0
-wrap_lines = false
-caret_block_mode = false
-caret_blink = false
-caret_blink_speed = 0.65
-caret_moving_by_right_click = true
+size_flags_vertical = 4
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 script = ExtResource( 7 )
+
+[node name="ColorRect" type="ColorRect" parent="DetailPanel/FireRate" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 94.0
+margin_bottom = 30.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+color = Color( 0.568627, 0.568627, 0.568627, 0.156863 )
+_sections_unfolded = [ "Rect" ]
 
 [node name="FireRateLabel" type="Label" parent="DetailPanel" index="3"]
 
@@ -304,7 +328,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Range" type="TextEdit" parent="DetailPanel" index="4"]
+[node name="Range" type="Label" parent="DetailPanel" index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -316,28 +340,33 @@ margin_right = 216.0
 margin_bottom = 60.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
+mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
-size_flags_vertical = 1
-text = ""
-readonly = false
-highlight_current_line = false
-syntax_highlighting = false
-show_line_numbers = false
-highlight_all_occurrences = false
-override_selected_font_color = false
-context_menu_enabled = true
-smooth_scrolling = false
-v_scroll_speed = 80.0
-hiding_enabled = 0
-wrap_lines = false
-caret_block_mode = false
-caret_blink = false
-caret_blink_speed = 0.65
-caret_moving_by_right_click = true
+size_flags_vertical = 4
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 script = ExtResource( 8 )
+
+[node name="ColorRect" type="ColorRect" parent="DetailPanel/Range" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 99.0
+margin_bottom = 31.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+color = Color( 0.568627, 0.568627, 0.568627, 0.156863 )
+_sections_unfolded = [ "Rect" ]
 
 [node name="RangeLabel" type="Label" parent="DetailPanel" index="5"]
 
