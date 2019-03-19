@@ -1,4 +1,4 @@
-extends TextEdit
+extends Label
 
 var root_node
 var board_node
