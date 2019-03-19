@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Root.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Game_Board.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scripts/Enemy Spawner.gd" type="Script" id=4]
-[ext_resource path="res://Scripts/Camera.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Pause_Menu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Enemy Spawner.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Camera.gd" type="Script" id=6]
 
 [node name="Root" type="Node" index="0"]
 
@@ -16,11 +17,15 @@ script = ExtResource( 2 )
 
 [node name="main panel" parent="." index="1" instance=ExtResource( 3 )]
 
-[node name="EnemySpawner" type="Spatial" parent="." index="2"]
+[node name="ColorRect" parent="." index="2" instance=ExtResource( 4 )]
 
-script = ExtResource( 4 )
+visible = false
 
-[node name="CameraPivot" type="Position3D" parent="." index="3"]
+[node name="EnemySpawner" type="Spatial" parent="." index="3"]
+
+script = ExtResource( 5 )
+
+[node name="CameraPivot" type="Position3D" parent="." index="4"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9554, 0, -10.3497 )
 
@@ -39,6 +44,6 @@ fov = 70.0
 size = 1.0
 near = 0.05
 far = 100.0
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 
 
