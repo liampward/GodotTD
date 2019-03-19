@@ -4,23 +4,22 @@ signal intruder
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
+enum attribute{NORMAL,PHYSICAL,MAGIC}
+
 var BULLET
-var MAGIC
-var NEUTRAL
+var TYPE;
 
 export onready var price = 5
 
-var damage = 10
-var fireRange = 1
-var interval = 5
+const MAX_INTERVAL = 1
+var interval = 1
 var canFire = true
 
 
 func _ready():
 	preload("res://Scripts/Bullet.gd")
 	BULLET = preload("res://Scenes/Bullet.tscn")
-	MAGIC = preload("res://Scenes/magicTower.tscn")
-	NEUTRAL = preload("res://Scenes/baseTower.tscn")
+	
 func attack(enemy):
 	if canFire:
 		self.get_node("AudioStreamPlayer").play()
@@ -30,7 +29,6 @@ func attack(enemy):
 		bullet.dir = enemy.get_global_transform().origin - self.get_global_transform().origin  
 		bullet.dir.y = 0
 		bullet.dir = bullet.dir.normalized()
-		bullet.damage = damage
 		get_parent().add_child(bullet)
 		var root_node = get_tree().get_root().get_node("Root")
 		var board_node = root_node.get_node("Board")
@@ -41,10 +39,15 @@ func attack(enemy):
 
 func _process(delta):
 	if !canFire:
-		interval -= delta
-		if interval <= 0:
-			interval = 5
+		self.interval -= delta
+		if self.interval <= 0:
+			self.interval = self.MAX_INTERVAL
 			canFire = true
+	var targs = self.get_node("Area").get_overlapping_areas()
+	for i in range(len(targs)):
+		if targs[i].get_parent().is_in_group("ENEMY"):
+			attack(targs[i].get_parent())
+			break
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 #	pass
@@ -52,24 +55,7 @@ func _process(delta):
 
 func _on_Area_area_entered(badGuy):
 	if badGuy.get_parent().is_in_group("ENEMY"):
-		attack(badGuy.get_parent());
+		attack(badGuy.get_parent())
 	#emit_signal("intruder")
 	#attack();
 	pass # replace with function body
-	
-func upgrade(num):
-	var tower
-	if num == "1":
-		#Neutral Tower
-		tower = NEUTRAL.instance()
-	
-	if num == "3":
-		#Magic Tower
-		tower = MAGIC.instance()
-		
-	tower.set_translation(self.get_translation() + Vector3(0, 2, 0))
-	self.add_child(tower)
-	var root_node = get_tree().get_root().get_node("Root")
-	var board_node = root_node.get_node("Board")
-	board_node.ignore_list.append(tower.get_node("Area"))
-		
