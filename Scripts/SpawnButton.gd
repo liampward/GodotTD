@@ -12,6 +12,7 @@ func _ready():
 
 func _pressed():
 	if Spawn_Node.done_spawning == true:
-		Spawn_Node.SpawnWave(3)
+		num = randi()%11+1
+		Spawn_Node.SpawnWave(num)
 	
 
