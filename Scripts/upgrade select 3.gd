@@ -7,4 +7,4 @@ func _ready():
 
 func _pressed():
 	if root_node.selected != null:
-		root_node.selected.upgrade_3()
+		root_node.selected.upgrade("3")

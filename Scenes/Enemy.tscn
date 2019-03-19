@@ -7,7 +7,7 @@
 
 extents = Vector3( 1, 1, 1 )
 
-[node name="Enemy" type="MeshInstance" index="0" groups=[
+[node name="Enemy" type="MeshInstance" groups=[
 "ENEMY",
 ]]
 
@@ -77,8 +77,10 @@ omni_attenuation = 1.0
 omni_shadow_mode = 1
 omni_shadow_detail = 1
 
-[connection signal="area_entered" from="Area" to="." method="_on_Area_area_entered"]
+[node name="VisibilityNotifier" type="VisibilityNotifier" parent="." index="2"]
 
-[connection signal="screen_exited" from="VisibilityNotifier" to="." method="_on_VisibilityNotifier_screen_exited"]
+aabb = AABB( -1, -1, -1, 2, 2, 2 )
+
+[connection signal="area_entered" from="Area" to="." method="_on_Area_area_entered"]
 
 
