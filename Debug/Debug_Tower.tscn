@@ -1,12 +1,12 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scripts/tower.gd" type="Script" id=1]
+[ext_resource path="res://Debug/Debug_Tower.gd" type="Script" id=1]
 [ext_resource path="res://media/BaseTower.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://media/shoot.wav" type="AudioStream" id=3]
 
-[sub_resource type="SphereShape" id=1]
+[sub_resource type="BoxShape" id=1]
 
-radius = 1.0
+extents = Vector3( 2, 2, 1 )
 
 [node name="baseTower" type="Spatial"]
 
