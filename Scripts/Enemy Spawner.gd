@@ -4,16 +4,18 @@ extends Spatial
 var Root_Node
 var Board_Node
 var Enemy_Timer
-var Enemy
+var NeutralEnemy
 var MagicEnemy
+var PhysicalEnemy
 var done_spawning
+var num
 
 func _ready():
 	Root_Node = get_tree().get_root().get_node("Root")
 	Board_Node = Root_Node.get_node("Board")
-	Enemy = load("res://Scenes/Enemy.tscn")
+	NeutralEnemy = load("res://Scenes/NeutralEnemy.tscn")
 	MagicEnemy = load("res://Scenes/MagicEnemy.tscn")
-	PhysicalEnemy = load("res://Scenes/Enemy.tscn")
+	PhysicalEnemy = load("res://Scenes/PhysicalEnemy.tscn")
 	done_spawning = true
 
 #func _process(delta):
@@ -22,12 +24,13 @@ func _ready():
 #	pass
 
 func Spawn(Type):
+	var Clone
 	if (Type == 3):
-		var Clone = MagicEnemy.instance()
+		Clone = MagicEnemy.instance()
 	elif(Type == 2):
-		var Clone = Enemy.instance()
+		Clone = PhysicalEnemy.instance()
 	else:
-		var Clone = Enemy.instance()
+		Clone = NeutralEnemy.instance()
 	Root_Node.add_child(Clone)
 	var size = Board_Node.board_size
 	Clone.set_translation(Vector3(0, 0, 0))
