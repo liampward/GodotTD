@@ -13,6 +13,7 @@ export onready var price = 5
 
 const MAX_INTERVAL = 1
 var interval = 1
+var targ
 var canFire = true
 
 
@@ -30,9 +31,6 @@ func attack(enemy):
 		bullet.dir.y = 0
 		bullet.dir = bullet.dir.normalized()
 		get_parent().add_child(bullet)
-		var root_node = get_tree().get_root().get_node("Root")
-		var board_node = root_node.get_node("Board")
-		board_node.ignore_list.append(bullet.get_node("Area"))
 		canFire = false
 		
 	
