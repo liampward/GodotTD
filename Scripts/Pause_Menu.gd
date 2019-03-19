@@ -1,15 +1,8 @@
-extends Spatial
+extends ColorRect
 
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
-
-var damage = 100
-var speed = 5
-var dir
-
-func move(delta):
-	translation += (dir * speed * delta)
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -17,5 +10,7 @@ func _ready():
 	pass
 
 func _process(delta):
-	move(delta)
+	if(Input.is_action_just_pressed("PAUSE")):
+		self.visible = !self.visible
+		get_tree().paused = !get_tree().paused
 

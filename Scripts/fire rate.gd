@@ -10,9 +10,8 @@ func _ready():
 func _process(delta):
 	if board_node.selected_tile != null:
 		if board_node.selected_tile.tower != null:
-			self.text = str(board_node.selected_tile.tower.interval)
+			self.text = "100"
 		else:
 			self.text = ""
 	else:
 		self.text = ""
-	pass

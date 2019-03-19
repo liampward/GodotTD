@@ -12,7 +12,7 @@ func _process(delta):
 	# Update game logic here.
 	if board_node.selected_tile != null:
 		if board_node.selected_tile.tower != null:
-			self.text = str(board_node.selected_tile.tower.damage)
+			self.text = "100"
 		else:
 			self.text = ""
 	else:
