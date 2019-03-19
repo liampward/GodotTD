@@ -4,15 +4,13 @@ signal intruder
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
-enum attribute{NORMAL,PHYSICAL,MAGIC}
-
 var BULLET
-var TYPE;
 
 export onready var price = 5
 
-const MAX_INTERVAL = 1
-var interval = 1
+const MAX_INTERVAL = 5
+var interval = 5
+var targ
 var canFire = true
 
 

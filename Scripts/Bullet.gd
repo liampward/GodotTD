@@ -4,8 +4,8 @@ extends Spatial
 # var a = 2
 # var b = "textvar"
 
-var damage = 20
-var speed = 20
+var damage = 100
+var speed = 5
 var dir
 
 func move(delta):
