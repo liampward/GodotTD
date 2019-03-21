@@ -9,6 +9,7 @@ var MagicEnemy
 var PhysicalEnemy
 var done_spawning
 var num
+var timer
 
 func _ready():
 	Root_Node = get_tree().get_root().get_node("Root")
@@ -17,11 +18,12 @@ func _ready():
 	MagicEnemy = load("res://Scenes/MagicEnemy.tscn")
 	PhysicalEnemy = load("res://Scenes/PhysicalEnemy.tscn")
 	done_spawning = true
+	timer = 0.0
 
-#func _process(delta):
-	# Called every frame. Delta is time since last frame.
-	# Update game logic here.
-#	pass
+func _process(delta):
+	timer = timer - delta
+	if (timer < 0.0):
+		timer = 0.0
 
 func Spawn(Type):
 	var Clone
@@ -39,10 +41,10 @@ func Spawn(Type):
 func SpawnWave(T):
 	done_spawning = false
 	for i in range(0,T):
-		while(get_tree().paused == true):
-			yield(get_tree().create_timer(0.5), "timeout")
+		while(timer > 0.0):
+			yield(get_tree().create_timer(0.1), "timeout")
 		num = randi()%3+1
 		Spawn(num)
-		yield(get_tree().create_timer(1.0), "timeout")
+		timer = 1.0
 	done_spawning = true
 
