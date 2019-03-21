@@ -52,3 +52,10 @@ func a_star(start, goal):
 func pathfind():
 	pass
 
+
+
+func _on_GameArea_mouse_entered():
+	on_menu = false
+
+func _on_GameArea_mouse_exited():
+	on_menu = true
