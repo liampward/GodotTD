@@ -6,6 +6,7 @@ signal intruder
 # var b = "textvar"
 var BULLET
 var MAGIC
+var PHYSICAL
 var NEUTRAL
 
 export onready var price = 5
@@ -59,11 +60,13 @@ func _on_Area_area_entered(badGuy):
 	
 func upgrade(num):
 	var tower
-	if num == "1":
+	if num == 1:
 		#Neutral Tower
 		tower = NEUTRAL.instance()
-	
-	if num == "3":
+	if num == 2:
+		#Neutral Tower
+		tower = PHYSICAL.instance()
+	if num == 3:
 		#Magic Tower
 		tower = MAGIC.instance()
 		
