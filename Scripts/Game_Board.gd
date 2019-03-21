@@ -51,3 +51,4 @@ func a_star(start, goal):
 
 func pathfind():
 	pass
+
