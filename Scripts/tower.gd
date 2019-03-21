@@ -29,6 +29,7 @@ func attack(enemy):
 		var bullet = BULLET.instance()
 		bullet.set_name("myBullet")
 		bullet.set_translation(self.get_translation())
+		bullet.targ = weakref(enemy)
 		bullet.dir = enemy.get_global_transform().origin - self.get_global_transform().origin  
 		bullet.dir.y = 0
 		bullet.dir = bullet.dir.normalized()

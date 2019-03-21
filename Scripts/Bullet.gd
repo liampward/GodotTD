@@ -10,8 +10,12 @@ var dir
 var lifetime = 20
 var root_node
 var board_node
+var targ
 
 func move(delta):
+	if targ.get_ref():
+		dir = targ.get_ref().get_global_transform().origin - self.get_global_transform().origin
+		dir = dir.normalized()
 	translation += (dir * speed * delta)
 	lifetime -= delta
 	if (lifetime <= 0):
