@@ -15,9 +15,9 @@ func _ready():
 
 func upgrade(num):
 	if board_node.selected_tile != null:
-		if board_node.selected_tile.tower != null:
+		if board_node.selected_tile.tower != null && root_node.money >= board_node.selected_tile.tower.price:
 			board_node.selected_tile.tower.upgrade(num)
-			root_node.money -= 10
+			root_node.money -= board_node.selected_tile.tower.price
 			
 func purchase(type):
 	if(board_node.selected_tile != null):
@@ -39,4 +39,4 @@ func purchase(type):
 			tile.add_child(new_tower)
 			tile.tower = new_tower
 			board_node.ignore_list.append(new_tower.get_node("Area"))
-			root_node.money -= 10
+			root_node.money -= board_node.selected_tile.tower.price
