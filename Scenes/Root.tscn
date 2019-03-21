@@ -7,7 +7,7 @@
 [ext_resource path="res://Scripts/Enemy Spawner.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/Camera.gd" type="Script" id=6]
 
-[node name="Root" type="Node"]
+[node name="Root" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -16,6 +16,9 @@ script = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="main panel" parent="." index="1" instance=ExtResource( 3 )]
+
+margin_top = 2.0
+margin_bottom = 601.0
 
 [node name="ColorRect" parent="." index="2" instance=ExtResource( 4 )]
 

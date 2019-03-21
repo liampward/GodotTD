@@ -4,7 +4,7 @@
 [ext_resource path="res://Scripts/SpawnButton.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/Sell Button.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/money.gd" type="Script" id=4]
-[ext_resource path="res://Scripts/purchase Button.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/DetailPanel.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/Damage.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/fire rate.gd" type="Script" id=7]
 [ext_resource path="res://Scripts/range.gd" type="Script" id=8]
@@ -156,35 +156,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="PurchaseButton" type="Button" parent="." index="4"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 23.0
-margin_top = 407.0
-margin_right = 159.0
-margin_bottom = 513.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_fonts/font = ExtResource( 1 )
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "TOWER"
-flat = false
-align = 1
-script = ExtResource( 5 )
-_sections_unfolded = [ "custom_fonts" ]
-
-[node name="DetailPanel" type="Panel" parent="." index="5"]
+[node name="DetailPanel" type="Panel" parent="." index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -200,9 +172,11 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+script = ExtResource( 5 )
 
 [node name="Damage" type="Label" parent="DetailPanel" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -267,6 +241,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="FireRate" type="Label" parent="DetailPanel" index="2"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -413,11 +388,10 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "UPGRADE 1"
+text = "NEUTRAL"
 flat = false
 align = 1
 script = ExtResource( 9 )
-_sections_unfolded = [ "custom_fonts" ]
 
 [node name="UpgradeSelect2" type="Button" parent="DetailPanel" index="7"]
 
@@ -441,7 +415,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "UPGRADE 2"
+text = "PHYSICAL"
 flat = false
 align = 1
 script = ExtResource( 10 )
@@ -469,10 +443,14 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "UPGRADE 3"
+text = "MAGICAL"
 flat = false
 align = 1
 script = ExtResource( 11 )
 _sections_unfolded = [ "custom_fonts" ]
+
+[connection signal="mouse_entered" from="DetailPanel" to="DetailPanel" method="_on_DetailPanel_mouse_entered"]
+
+[connection signal="mouse_exited" from="DetailPanel" to="DetailPanel" method="_on_DetailPanel_mouse_exited"]
 
 
