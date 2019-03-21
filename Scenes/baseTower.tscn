@@ -8,7 +8,7 @@
 
 extents = Vector3( 2, 2, 1 )
 
-[node name="baseTower" type="Spatial" index="0"]
+[node name="baseTower" type="Spatial"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -39,6 +39,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="." index="1"]
 
+transform = Transform( 1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0 )
 input_ray_pickable = false
 input_capture_on_drag = false
 space_override = 0
