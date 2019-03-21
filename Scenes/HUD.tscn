@@ -1,15 +1,13 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://media/button_font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scripts/SpawnButton.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/Sell Button.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/GUIContainer.gd" type="Script" id=4]
-[ext_resource path="res://Scripts/Damage.gd" type="Script" id=5]
-[ext_resource path="res://Scripts/fire rate.gd" type="Script" id=6]
-[ext_resource path="res://Scripts/range.gd" type="Script" id=7]
-[ext_resource path="res://Scripts/upgrade select 1.gd" type="Script" id=8]
-[ext_resource path="res://Scripts/upgrade select 2.gd" type="Script" id=9]
-[ext_resource path="res://Scripts/upgrade select 3.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/StatContainer.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/upgrade select 1.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/upgrade select 2.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/upgrade select 3.gd" type="Script" id=8]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -240,17 +238,33 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = -845.0
-margin_top = 479.0
-margin_right = -1.0
-margin_bottom = 600.0
+margin_top = 478.0
+margin_bottom = 599.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
 
-[node name="Damage" type="Label" parent="DetailPanel" index="0"]
+[node name="StatContainer" type="Control" parent="DetailPanel" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 5 )
+
+[node name="Damage" type="Label" parent="DetailPanel/StatContainer" index="0"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -272,10 +286,9 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 5 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="ColorRect" type="ColorRect" parent="DetailPanel/Damage" index="0"]
+[node name="ColorRect" type="ColorRect" parent="DetailPanel/StatContainer/Damage" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -292,7 +305,7 @@ size_flags_vertical = 1
 color = Color( 0.568627, 0.568627, 0.568627, 0.156863 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="DamageLabel" type="Label" parent="DetailPanel/Damage" index="1"]
+[node name="DamageLabel" type="Label" parent="DetailPanel/StatContainer/Damage" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -315,7 +328,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="FireRate" type="Label" parent="DetailPanel" index="1"]
+[node name="FireRate" type="Label" parent="DetailPanel/StatContainer" index="1"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -337,9 +350,8 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 6 )
 
-[node name="ColorRect" type="ColorRect" parent="DetailPanel/FireRate" index="0"]
+[node name="ColorRect" type="ColorRect" parent="DetailPanel/StatContainer/FireRate" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -356,7 +368,7 @@ size_flags_vertical = 4
 color = Color( 0.568627, 0.568627, 0.568627, 0.156863 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="FireRateLabel" type="Label" parent="DetailPanel/FireRate" index="1"]
+[node name="FireRateLabel" type="Label" parent="DetailPanel/StatContainer/FireRate" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -379,7 +391,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Range" type="Label" parent="DetailPanel" index="2"]
+[node name="Range" type="Label" parent="DetailPanel/StatContainer" index="2"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -401,9 +413,8 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 7 )
 
-[node name="ColorRect" type="ColorRect" parent="DetailPanel/Range" index="0"]
+[node name="ColorRect" type="ColorRect" parent="DetailPanel/StatContainer/Range" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -420,7 +431,7 @@ size_flags_vertical = 4
 color = Color( 0.568627, 0.568627, 0.568627, 0.156863 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="RangeLabel" type="Label" parent="DetailPanel/Range" index="1"]
+[node name="RangeLabel" type="Label" parent="DetailPanel/StatContainer/Range" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -443,7 +454,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="UpgradeSelect1" type="Button" parent="DetailPanel" index="3"]
+[node name="UpgradeSelect1" type="Button" parent="DetailPanel" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -468,10 +479,10 @@ group = null
 text = "NEUTRAL"
 flat = false
 align = 1
-script = ExtResource( 8 )
+script = ExtResource( 6 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="UpgradeSelect2" type="Button" parent="DetailPanel" index="4"]
+[node name="UpgradeSelect2" type="Button" parent="DetailPanel" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -496,10 +507,10 @@ group = null
 text = "PHYSICAL"
 flat = false
 align = 1
-script = ExtResource( 9 )
+script = ExtResource( 7 )
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="UpgradeSelect3" type="Button" parent="DetailPanel" index="5"]
+[node name="UpgradeSelect3" type="Button" parent="DetailPanel" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -524,7 +535,7 @@ group = null
 text = "MAGICAL"
 flat = false
 align = 1
-script = ExtResource( 10 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 
