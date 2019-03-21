@@ -52,9 +52,3 @@ func a_star(start, goal):
 func pathfind():
 	pass
 
-func _on_main_panel_mouse_entered():
-	over_main_panel = true
-
-
-func _on_main_panel_mouse_exited():
-	over_main_panel = false

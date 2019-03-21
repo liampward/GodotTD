@@ -49,8 +49,4 @@ near = 0.05
 far = 100.0
 script = ExtResource( 6 )
 
-[connection signal="mouse_entered" from="main panel" to="Board" method="_on_main_panel_mouse_entered"]
-
-[connection signal="mouse_exited" from="main panel" to="Board" method="_on_main_panel_mouse_exited"]
-
 
