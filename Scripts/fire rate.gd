@@ -15,3 +15,4 @@ func _process(delta):
 			self.text = ""
 	else:
 		self.text = ""
+		
