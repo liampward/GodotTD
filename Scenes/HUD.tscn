@@ -17,7 +17,7 @@ render_priority = 0
 blend_mode = 0
 light_mode = 0
 
-[node name="MainPanel" type="Panel"]
+[node name="MainPanel" type="Panel" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -40,10 +40,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 14.0
+margin_left = 10.0
 margin_top = 497.0
-margin_right = 168.0
-margin_bottom = 538.0
+margin_right = 170.0
+margin_bottom = 537.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -60,7 +60,7 @@ text = "Next Wave"
 flat = false
 align = 1
 script = ExtResource( 2 )
-_sections_unfolded = [ "custom_fonts" ]
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="SellButton" type="Button" parent="." index="1"]
 
@@ -68,10 +68,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 8.0
+margin_left = 10.0
 margin_top = 546.0
-margin_right = 171.0
-margin_bottom = 591.0
+margin_right = 170.0
+margin_bottom = 586.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -88,7 +88,7 @@ text = "SELL"
 flat = false
 align = 1
 script = ExtResource( 3 )
-_sections_unfolded = [ "custom_fonts" ]
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="GUIContainer" type="Control" parent="." index="2"]
 
@@ -151,10 +151,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -50.0
-margin_top = 4.0
-margin_right = -1.0
-margin_bottom = 25.0
+margin_left = -56.0
+margin_top = 3.0
+margin_right = -7.0
+margin_bottom = 24.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -216,10 +216,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -50.0
-margin_top = 4.0
-margin_right = -1.0
-margin_bottom = 25.0
+margin_left = -56.0
+margin_top = 3.0
+margin_right = -7.0
+margin_bottom = 24.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -292,16 +292,16 @@ size_flags_vertical = 1
 color = Color( 0.568627, 0.568627, 0.568627, 0.156863 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="DamageLabel" type="Label" parent="DetailPanel" index="1"]
+[node name="DamageLabel" type="Label" parent="DetailPanel/Damage" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 16.0
-margin_top = 10.0
-margin_right = 77.0
-margin_bottom = 31.0
+margin_left = 4.0
+margin_top = -20.0
+margin_right = 65.0
+margin_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -315,7 +315,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="FireRate" type="Label" parent="DetailPanel" index="2"]
+[node name="FireRate" type="Label" parent="DetailPanel" index="1"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -356,16 +356,16 @@ size_flags_vertical = 4
 color = Color( 0.568627, 0.568627, 0.568627, 0.156863 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="FireRateLabel" type="Label" parent="DetailPanel" index="3"]
+[node name="FireRateLabel" type="Label" parent="DetailPanel/FireRate" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 15.0
-margin_top = 58.0
-margin_right = 103.0
-margin_bottom = 79.0
+margin_left = 4.0
+margin_top = -20.0
+margin_right = 92.0
+margin_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -379,8 +379,9 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Range" type="Label" parent="DetailPanel" index="4"]
+[node name="Range" type="Label" parent="DetailPanel" index="2"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -419,16 +420,16 @@ size_flags_vertical = 4
 color = Color( 0.568627, 0.568627, 0.568627, 0.156863 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="RangeLabel" type="Label" parent="DetailPanel" index="5"]
+[node name="RangeLabel" type="Label" parent="DetailPanel/Range" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 125.0
-margin_top = 7.0
-margin_right = 172.0
-margin_bottom = 28.0
+margin_left = 8.0
+margin_top = -22.0
+margin_right = 55.0
+margin_bottom = -1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -442,7 +443,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="UpgradeSelect1" type="Button" parent="DetailPanel" index="6"]
+[node name="UpgradeSelect1" type="Button" parent="DetailPanel" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -450,8 +451,8 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 238.0
 margin_top = 10.0
-margin_right = 354.0
-margin_bottom = 103.0
+margin_right = 388.0
+margin_bottom = 110.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -468,17 +469,18 @@ text = "NEUTRAL"
 flat = false
 align = 1
 script = ExtResource( 8 )
+_sections_unfolded = [ "Rect" ]
 
-[node name="UpgradeSelect2" type="Button" parent="DetailPanel" index="7"]
+[node name="UpgradeSelect2" type="Button" parent="DetailPanel" index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 364.0
-margin_top = 11.0
-margin_right = 482.0
-margin_bottom = 105.0
+margin_left = 408.0
+margin_top = 10.0
+margin_right = 558.0
+margin_bottom = 110.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -495,18 +497,18 @@ text = "PHYSICAL"
 flat = false
 align = 1
 script = ExtResource( 9 )
-_sections_unfolded = [ "custom_fonts" ]
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="UpgradeSelect3" type="Button" parent="DetailPanel" index="8"]
+[node name="UpgradeSelect3" type="Button" parent="DetailPanel" index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 490.0
+margin_left = 578.0
 margin_top = 10.0
-margin_right = 619.0
-margin_bottom = 103.0
+margin_right = 728.0
+margin_bottom = 110.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -523,6 +525,6 @@ text = "MAGICAL"
 flat = false
 align = 1
 script = ExtResource( 10 )
-_sections_unfolded = [ "custom_fonts" ]
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
 
