@@ -47,6 +47,7 @@ func _on_Area_area_entered(area):
 		area.get_parent().queue_free()
 		hurt(area.get_parent().damage)
 	elif (area.get_parent().name == "WALL"):
+		root_node.health -= 1
 		board_node.ignore_list.remove(board_node.ignore_list.find($Area))
 		queue_free()
 

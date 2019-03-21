@@ -7,7 +7,7 @@
 [ext_resource path="res://Scripts/Enemy Spawner.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/Camera.gd" type="Script" id=6]
 
-[node name="Root" type="Node"]
+[node name="Root" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -54,7 +54,23 @@ near = 0.05
 far = 100.0
 script = ExtResource( 6 )
 
-[node name="DirectionalLight" type="DirectionalLight" parent="." index="5"]
+[node name="GameArea" type="ColorRect" parent="." index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 848.0
+margin_bottom = 485.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 1, 1, 1, 0 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="." index="6"]
 
 transform = Transform( 1, 0, 0, 0, -0.179973, 0.983672, 0, -0.983672, -0.179973, 26.3726, 23.0266, -5.72842 )
 layers = 1
@@ -81,21 +97,6 @@ directional_shadow_bias_split_scale = 0.25
 directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
 _sections_unfolded = [ "Light" ]
-[node name="GameArea" type="ColorRect" parent="." index="5"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 848.0
-margin_bottom = 485.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-color = Color( 1, 1, 1, 0 )
 
 [connection signal="mouse_entered" from="GameArea" to="Board" method="_on_GameArea_mouse_entered"]
 

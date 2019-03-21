@@ -3,7 +3,7 @@
 [ext_resource path="res://media/button_font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scripts/SpawnButton.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/Sell Button.gd" type="Script" id=3]
-[ext_resource path="res://Scripts/money.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/GUIContainer.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/Damage.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/fire rate.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/range.gd" type="Script" id=7]
@@ -17,7 +17,7 @@ render_priority = 0
 blend_mode = 0
 light_mode = 0
 
-[node name="MainPanel" type="Panel" index="0"]
+[node name="MainPanel" type="Panel"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -90,7 +90,85 @@ align = 1
 script = ExtResource( 3 )
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Money" type="Label" parent="." index="2"]
+[node name="GUIContainer" type="Control" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 4 )
+
+[node name="Lives_num" type="Label" parent="GUIContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 70.0
+margin_top = 44.0
+margin_right = 165.0
+margin_bottom = 71.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="ColorRect" type="ColorRect" parent="GUIContainer/Lives_num" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 95.0
+margin_bottom = 27.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0.570313, 0.570313, 0.570313, 0.16 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="Lives" type="Label" parent="GUIContainer/Lives_num" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -50.0
+margin_top = 4.0
+margin_right = -1.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 1 )
+text = "Lives"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Money_num" type="Label" parent="GUIContainer" index="1"]
 
 material = SubResource( 1 )
 anchor_left = 0.0
@@ -112,16 +190,16 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 4 )
 _sections_unfolded = [ "Material", "Rect" ]
 
-[node name="ColorRect" type="ColorRect" parent="Money" index="0"]
+[node name="ColorRect" type="ColorRect" parent="GUIContainer/Money_num" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 95.0
+margin_left = -1.0
+margin_right = 94.0
 margin_bottom = 27.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -132,16 +210,16 @@ size_flags_vertical = 1
 color = Color( 0.570313, 0.570313, 0.570313, 0.16 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="AmountOfCash" type="Label" parent="." index="3"]
+[node name="Money" type="Label" parent="GUIContainer/Money_num" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 20.0
-margin_top = 18.0
-margin_right = 69.0
-margin_bottom = 39.0
+margin_left = -50.0
+margin_top = 4.0
+margin_right = -1.0
+margin_bottom = 25.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -153,9 +231,9 @@ text = "Money"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "custom_fonts" ]
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="DetailPanel" type="Panel" parent="." index="4"]
+[node name="DetailPanel" type="Panel" parent="." index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -446,9 +524,5 @@ flat = false
 align = 1
 script = ExtResource( 10 )
 _sections_unfolded = [ "custom_fonts" ]
-
-[connection signal="mouse_entered" from="DetailPanel" to="DetailPanel" method="_on_DetailPanel_mouse_entered"]
-
-[connection signal="mouse_exited" from="DetailPanel" to="DetailPanel" method="_on_DetailPanel_mouse_exited"]
 
 
