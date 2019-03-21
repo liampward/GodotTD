@@ -11,7 +11,9 @@ func _ready():
 	Spawn_Node = Root_Node.get_node("EnemySpawner")
 
 func _pressed():
+	var num
 	if Spawn_Node.done_spawning == true:
-		Spawn_Node.SpawnWave(3)
+		num = randi()%11+1
+		Spawn_Node.SpawnWave(num)
 	
 

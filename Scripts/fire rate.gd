@@ -1,4 +1,4 @@
-extends TextEdit
+extends Label
 
 var root_node
 var board_node
@@ -10,9 +10,8 @@ func _ready():
 func _process(delta):
 	if board_node.selected_tile != null:
 		if board_node.selected_tile.tower != null:
-			self.text = "100"
+			self.text = str(board_node.selected_tile.tower.interval)
 		else:
 			self.text = ""
 	else:
 		self.text = ""
-	pass

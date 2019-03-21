@@ -1,15 +1,14 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scripts/tower.gd" type="Script" id=1]
+[ext_resource path="res://Debug/Debug_Tower.gd" type="Script" id=1]
 [ext_resource path="res://media/BaseTower.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://media/shoot.wav" type="AudioStream" id=3]
 
-[sub_resource type="CapsuleShape" id=1]
+[sub_resource type="BoxShape" id=1]
 
-radius = 1.0
-height = 1.0
+extents = Vector3( 2, 2, 1 )
 
-[node name="baseTower" type="Spatial" index="0"]
+[node name="baseTower" type="Spatial"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -40,6 +39,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="." index="1"]
 
+transform = Transform( 1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0 )
 input_ray_pickable = false
 input_capture_on_drag = false
 space_override = 0
@@ -60,11 +60,11 @@ reverb_bus_enable = false
 reverb_bus_name = "Master"
 reverb_bus_amount = 0.0
 reverb_bus_uniformity = 0.0
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="CollisionShape" type="CollisionShape" parent="Area" index="0"]
 
-transform = Transform( 1.99989, 9.23506e-010, 0.0105637, 0.0211273, -8.74179e-008, -0.999944, 0, 2, -4.37114e-008, 0, 0, 0 )
+transform = Transform( 1.99989, 4.57476e-010, 0.010563, 0.021126, -8.65497e-008, -0.999944, 4.57476e-010, 2, -4.32748e-008, 0, 0, 0 )
 shape = SubResource( 1 )
 disabled = false
 _sections_unfolded = [ "Transform" ]

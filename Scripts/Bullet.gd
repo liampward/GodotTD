@@ -7,14 +7,22 @@ extends Spatial
 var damage = 100
 var speed = 5
 var dir
+var lifetime = 20
+var root_node
+var board_node
 
 func move(delta):
 	translation += (dir * speed * delta)
-
+	lifetime -= delta
+	if (lifetime <= 0):
+		board_node.ignore_list.remove(board_node.ignore_list.find($Area))
+		queue_free()
+	
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	pass
+	root_node = get_tree().get_root().get_node("Root")
+	board_node = root_node.get_node("Board")
 
 func _process(delta):
 	move(delta)
