@@ -116,7 +116,7 @@ max_lines_visible = -1
 script = ExtResource( 4 )
 _sections_unfolded = [ "Material", "Rect" ]
 
-[node name="ColorRect" type="ColorRect" parent="Money" index="6"]
+[node name="ColorRect" type="ColorRect" parent="Money" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -225,7 +225,7 @@ max_lines_visible = -1
 script = ExtResource( 6 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="ColorRect" type="ColorRect" parent="DetailPanel/Damage" index="6"]
+[node name="ColorRect" type="ColorRect" parent="DetailPanel/Damage" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -288,7 +288,7 @@ lines_skipped = 0
 max_lines_visible = -1
 script = ExtResource( 7 )
 
-[node name="ColorRect" type="ColorRect" parent="DetailPanel/FireRate" index="6"]
+[node name="ColorRect" type="ColorRect" parent="DetailPanel/FireRate" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -351,7 +351,7 @@ lines_skipped = 0
 max_lines_visible = -1
 script = ExtResource( 8 )
 
-[node name="ColorRect" type="ColorRect" parent="DetailPanel/Range" index="6"]
+[node name="ColorRect" type="ColorRect" parent="DetailPanel/Range" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0

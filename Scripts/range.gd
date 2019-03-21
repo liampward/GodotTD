@@ -10,7 +10,7 @@ func _ready():
 func _process(delta):
 	if board_node.selected_tile != null:
 		if board_node.selected_tile.tower != null:
-			self.text = str(board_node.selected_tile.tower.interval)
+			self.text = str(board_node.selected_tile.tower.fireRange)
 		else:
 			self.text = ""
 	else:
