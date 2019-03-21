@@ -46,6 +46,9 @@ func _on_Area_area_entered(area):
 		board_node.ignore_list.remove(board_node.ignore_list.find(area))
 		area.get_parent().queue_free()
 		hurt(area.get_parent().damage)
+	elif (area.get_parent().name == "WALL"):
+		board_node.ignore_list.remove(board_node.ignore_list.find($Area))
+		queue_free()
 
 func _on_VisibilityNotifier_screen_exited():
 	queue_free()

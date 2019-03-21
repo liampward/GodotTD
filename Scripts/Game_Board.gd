@@ -11,11 +11,17 @@ var on_menu = false
 
 func _ready():
 	var Tile_Scene = load("res://Scenes/Game_Tile.tscn")
+	var Wall_Scene = load("res://Scenes/wall.tscn")
 	for i in range(0,board_size * 1.7):
 		for j in range(0,board_size):
 			var tile = Tile_Scene.instance()
 			self.add_child(tile)
 			tile.set_translation(Vector3(i*2.75, 0, j*-2.75))
+	var wall = Wall_Scene.instance()
+	self.add_child(wall)
+	wall.set_translation(Vector3((board_size * 1.7) * 2.75, 0, (board_size / 2) * -2.75))
+	wall.set_scale(Vector3(0.2, 2, board_size * 1.7))
+	ignore_list.append(wall.get_node("Area"))
 
 func _process(delta):
 	if(Input.is_mouse_button_pressed(BUTTON_LEFT) and on_menu == false):
