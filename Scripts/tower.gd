@@ -13,9 +13,11 @@ export onready var price = 10
 
 var damage = 10
 var fireRange = 1
-var interval = 1
+var fireRate = 1
+var interval = fireRate
 var canFire = true
 var upgradeLevel = 0;
+var Stack = []
 
 func _ready():
 	preload("res://Scripts/Bullet.gd")
@@ -46,7 +48,7 @@ func _process(delta):
 	if !canFire:
 		interval -= delta
 		if interval <= 0:
-			interval = 1
+			interval = fireRate
 			canFire = true
 	var targs = self.get_node("Area").get_overlapping_areas()
 	for i in range(len(targs)):
@@ -69,19 +71,23 @@ func upgrade(num):
 	price += 10
 	if upgradeLevel < 2:
 		var tower
+		
 		if num == 1:
 			#Neutral Tower
 			tower = NEUTRAL.instance()
 		if num == 2:
 			#Neutral Tower
 			tower = PHYSICAL.instance()
+
 		if num == 3:
 			#Magic Tower
 			tower = MAGIC.instance()
+
 			
 		tower.set_translation(self.get_translation() - Vector3(0, 1.5,0))
 		tower.translate(Vector3(0, 1.3, 0) * upgradeLevel)
 		self.add_child(tower)
+		Stack.append(tower)
 		var root_node = get_tree().get_root().get_node("Root")
 		var board_node = root_node.get_node("Board")
 		board_node.ignore_list.append(tower.get_node("Area"))
