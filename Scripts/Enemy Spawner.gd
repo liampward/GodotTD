@@ -39,6 +39,8 @@ func Spawn(Type):
 func SpawnWave(T):
 	done_spawning = false
 	for i in range(0,T):
+		while(get_tree().paused == true):
+			yield(get_tree().create_timer(0.5), "timeout")
 		num = randi()%3+1
 		Spawn(num)
 		yield(get_tree().create_timer(1.0), "timeout")

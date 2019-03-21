@@ -7,6 +7,7 @@ var board_size = 10
 var RAY_LENGTH = 100
 var ignore_list = []
 var selected_tile = null
+var over_main_panel = false
 
 func _ready():
 	var Tile_Scene = load("res://Scenes/Game_Tile.tscn")
@@ -17,7 +18,7 @@ func _ready():
 			tile.set_translation(Vector3(i*2.75, 0, j*-2.75))
 
 func _process(delta):
-	if(Input.is_mouse_button_pressed(BUTTON_LEFT)):
+	if(Input.is_mouse_button_pressed(BUTTON_LEFT) && over_main_panel == false):
 		var collision = get_object_under_mouse()
 		if !collision.empty():
 			if selected_tile != null:
@@ -50,3 +51,10 @@ func a_star(start, goal):
 
 func pathfind():
 	pass
+
+func _on_main_panel_mouse_entered():
+	over_main_panel = true
+
+
+func _on_main_panel_mouse_exited():
+	over_main_panel = false
