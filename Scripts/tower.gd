@@ -47,6 +47,11 @@ func _process(delta):
 		if interval <= 0:
 			interval = 1
 			canFire = true
+	var targs = self.get_node("Area").get_overlapping_areas()
+	for i in range(len(targs)):
+		if targs[i].get_parent().is_in_group("ENEMY"):
+			attack(targs[i].get_parent())
+			break
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 #	pass

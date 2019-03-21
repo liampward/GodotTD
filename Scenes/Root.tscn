@@ -17,6 +17,9 @@ script = ExtResource( 2 )
 
 [node name="main panel" parent="." index="1" instance=ExtResource( 3 )]
 
+margin_top = 2.0
+margin_bottom = 601.0
+
 [node name="ColorRect" parent="." index="2" instance=ExtResource( 4 )]
 
 visible = false

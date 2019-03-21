@@ -1,15 +1,17 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://media/MagicalTower.obj" type="ArrayMesh" id=1]
-[ext_resource path="res://media/shoot.wav" type="AudioStream" id=2]
+[ext_resource path="res://Scripts/tower.gd" type="Script" id=1]
+[ext_resource path="res://media/MagicalTower.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://media/shoot.wav" type="AudioStream" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
 
 radius = 1.0
 height = 1.0
 
-[node name="Spatial" type="Spatial"]
+[node name="Spatial" type="Spatial" index="0"]
 
+script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="MeshInstance" type="MeshInstance" parent="." index="0"]
@@ -23,7 +25,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 1 )
+mesh = ExtResource( 2 )
 skeleton = NodePath("..")
 material/0 = null
 material/1 = null
@@ -66,7 +68,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="2"]
 
-stream = ExtResource( 2 )
+stream = ExtResource( 3 )
 volume_db = -30.0
 pitch_scale = 1.0
 autoplay = false
