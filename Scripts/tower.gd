@@ -9,7 +9,7 @@ var MAGIC
 var PHYSICAL
 var NEUTRAL
 
-export onready var price = 5
+export onready var price = 10
 
 var damage = 10
 var fireRange = 1
@@ -66,6 +66,7 @@ func _on_Area_area_entered(badGuy):
 	pass # replace with function body
 	
 func upgrade(num):
+	price += 10
 	if upgradeLevel < 2:
 		var tower
 		if num == 1:
