@@ -13,14 +13,15 @@ export onready var price = 5
 
 var damage = 10
 var fireRange = 1
-var interval = 5
+var interval = 1
 var canFire = true
-
+var upgradeLevel = 0;
 
 func _ready():
 	preload("res://Scripts/Bullet.gd")
 	BULLET = preload("res://Scenes/Bullet.tscn")
-	MAGIC = preload("res://Scenes/magicTower.tscn")
+	MAGIC = preload("res://Scenes/magicTower.tscn")	
+	PHYSICAL = preload("res://Scenes/physTower.tscn")
 	NEUTRAL = preload("res://Scenes/baseTower.tscn")
 func attack(enemy):
 	if canFire:
@@ -44,7 +45,7 @@ func _process(delta):
 	if !canFire:
 		interval -= delta
 		if interval <= 0:
-			interval = 5
+			interval = 1
 			canFire = true
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
@@ -59,20 +60,24 @@ func _on_Area_area_entered(badGuy):
 	pass # replace with function body
 	
 func upgrade(num):
-	var tower
-	if num == 1:
-		#Neutral Tower
-		tower = NEUTRAL.instance()
-	if num == 2:
-		#Neutral Tower
-		tower = PHYSICAL.instance()
-	if num == 3:
-		#Magic Tower
-		tower = MAGIC.instance()
+	if upgradeLevel < 2:
+		var tower
+		if num == 1:
+			#Neutral Tower
+			tower = NEUTRAL.instance()
+		if num == 2:
+			#Neutral Tower
+			tower = PHYSICAL.instance()
+		if num == 3:
+			#Magic Tower
+			tower = MAGIC.instance()
+			
+		tower.set_translation(self.get_translation() - Vector3(0, 1.5,0))
+		tower.translate(Vector3(0, 1.3, 0) * upgradeLevel)
+		self.add_child(tower)
+		var root_node = get_tree().get_root().get_node("Root")
+		var board_node = root_node.get_node("Board")
+		board_node.ignore_list.append(tower.get_node("Area"))
+		upgradeLevel += 1
 		
-	tower.set_translation(self.get_translation() + Vector3(0, 2, 0))
-	self.add_child(tower)
-	var root_node = get_tree().get_root().get_node("Root")
-	var board_node = root_node.get_node("Board")
-	board_node.ignore_list.append(tower.get_node("Area"))
 		
