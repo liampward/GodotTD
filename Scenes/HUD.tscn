@@ -1,17 +1,16 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://media/button_font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scripts/SpawnButton.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/Sell Button.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/money.gd" type="Script" id=4]
-[ext_resource path="res://Scripts/purchase Button.gd" type="Script" id=5]
-[ext_resource path="res://Scripts/DetailPanel.gd" type="Script" id=6]
-[ext_resource path="res://Scripts/Damage.gd" type="Script" id=7]
-[ext_resource path="res://Scripts/fire rate.gd" type="Script" id=8]
-[ext_resource path="res://Scripts/range.gd" type="Script" id=9]
-[ext_resource path="res://Scripts/upgrade select 1.gd" type="Script" id=10]
-[ext_resource path="res://Scripts/upgrade select 2.gd" type="Script" id=11]
-[ext_resource path="res://Scripts/upgrade select 3.gd" type="Script" id=12]
+[ext_resource path="res://Scripts/DetailPanel.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Damage.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/fire rate.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/range.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/upgrade select 1.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/upgrade select 2.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/upgrade select 3.gd" type="Script" id=11]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -157,35 +156,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="PurchaseButton" type="Button" parent="." index="4"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 23.0
-margin_top = 407.0
-margin_right = 159.0
-margin_bottom = 513.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_fonts/font = ExtResource( 1 )
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "NOTHING"
-flat = false
-align = 1
-script = ExtResource( 5 )
-_sections_unfolded = [ "custom_fonts" ]
-
-[node name="DetailPanel" type="Panel" parent="." index="5"]
+[node name="DetailPanel" type="Panel" parent="." index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -201,7 +172,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 6 )
+script = ExtResource( 5 )
 
 [node name="Damage" type="Label" parent="DetailPanel" index="0"]
 
@@ -225,7 +196,7 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 7 )
+script = ExtResource( 6 )
 _sections_unfolded = [ "Rect" ]
 
 [node name="ColorRect" type="ColorRect" parent="DetailPanel/Damage" index="0"]
@@ -290,7 +261,7 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 8 )
+script = ExtResource( 7 )
 
 [node name="ColorRect" type="ColorRect" parent="DetailPanel/FireRate" index="0"]
 
@@ -353,7 +324,7 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 
 [node name="ColorRect" type="ColorRect" parent="DetailPanel/Range" index="0"]
 
@@ -420,7 +391,7 @@ group = null
 text = "NEUTRAL"
 flat = false
 align = 1
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 
 [node name="UpgradeSelect2" type="Button" parent="DetailPanel" index="7"]
 
@@ -447,7 +418,7 @@ group = null
 text = "PHYSICAL"
 flat = false
 align = 1
-script = ExtResource( 11 )
+script = ExtResource( 10 )
 _sections_unfolded = [ "custom_fonts" ]
 
 [node name="UpgradeSelect3" type="Button" parent="DetailPanel" index="8"]
@@ -475,7 +446,7 @@ group = null
 text = "MAGICAL"
 flat = false
 align = 1
-script = ExtResource( 12 )
+script = ExtResource( 11 )
 _sections_unfolded = [ "custom_fonts" ]
 
 [connection signal="mouse_entered" from="DetailPanel" to="DetailPanel" method="_on_DetailPanel_mouse_entered"]
