@@ -19,7 +19,7 @@ render_priority = 0
 blend_mode = 0
 light_mode = 0
 
-[node name="MainPanel" type="Panel"]
+[node name="MainPanel" type="Panel" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -417,7 +417,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "UPGRADE 1"
+text = "NEUTRAL"
 flat = false
 align = 1
 script = ExtResource( 10 )
@@ -444,7 +444,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "UPGRADE 2"
+text = "PHYSICAL"
 flat = false
 align = 1
 script = ExtResource( 11 )
@@ -472,7 +472,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "UPGRADE 3"
+text = "MAGICAL"
 flat = false
 align = 1
 script = ExtResource( 12 )
