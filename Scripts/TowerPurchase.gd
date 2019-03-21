@@ -15,7 +15,7 @@ func _ready():
 
 func upgrade(num):
 	if board_node.selected_tile != null:
-		if board_node.selected_tile.tower != null && root_node.money >= board_node.selected_tile.tower.price:
+		if board_node.selected_tile.tower != null && root_node.money >= board_node.selected_tile.tower.price + 10 && board_node.selected_tile.tower.upgradeLevel < 2:
 			board_node.selected_tile.tower.upgrade(num)
 			root_node.money -= board_node.selected_tile.tower.price
 			
@@ -26,7 +26,7 @@ func purchase(type):
 		var new_tower
 		if(type == "NEUTRAL"):
 			new_tower = NEUTRAL.instance()
-		
+			
 		if(type == "PHYSICAL"):
 			new_tower = PHYSICAL.instance()
 		
