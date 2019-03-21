@@ -28,11 +28,16 @@ visible = false
 
 script = ExtResource( 5 )
 
-[node name="CameraPivot" type="Position3D" parent="." index="4"]
+[node name="CameraPivotX" type="Position3D" parent="." index="4"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9554, 0, -10.3497 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="Camera" type="Camera" parent="CameraPivot" index="0"]
+[node name="CameraPivotY" type="Position3D" parent="CameraPivotX" index="0"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="Camera" type="Camera" parent="CameraPivotX/CameraPivotY" index="0"]
 
 transform = Transform( 1, 0, 0, 0, 0.475883, 0.879509, 0, -0.879509, 0.475883, 8.14565, 24.8541, 18.2665 )
 keep_aspect = 1
