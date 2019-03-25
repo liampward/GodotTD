@@ -15,7 +15,7 @@ render_priority = 0
 blend_mode = 0
 light_mode = 0
 
-[node name="MainPanel" type="Panel" index="0"]
+[node name="MainPanel" type="Panel"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -106,6 +106,7 @@ script = ExtResource( 4 )
 
 [node name="Lives_num" type="Label" parent="GUIContainer" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -168,6 +169,7 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="Money_num" type="Label" parent="GUIContainer" index="1"]
 
+editor/display_folded = true
 material = SubResource( 1 )
 anchor_left = 0.0
 anchor_top = 0.0

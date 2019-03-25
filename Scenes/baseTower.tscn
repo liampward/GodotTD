@@ -78,6 +78,10 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
+[node name="UpgradePoint" type="Position3D" parent="." index="3"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48102, 0 )
+
 [connection signal="area_entered" from="Area" to="." method="_on_Area_area_entered"]
 
 

@@ -84,7 +84,7 @@ func upgrade(num):
 			tower = MAGIC.instance()
 
 			
-		tower.set_translation(self.get_translation() - Vector3(0, 1.5,0))
+		tower.set_translation(self.get_node("UpgradePoint").get_translation())
 		tower.translate(Vector3(0, 1.3, 0) * upgradeLevel)
 		self.add_child(tower)
 		Stack.append(tower)

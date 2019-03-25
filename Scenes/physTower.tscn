@@ -8,7 +8,7 @@
 
 extents = Vector3( 2, 2, 1 )
 
-[node name="physTower" type="Spatial" index="0"]
+[node name="physTower" type="Spatial"]
 
 script = ExtResource( 1 )
 
@@ -80,6 +80,10 @@ pitch_scale = 0.7
 autoplay = false
 mix_target = 0
 bus = "Master"
+
+[node name="UpgradePoint" type="Position3D" parent="." index="3"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.34577, 0 )
 
 [connection signal="area_entered" from="Area" to="." method="_on_Area_area_entered"]
 
