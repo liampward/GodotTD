@@ -36,7 +36,7 @@ func attack(enemy):
 		bullet.dir.y = 0
 		bullet.dir = bullet.dir.normalized()
 		bullet.damage = damage
-		get_parent().add_child(bullet)
+		self.add_child(bullet)
 		var root_node = get_tree().get_root().get_node("Root")
 		var board_node = root_node.get_node("Board")
 		board_node.ignore_list.append(bullet.get_node("Area"))
