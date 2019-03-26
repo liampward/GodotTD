@@ -13,7 +13,7 @@ func _ready():
 	old_matl = self.get_surface_material(0)
 	#matl.albedo_color = Color(0.4, 0.7, 0.4)
 	matl.emission_enabled = true
-	matl.emission = Color(0.13, 0.8, 0.13)
+	matl.emission = Color(0.1, 0.8, 0.1)
 	matl.emission_energy = 1
 	
 func _process(delta):

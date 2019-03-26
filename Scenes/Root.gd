@@ -9,7 +9,7 @@ var script
 func _ready():
 	money = 100
 	health = 10
-	wave_num = 1
+	wave_num = 0
 	
 #	board_node = self.get_node("Board")
 #	var tower_script = load("res://Scripts/TowerPurchase.gd")

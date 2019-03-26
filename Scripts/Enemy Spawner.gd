@@ -1,15 +1,20 @@
 extends Spatial
 
-# class member variables go here, for example:
 var Root_Node
 var Board_Node
-var Enemy_Timer
+
 var NeutralEnemy
 var MagicEnemy
 var PhysicalEnemy
+
 var done_spawning
-var num
 var timer
+
+var spawn_neut = 0
+var spawn_mag = 0
+var spawn_phys = 0
+
+var spawn_configuration
 
 func _ready():
 	Root_Node = get_tree().get_root().get_node("Root")
@@ -17,13 +22,28 @@ func _ready():
 	NeutralEnemy = load("res://Scenes/NeutralEnemy.tscn")
 	MagicEnemy = load("res://Scenes/MagicEnemy.tscn")
 	PhysicalEnemy = load("res://Scenes/PhysicalEnemy.tscn")
+	
+	spawn_configuration = File.new()
+	spawn_configuration.open("res://media/SpawnConfiguration.txt",1)
+	
 	done_spawning = true
 	timer = 0.0
 
 func _process(delta):
 	timer = timer - delta
 	if (timer < 0.0):
-		timer = 0.0
+		if(spawn_neut > 0):
+			Spawn(1)
+			spawn_neut -= 1
+		elif(spawn_phys > 0):
+			Spawn(2)
+			spawn_phys -= 1
+		elif(spawn_mag > 0):
+			Spawn(3)
+			spawn_mag -= 1
+		timer = 1.0
+	if(spawn_neut == 0 and spawn_phys == 0 and spawn_mag == 0):
+		done_spawning = true
 
 func Spawn(Type):
 	var Clone
@@ -34,16 +54,15 @@ func Spawn(Type):
 	else:
 		Clone = NeutralEnemy.instance()
 	Root_Node.add_child(Clone)
-	var size = Board_Node.board_size
 	Clone.set_translation(Vector3(0, 0, 0))
-
-func SpawnWave(T):
+	
+func ParseWave():
 	done_spawning = false
-	for i in range(0,T):
-		while(timer > 0.0):
-			yield(get_tree().create_timer(0.1), "timeout")
-		num = randi()%3+1
-		Spawn(num)
-		timer = 1.0
-	done_spawning = true
+	var line = spawn_configuration.get_line()
+	line = line.split(",")
+	if(line.size() == 4):
+		spawn_neut = int(line[0])
+		spawn_phys = int(line[1])
+		spawn_mag = int(line[2])
+	
 
