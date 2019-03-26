@@ -1,10 +1,17 @@
 extends Spatial
 
+onready var gm = get_node("AStarNodes")
+onready var as = AStar.new()
+
 var board_size = 10
 var RAY_LENGTH = 100
 var ignore_list = []
 var selected_tile = null
 var on_menu = false
+
+# This is a dictionary that maps the positions of GridMap
+# cells to the IDs of the corresponding A* nodes
+var points = {}
 
 func _ready():
 	var Tile_Scene = load("res://Scenes/Game_Tile.tscn")
@@ -13,7 +20,8 @@ func _ready():
 		for j in range(0,board_size):
 			var tile = Tile_Scene.instance()
 			self.add_child(tile)
-			tile.set_translation(Vector3(i*2.75, 0, j*-2.75))
+			tile.set_translation(Vector3(i * 2.75, 0, j * -2.75))
+#			gm.set_cell_item(i * 2.75, 0, j * -2.75, 0)
 	var wall = Wall_Scene.instance()
 	self.add_child(wall)
 	wall.set_translation(Vector3((board_size * 1.7) * 2.75, 0, (board_size / 2) * -2.75))
