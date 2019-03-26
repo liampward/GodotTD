@@ -5,7 +5,6 @@ onready var as = AStar.new()
 
 var board_size = 10
 var RAY_LENGTH = 100
-var ignore_list = []
 var selected_tile = null
 var on_menu = false
 
@@ -26,7 +25,6 @@ func _ready():
 	self.add_child(wall)
 	wall.set_translation(Vector3((board_size * 1.7) * 2.75, 0, (board_size / 2) * -2.75))
 	wall.set_scale(Vector3(0.2, 2, board_size * 1.7))
-	ignore_list.append(wall.get_node("Area"))
 
 func _process(delta):
 	if(Input.is_mouse_button_pressed(BUTTON_LEFT) and on_menu == false):
@@ -43,7 +41,7 @@ func get_object_under_mouse():
 	var ray_from = camera.project_ray_origin(mouse_pos)
 	var ray_to = ray_from + camera.project_ray_normal(mouse_pos) * RAY_LENGTH
 	var space_state = camera.get_world().direct_space_state
-	var selection = space_state.intersect_ray(ray_from, ray_to, ignore_list)
+	var selection = space_state.intersect_ray(ray_from, ray_to, [], 2)
 	return selection
 
 func _on_GameArea_mouse_entered():

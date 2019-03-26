@@ -36,7 +36,6 @@ func Spawn(Type):
 	Root_Node.add_child(Clone)
 	var size = Board_Node.board_size
 	Clone.set_translation(Vector3(0, 0, 0))
-	Board_Node.ignore_list.append(Clone.get_node("Area"))
 
 func SpawnWave(T):
 	done_spawning = false

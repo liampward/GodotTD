@@ -38,5 +38,4 @@ func purchase(type):
 			new_tower.set_scale(Vector3(1, 1 / tile_scale.y, 1))
 			tile.add_child(new_tower)
 			tile.tower = new_tower
-			board_node.ignore_list.append(new_tower.get_node("Area"))
 			root_node.money -= board_node.selected_tile.tower.price

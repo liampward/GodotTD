@@ -39,7 +39,6 @@ func attack(enemy):
 		self.add_child(bullet)
 		var root_node = get_tree().get_root().get_node("Root")
 		var board_node = root_node.get_node("Board")
-		board_node.ignore_list.append(bullet.get_node("Area"))
 		canFire = false
 		
 	
@@ -90,7 +89,6 @@ func upgrade(num):
 		Stack.append(tower)
 		var root_node = get_tree().get_root().get_node("Root")
 		var board_node = root_node.get_node("Board")
-		board_node.ignore_list.append(tower.get_node("Area"))
 		upgradeLevel += 1
 		
 		
