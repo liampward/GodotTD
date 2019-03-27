@@ -2,16 +2,7 @@
 
 [ext_resource path="res://Scripts/Bullet.gd" type="Script" id=1]
 
-[sub_resource type="SphereMesh" id=1]
-
-custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
-radius = 1.0
-height = 2.0
-radial_segments = 64
-rings = 32
-is_hemisphere = false
-
-[sub_resource type="SpatialMaterial" id=2]
+[sub_resource type="SpatialMaterial" id=4]
 
 render_priority = 0
 flags_transparent = false
@@ -31,7 +22,7 @@ params_cull_mode = 0
 params_depth_draw_mode = 0
 params_line_width = 1.0
 params_point_size = 1.0
-params_billboard_mode = 0
+params_billboard_mode = 1
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
@@ -40,11 +31,7 @@ metallic_specular = 0.5
 metallic_texture_channel = 0
 roughness = 0.0
 roughness_texture_channel = 0
-emission_enabled = true
-emission = Color( 0.835938, 0.768793, 0.222046, 1 )
-emission_energy = 1.0
-emission_operator = 0
-emission_on_uv2 = false
+emission_enabled = false
 normal_enabled = false
 rim_enabled = false
 clearcoat_enabled = false
@@ -65,7 +52,12 @@ uv2_triplanar = false
 uv2_triplanar_sharpness = 1.0
 proximity_fade_enable = false
 distance_fade_enable = false
-_sections_unfolded = [ "Emission" ]
+
+[sub_resource type="QuadMesh" id=5]
+
+material = SubResource( 4 )
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+size = Vector2( 1, 1 )
 
 [sub_resource type="SphereShape" id=3]
 
@@ -91,9 +83,9 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 5 )
 skeleton = NodePath("..")
-material/0 = SubResource( 2 )
+material/0 = null
 _sections_unfolded = [ "Transform", "material" ]
 
 [node name="Area" type="Area" parent="." index="1"]
@@ -110,7 +102,7 @@ angular_damp = 1.0
 priority = 0.0
 monitoring = true
 monitorable = true
-collision_layer = 2
+collision_layer = 8
 collision_mask = 2
 audio_bus_override = false
 audio_bus_name = "Master"
