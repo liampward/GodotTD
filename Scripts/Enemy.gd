@@ -11,17 +11,23 @@ var DEATH = preload("res://Scenes/EnemyDeathSound.tscn")
 var particle_scene
 var board_node
 var root_node
+var type
 
 func _ready():
 	particle_scene = preload("res://Scenes/SmokeParticle.tscn")
 	root_node = get_tree().get_root().get_node("Root")
 	board_node = root_node.get_node("Board")
 	self.set_material_override(matl)
-	matl.albedo_color = Color(1, 0, 0)
+	if(type == 1):
+		matl.albedo_color = Color(0.5, 0.5, 0.5)
+	if(type == 2):
+		matl.albedo_color = Color(1, 0, 0)
+	if(type == 3):
+		matl.albedo_color = Color(0, 0, 1)
 
 func _process(delta):
 	translation += Vector3(1, 0, 0) * MOVE_SPEED * delta
-
+	
 	if hp_cur <= 0:
 		var deathSound = DEATH.instance()
 		self.get_parent().add_child(deathSound)
@@ -35,7 +41,7 @@ func _process(delta):
 
 func hurt(dmg):
 	hp_cur -= dmg
-	matl.albedo_color = Color(hp_cur / hp_max, 0, 0)
+	matl.albedo_color = matl.albedo_color * (hp_cur / hp_max)
 
 
 func _on_Area_area_entered(area):

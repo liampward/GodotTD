@@ -13,6 +13,7 @@ var timer
 var spawn_neut = 0
 var spawn_mag = 0
 var spawn_phys = 0
+var stat_scale = 1
 
 var spawn_configuration
 
@@ -49,10 +50,14 @@ func Spawn(Type):
 	var Clone
 	if (Type == 3):
 		Clone = MagicEnemy.instance()
+		Clone.type = 3
 	elif(Type == 2):
 		Clone = PhysicalEnemy.instance()
+		Clone.type = 2
 	else:
 		Clone = NeutralEnemy.instance()
+		Clone.type = 1
+	Clone.hp_cur = Clone.hp_max * stat_scale
 	Root_Node.add_child(Clone)
 	Clone.set_translation(Vector3(0, 0, 0))
 	
@@ -60,6 +65,7 @@ func ParseWave():
 	done_spawning = false
 	var line = spawn_configuration.get_line()
 	line = line.split(",")
+	stat_scale = float(line[3])
 	if(line.size() == 4):
 		spawn_neut = int(line[0])
 		spawn_phys = int(line[1])
