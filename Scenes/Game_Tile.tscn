@@ -67,7 +67,7 @@ subdivide_depth = 0
 
 extents = Vector3( 1, 1, 1 )
 
-[node name="MeshInstance" type="MeshInstance"]
+[node name="MeshInstance" type="MeshInstance" index="0"]
 
 transform = Transform( 1.28789, 0, 0, 0, 0.316581, 0, 0, 0, 1.28789, 0, 0, 0 )
 layers = 1
@@ -99,7 +99,7 @@ angular_damp = 1.0
 priority = 0.0
 monitoring = true
 monitorable = true
-collision_layer = 2
+collision_layer = 4
 collision_mask = 1
 audio_bus_override = false
 audio_bus_name = "Master"

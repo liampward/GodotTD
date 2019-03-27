@@ -9,7 +9,7 @@ var button2
 var button3
 
 func _ready():
-	money = 100
+	money = 10000
 	health = 10
 	wave_num = 0
 	
