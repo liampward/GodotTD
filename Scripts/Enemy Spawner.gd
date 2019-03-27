@@ -57,7 +57,8 @@ func Spawn(Type):
 	else:
 		Clone = NeutralEnemy.instance()
 		Clone.type = 1
-	Clone.hp_cur = Clone.hp_max * stat_scale
+	Clone.hp_max *= stat_scale
+	Clone.hp_cur = Clone.hp_max 
 	Root_Node.add_child(Clone)
 	Clone.set_translation(Vector3(0, 0, 0))
 	
@@ -65,8 +66,8 @@ func ParseWave():
 	done_spawning = false
 	var line = spawn_configuration.get_line()
 	line = line.split(",")
-	stat_scale = float(line[3])
 	if(line.size() == 4):
+		stat_scale = float(line[3])
 		spawn_neut = int(line[0])
 		spawn_phys = int(line[1])
 		spawn_mag = int(line[2])

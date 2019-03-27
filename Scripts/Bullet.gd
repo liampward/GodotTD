@@ -1,13 +1,10 @@
 extends Spatial
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
 
 var damage = 100
-var speed = 5
+var speed = 10
 var dir
-var lifetime = 20
+var lifetime = 10
 var root_node
 var board_node
 var targ

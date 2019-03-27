@@ -11,6 +11,7 @@ var DEATH = preload("res://Scenes/EnemyDeathSound.tscn")
 var particle_scene
 var board_node
 var root_node
+
 var type
 
 func _ready():
