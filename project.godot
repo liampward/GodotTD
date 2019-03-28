@@ -14,6 +14,10 @@ config/name="Tower Defense"
 run/main_scene="res://Scenes/MainMenu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://Scripts/Global.gd"
+
 [display]
 
 window/stretch/mode="2d"
@@ -28,6 +32,15 @@ UPGRADE2=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":
  ]
 UPGRADE3=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":51,"unicode":0,"echo":false,"script":null)
  ]
+
+[layer_names]
+
+3d_physics/layer_1="NEUTENEMY"
+3d_physics/layer_2="PHYSENEMY"
+3d_physics/layer_3="MAGENEMY"
+3d_physics/layer_4="BULLET"
+3d_physics/layer_5="TILE"
+3d_physics/layer_11="TOWER"
 
 [rendering]
 
