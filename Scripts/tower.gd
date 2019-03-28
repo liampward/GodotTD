@@ -32,6 +32,7 @@ func _ready():
 	NEUTRAL = preload("res://Scenes/baseTower.tscn")
 	$Area.connect("area_entered", self, "_on_Area_area_entered")
 	$Area.connect("area_exited", self, "_on_Area_area_exited")
+	Stack.append(self)
 	
 func attack(enemy):
 	if canFire:
@@ -53,18 +54,15 @@ func attack(enemy):
 
 func setType(type):
 	self.type = type
-	if type == NEUT:
-		print("Made a Neutral")
+	if type == NEUT:		
 		pass
 	elif self.type == MAG:
-		print("Made a Magic")
-		pass
+		fireRange = 1.3
+		fireRate = 1.3
 	elif self.type == PHYS:
-		print("Made a Physical")
-		pass
-	else:
-		print("ERROR: Unrecognized type!")
-
+		damage = 13
+		fireRange = 0.8
+		
 func _process(delta):
 	if !canFire:
 		interval -= delta
@@ -100,7 +98,7 @@ func upgrade(num):
 			#Magic Tower
 			tower = MAGIC.instance()
 			tower.setType(MAG)
-
+		
 			
 		tower.set_translation(self.get_node("UpgradePoint").get_translation())
 		tower.translate(Vector3(0, 1.3, 0) * upgradeLevel)
@@ -110,4 +108,15 @@ func upgrade(num):
 		var board_node = root_node.get_node("Board")
 		upgradeLevel += 1
 		
+		for i in range(0, Stack.size()):
+			if num == 1:
+				Stack[i].damage *= 1.1
+				Stack[i].fireRange *= 1.1
+				Stack[i].fireRate -= 0.2
+			if num == 2:
+				Stack[i].damage *= 1.3
+				Stack[i].fireRange *= 0.8
+			if num == 3:
+				Stack[i].fireRange *= 1.3
+				Stack[i].fireRate += 0.3
 		

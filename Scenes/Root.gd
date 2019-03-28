@@ -20,6 +20,7 @@ func _ready():
 
 
 func _process(delta):
+	Global.Wave_Count = wave_num
 	if(Input.is_key_pressed(KEY_ESCAPE)):
 		get_tree().quit()
 	if(Input.is_action_just_pressed("UPGRADE1")):
@@ -28,3 +29,5 @@ func _process(delta):
 		button2._pressed()
 	if(Input.is_action_just_pressed("UPGRADE3")):
 		button3._pressed()
+	if(health <= 0):
+		get_tree().change_scene("res://Scenes/GameOver.tscn")
