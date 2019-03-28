@@ -26,12 +26,13 @@ func purchase(type):
 		var new_tower
 		if(type == "NEUTRAL"):
 			new_tower = NEUTRAL.instance()
-			
+			new_tower.setType(new_tower.NEUT)
 		if(type == "PHYSICAL"):
 			new_tower = PHYSICAL.instance()
-		
+			new_tower.setType(new_tower.PHYS)
 		if(type == "MAGIC"):
 			new_tower = MAGIC.instance()
+			new_tower.setType(new_tower.MAG)
 		
 		if(tile.tower == null && root_node.money >= 10):
 			new_tower.set_translation(Vector3(0, 1, 0))

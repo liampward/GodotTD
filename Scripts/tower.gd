@@ -9,7 +9,10 @@ var MAGIC
 var PHYSICAL
 var NEUTRAL
 
+enum Tower {NEUT,PHYS,MAG}
+
 export onready var price = 10
+export onready var type = NEUT
 
 var damage = 10
 var fireRange = 1
@@ -17,6 +20,7 @@ var fireRate = 1
 var interval = fireRate
 var canFire = true
 var upgradeLevel = 0;
+
 var Stack = []
 var targs = []
 
@@ -47,6 +51,20 @@ func attack(enemy):
 		
 	
 
+func setType(type):
+	self.type = type
+	if type == NEUT:
+		print("Made a Neutral")
+		pass
+	elif self.type == MAG:
+		print("Made a Magic")
+		pass
+	elif self.type == PHYS:
+		print("Made a Physical")
+		pass
+	else:
+		print("ERROR: Unrecognized type!")
+
 func _process(delta):
 	if !canFire:
 		interval -= delta
@@ -73,12 +91,15 @@ func upgrade(num):
 		if num == 1:
 			#Neutral Tower
 			tower = NEUTRAL.instance()
+			tower.setType(NEUT)
 		if num == 2:
 			#Neutral Tower
 			tower = PHYSICAL.instance()
+			tower.setType(PHYS)
 		if num == 3:
 			#Magic Tower
 			tower = MAGIC.instance()
+			tower.setType(MAG)
 
 			
 		tower.set_translation(self.get_node("UpgradePoint").get_translation())
