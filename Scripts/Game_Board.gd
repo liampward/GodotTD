@@ -29,7 +29,7 @@ func _ready():
 func _process(delta):
 	if(Input.is_mouse_button_pressed(BUTTON_LEFT) and on_menu == false):
 		var collision = get_object_under_mouse()
-		if !collision.empty():
+		if !collision.empty(): ##yeet
 			if selected_tile != null:
 				selected_tile.selected = false
 			collision.collider.get_parent().selected = true

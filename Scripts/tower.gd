@@ -1,14 +1,6 @@
 extends Spatial
 signal intruder
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-var BULLET
-var MAGIC
-var PHYSICAL
-var NEUTRAL
-
 export onready var price = 10
 
 var damage = 10
@@ -20,12 +12,12 @@ var upgradeLevel = 0;
 var Stack = []
 var targs = []
 
+var BULLET = preload("res://Scenes/Bullet.tscn")
+var MAGIC = preload("res://Scenes/magicTower.tscn")
+var PHYSICAL = preload("res://Scenes/physTower.tscn")
+var NEUTRAL = preload("res://Scenes/baseTower.tscn")
+
 func _ready():
-	preload("res://Scripts/Bullet.gd")
-	BULLET = preload("res://Scenes/Bullet.tscn")
-	MAGIC = preload("res://Scenes/magicTower.tscn")
-	PHYSICAL = preload("res://Scenes/physTower.tscn")
-	NEUTRAL = preload("res://Scenes/baseTower.tscn")
 	$Area.connect("area_entered", self, "_on_Area_area_entered")
 	$Area.connect("area_exited", self, "_on_Area_area_exited")
 	
@@ -53,10 +45,8 @@ func _process(delta):
 		if interval <= 0:
 			interval = fireRate
 			canFire = true
-	for i in range(len(targs)):
-		if targs[i].get_parent().is_in_group("ENEMY"):
-			attack(targs[i].get_parent())
-			break
+	if(len(targs) != 0 && canFire):
+		attack(targs[0].get_parent())
 
 func _on_Area_area_entered(badGuy):
 	if badGuy.get_parent().is_in_group("ENEMY"):
