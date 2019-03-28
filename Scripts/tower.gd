@@ -15,7 +15,7 @@ export onready var price = 10
 export onready var type = NEUT
 
 var damage = 10
-var fireRange = 1
+var fireRange = 3
 var fireRate = 1
 var interval = fireRate
 var canFire = true
@@ -57,11 +57,11 @@ func setType(type):
 	if type == NEUT:		
 		pass
 	elif self.type == MAG:
-		fireRange = 1.3
+		fireRange = 4.5
 		fireRate = 1.3
 	elif self.type == PHYS:
 		damage = 13
-		fireRange = 0.8
+		fireRange = 2.5
 		
 func _process(delta):
 	if !canFire:
@@ -111,12 +111,13 @@ func upgrade(num):
 		for i in range(0, Stack.size()):
 			if num == 1:
 				Stack[i].damage *= 1.1
-				Stack[i].fireRange *= 1.1
+				Stack[i].fireRange += 0.5
 				Stack[i].fireRate -= 0.2
 			if num == 2:
 				Stack[i].damage *= 1.3
-				Stack[i].fireRange *= 0.8
+				Stack[i].fireRange -= 0.5
 			if num == 3:
-				Stack[i].fireRange *= 1.3
+				Stack[i].fireRange += 0.5
 				Stack[i].fireRate += 0.3
+			Stack[i].get_node("Area").get_node("CollisionShape").scale = Vector3(fireRange, fireRange, 1)
 		

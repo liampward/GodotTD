@@ -6,7 +6,7 @@
 
 [sub_resource type="BoxShape" id=1]
 
-extents = Vector3( 3, 3, 1 )
+extents = Vector3( 1, 1, 1 )
 
 [node name="Spatial" type="Spatial" index="0"]
 
@@ -61,10 +61,10 @@ _sections_unfolded = [ "Collision", "Pause", "Transform" ]
 
 [node name="CollisionShape" type="CollisionShape" parent="Area" index="0"]
 
-transform = Transform( 2, 0, -4.37114e-008, -8.74228e-008, 3.82137e-015, -1, 0, 2, 1.91069e-015, 0, 0, 0 )
+transform = Transform( 4.5, 3.75834e-022, -3.65072e-030, 0, -1.96701e-007, -1, -3.75834e-022, 4.5, -4.37114e-008, 0, 0, 0 )
 shape = SubResource( 1 )
 disabled = false
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="2"]
 
