@@ -10,7 +10,7 @@ var button3
 
 func _ready():
 	money = 10000
-	health = 10
+	health = 1
 	wave_num = 0
 	
 	board_node = self.get_node("Board")
@@ -28,3 +28,5 @@ func _process(delta):
 		button2._pressed()
 	if(Input.is_action_just_pressed("UPGRADE3")):
 		button3._pressed()
+	if(health <= 0):
+		get_tree().change_scene("res://Scenes/GameOver.tscn")
