@@ -8,7 +8,7 @@
 
 extents = Vector3( 2, 2, 1 )
 
-[node name="baseTower" type="Spatial" index="0"]
+[node name="baseTower" type="Spatial"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
