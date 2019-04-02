@@ -27,20 +27,19 @@ func _ready():
 	Stack.append(self)
 	
 func attack(enemy):
-	if canFire:
-		self.get_node("AudioStreamPlayer").play()
-		var bullet = BULLET.instance()
-		bullet.set_name("myBullet")
-		bullet.set_translation(self.get_translation())
-		bullet.targ = weakref(enemy)
-		bullet.dir = enemy.get_global_transform().origin - self.get_global_transform().origin  
-		bullet.dir.y = 0
-		bullet.dir = bullet.dir.normalized()
-		bullet.damage = damage
-		self.add_child(bullet)
-		var root_node = get_tree().get_root().get_node("Root")
-		var board_node = root_node.get_node("Board")
-		canFire = false
+	self.get_node("AudioStreamPlayer").play()
+	var bullet = BULLET.instance()
+	bullet.set_name("myBullet")
+	bullet.set_translation(self.get_translation())
+	bullet.targ = weakref(enemy)
+	bullet.dir = enemy.get_global_transform().origin - self.get_global_transform().origin  
+	bullet.dir.y = 0
+	bullet.dir = bullet.dir.normalized()
+	bullet.damage = damage
+	self.add_child(bullet)
+	var root_node = get_tree().get_root().get_node("Root")
+	var board_node = root_node.get_node("Board")
+	canFire = false
 		
 	
 
@@ -54,17 +53,15 @@ func setType(type):
 	elif self.type == PHYS:
 		damage = 13
 		fireRange = 2.5
-		
+
 func _process(delta):
 	if !canFire:
 		interval -= delta
 		if interval <= 0:
 			interval = fireRate
 			canFire = true
-	for i in range(len(targs)):
-		if targs[i].get_parent().is_in_group("ENEMY"):
-			attack(targs[i].get_parent())
-			break
+	if canFire and len(targs) > 0:
+		attack(targs[0].get_parent())
 
 func _on_Area_area_entered(badGuy):
 	if badGuy.get_parent().is_in_group("ENEMY"):
