@@ -2,20 +2,20 @@ extends MeshInstance
 
 const MOVE_SPEED = 5
 
+onready var amap = get_node("/root/Root/Board")
+
 var hp_max = 100.0
 var hp_cur = hp_max
-
 var matl = SpatialMaterial.new()
-
 var DEATH = preload("res://Scenes/EnemyDeathSound.tscn")
-var particle_scene
+var particle_scene = preload("res://Scenes/SmokeParticle.tscn")
 var board_node
 var root_node
-
 var type
+var path = []
+var path_idx = 0
 
 func _ready():
-	particle_scene = preload("res://Scenes/SmokeParticle.tscn")
 	root_node = get_tree().get_root().get_node("Root")
 	board_node = root_node.get_node("Board")
 	self.set_material_override(matl)
@@ -26,13 +26,23 @@ func _ready():
 	if(type == 3):
 		matl.albedo_color = Color(0, 0, 1)
 
+	move_to(Vector3(33, 0, 10))
+
+func _physics_process(delta):
+	if path_idx < path.size():
+		var move_vec = path[path_idx] - global_transform.origin
+		if move_vec.length() < 0.1:
+			path_idx += 1
+		else:
+			translate(move_vec.normalized() * MOVE_SPEED * delta)
+
 func _process(delta):
-	translation += Vector3(1, 0, 0) * MOVE_SPEED * delta
-	
+#	translation += Vector3(1, 0, 0) * MOVE_SPEED * delta
+
 	if hp_cur <= 0:
 		var deathSound = DEATH.instance()
 		self.get_parent().add_child(deathSound)
-		
+
 		queue_free()
 		var particle_spawner = particle_scene.instance()
 		get_parent().add_child(particle_spawner)
@@ -44,6 +54,9 @@ func hurt(dmg):
 	hp_cur -= dmg
 	matl.albedo_color = matl.albedo_color * (hp_cur / hp_max)
 
+func move_to(target):
+	path = amap.get_path(global_transform.origin, target)
+	path_idx = 0
 
 func _on_Area_area_entered(area):
 	if area.get_parent().is_in_group("BULLET"):

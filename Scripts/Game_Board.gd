@@ -1,10 +1,14 @@
 extends Spatial
 
+const RAY_LENGTH = 100
+const BOARD_ROWS = 16
+const BOARD_COLS = 10
+
+onready var tile = preload("res://Scenes/GameTile.tscn")
+onready var wall = preload("res://Scenes/Wall.tscn")
 onready var gm = get_node("AStarNodes")
 onready var as = AStar.new()
 
-var board_size = 10
-var RAY_LENGTH = 100
 var selected_tile = null
 var on_menu = false
 
@@ -13,18 +17,44 @@ var on_menu = false
 var points = {}
 
 func _ready():
-	var Tile_Scene = load("res://Scenes/Game_Tile.tscn")
-	var Wall_Scene = load("res://Scenes/wall.tscn")
-	for i in range(0,board_size * 1.7):
-		for j in range(0,board_size):
-			var tile = Tile_Scene.instance()
-			self.add_child(tile)
-			tile.set_translation(Vector3(i * 2.75, 0, j * -2.75))
-#			gm.set_cell_item(i * 2.75, 0, j * -2.75, 0)
-	var wall = Wall_Scene.instance()
-	self.add_child(wall)
-	wall.set_translation(Vector3((board_size * 1.7) * 2.75, 0, (board_size / 2) * -2.75))
-	wall.set_scale(Vector3(0.2, 2, board_size * 1.7))
+	# Build the game board
+	for z in range(BOARD_COLS):
+		for x in range(BOARD_ROWS):
+			var new_tile = tile.instance()
+			var pos = Vector3((x * 2) + 1, 0, (z * 2) + 1)
+			new_tile.set_translation(pos)
+			add_child(new_tile)
+			var map_pos = gm.world_to_map(pos)
+			gm.set_cell_item(map_pos.x, map_pos.y, map_pos.z, 0)
+	var new_wall = wall.instance()
+	new_wall.set_translation(Vector3((BOARD_ROWS * 2) + 1, 0, BOARD_COLS))
+	add_child(new_wall)
+
+	# Set camera pivot to the center of the game board
+	var cam_pivot_x = get_parent().get_node("CameraPivotX")
+	cam_pivot_x.set_translation(Vector3(BOARD_ROWS, 0, BOARD_COLS))
+
+	# Get all the GridMap cells (red cubes) in the level
+	var cells = gm.get_used_cells()
+
+	# Create a graph of A* nodes (one for each red cube)
+	for c in cells:
+		var id = as.get_available_point_id()
+		as.add_point(id, gm.map_to_world(c.x, c.y, c.z))
+		points[vec3_to_string(c)] = id
+
+	# Connect all the nodes on the graph to their neighbors
+	for c in cells:
+		for x in [-1, 0, 1]:
+			for z in [-1, 0, 1]:
+				if x == 0 and z == 0:
+					continue
+				var offset = Vector3(x, 0, z)
+				if vec3_to_string(c + offset) in points:
+					var id1 = points[vec3_to_string(c)]
+					var id2 = points[vec3_to_string(c + offset)]
+					if not as.are_points_connected(id1, id2):
+						as.connect_points(id1, id2, true)
 
 func _process(delta):
 	if(Input.is_mouse_button_pressed(BUTTON_LEFT) and on_menu == false):
@@ -43,6 +73,37 @@ func get_object_under_mouse():
 	var space_state = camera.get_world().direct_space_state
 	var selection = space_state.intersect_ray(ray_from, ray_to, [], 16)
 	return selection
+
+func vec3_to_string(v):
+	"""
+	Convert a Vector3 into a string for use as a dictionary key.
+
+	:param v: The Vector3 to be converted
+	:return: A string of the form "x,y,z"
+	"""
+	return str(int(round(v.x))) + "," + str(int(round(v.y))) + "," + str(int(round(v.z)))
+
+func get_path(start, end):
+	"""
+	Find the shortest path between two global positions using the A* algorithm.
+
+	:param start: A Vector3 representing the starting position
+	:param end: A Vector3 representing the ending position
+	:return: An array of the points that form the path, ordered from start to end
+	"""
+	var gm_start = vec3_to_string(gm.world_to_map(start))
+	var gm_end = vec3_to_string(gm.world_to_map(end))
+	var start_id = 0
+	var end_id = 0
+	if gm_start in points:
+		start_id = points[gm_start]
+	else:
+		start_id = as.get_closest_point(start)
+	if gm_end in points:
+		end_id = points[gm_end]
+	else:
+		end_id = as.get_closest_point(end)
+	return as.get_point_path(start_id, end_id)
 
 func _on_GameArea_mouse_entered():
 	on_menu = false

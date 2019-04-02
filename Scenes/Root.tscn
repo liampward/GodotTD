@@ -93,7 +93,6 @@ script = ExtResource( 1 )
 
 [node name="Board" type="Spatial" parent="." index="0"]
 
-editor/display_folded = true
 script = ExtResource( 2 )
 
 [node name="AStarNodes" type="GridMap" parent="Board" index="0"]
@@ -128,7 +127,6 @@ script = ExtResource( 6 )
 
 [node name="CameraPivotX" type="Position3D" parent="." index="4"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9554, 0, -10.3497 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CameraPivotY" type="Position3D" parent="CameraPivotX" index="0"]
@@ -137,7 +135,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Camera" type="Camera" parent="CameraPivotX/CameraPivotY" index="0"]
 
-transform = Transform( 1, 0, 0, 0, 0.475883, 0.879509, 0, -0.879509, 0.475883, 8.14565, 24.8541, 18.2665 )
+transform = Transform( 1, 0, 0, 0, 0.866026, 0.5, 0, -0.5, 0.866026, 5, 15, 30 )
 keep_aspect = 1
 cull_mask = 1048575
 environment = SubResource( 1 )
@@ -151,6 +149,7 @@ size = 1.0
 near = 0.05
 far = 100.0
 script = ExtResource( 7 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="GameArea" type="ColorRect" parent="." index="5"]
 

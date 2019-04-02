@@ -1,9 +1,6 @@
 extends Spatial
 signal intruder
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
 var BULLET
 var MAGIC
 var PHYSICAL
@@ -49,8 +46,6 @@ func attack(enemy):
 		var root_node = get_tree().get_root().get_node("Root")
 		var board_node = root_node.get_node("Board")
 		canFire = false
-		
-	
 
 func setType(type):
 	self.type = type
