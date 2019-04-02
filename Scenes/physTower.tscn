@@ -6,7 +6,7 @@
 
 [sub_resource type="BoxShape" id=1]
 
-extents = Vector3( 1.5, 1.5, 1 )
+extents = Vector3( 1, 1, 1 )
 
 [node name="physTower" type="Spatial"]
 
@@ -67,7 +67,7 @@ _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="CollisionShape" type="CollisionShape" parent="Area" index="0"]
 
-transform = Transform( 1.99989, 4.87432e-012, 0.010563, 0.021126, -9.23448e-010, -0.999944, 4.87432e-012, 2, -4.61724e-010, 0, 0, 0 )
+transform = Transform( 2.49986, 6.0929e-012, 0.010563, 0.0264075, -1.15431e-009, -0.999944, 6.0929e-012, 2.5, -4.61724e-010, 0, 0, 0 )
 shape = SubResource( 1 )
 disabled = false
 _sections_unfolded = [ "Transform" ]
