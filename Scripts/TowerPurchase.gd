@@ -24,6 +24,8 @@ func purchase(type):
 		var tile = board_node.selected_tile
 		var tile_scale = tile.get_scale()
 		var new_tower
+
+		# Replace this with a switch?
 		if(type == "NEUTRAL"):
 			new_tower = NEUTRAL.instance()
 			new_tower.setType(new_tower.NEUT)
@@ -40,3 +42,4 @@ func purchase(type):
 			tile.add_child(new_tower)
 			tile.tower = new_tower
 			root_node.money -= board_node.selected_tile.tower.price
+			board_node.as.remove_point(tile.astar_node_id)

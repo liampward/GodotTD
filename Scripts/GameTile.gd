@@ -5,6 +5,7 @@ var old_matl
 var tower = null
 var selected = false
 var moved = false
+var astar_node_id
 
 func _ready():
 	old_matl = get_surface_material(0)
