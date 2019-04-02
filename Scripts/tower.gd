@@ -1,14 +1,18 @@
 extends Spatial
 signal intruder
 
+enum Tower {NEUT,PHYS,MAG}
+
 export onready var price = 10
+export onready var type = NEUT
 
 var damage = 10
-var fireRange = 1
+var fireRange = 3
 var fireRate = 1
 var interval = fireRate
 var canFire = true
 var upgradeLevel = 0;
+
 var Stack = []
 var targs = []
 
@@ -20,6 +24,7 @@ var NEUTRAL = preload("res://Scenes/baseTower.tscn")
 func _ready():
 	$Area.connect("area_entered", self, "_on_Area_area_entered")
 	$Area.connect("area_exited", self, "_on_Area_area_exited")
+	Stack.append(self)
 	
 func attack(enemy):
 	if canFire:
@@ -39,14 +44,27 @@ func attack(enemy):
 		
 	
 
+func setType(type):
+	self.type = type
+	if type == NEUT:		
+		pass
+	elif self.type == MAG:
+		fireRange = 4.5
+		fireRate = 1.3
+	elif self.type == PHYS:
+		damage = 13
+		fireRange = 2.5
+		
 func _process(delta):
 	if !canFire:
 		interval -= delta
 		if interval <= 0:
 			interval = fireRate
 			canFire = true
-	if(len(targs) != 0 && canFire):
-		attack(targs[0].get_parent())
+	for i in range(len(targs)):
+		if targs[i].get_parent().is_in_group("ENEMY"):
+			attack(targs[i].get_parent())
+			break
 
 func _on_Area_area_entered(badGuy):
 	if badGuy.get_parent().is_in_group("ENEMY"):
@@ -63,13 +81,16 @@ func upgrade(num):
 		if num == 1:
 			#Neutral Tower
 			tower = NEUTRAL.instance()
+			tower.setType(NEUT)
 		if num == 2:
 			#Neutral Tower
 			tower = PHYSICAL.instance()
+			tower.setType(PHYS)
 		if num == 3:
 			#Magic Tower
 			tower = MAGIC.instance()
-
+			tower.setType(MAG)
+		
 			
 		tower.set_translation(self.get_node("UpgradePoint").get_translation())
 		tower.translate(Vector3(0, 1.3, 0) * upgradeLevel)
@@ -79,4 +100,16 @@ func upgrade(num):
 		var board_node = root_node.get_node("Board")
 		upgradeLevel += 1
 		
+		for i in range(0, Stack.size()):
+			if num == 1:
+				Stack[i].damage *= 1.1
+				Stack[i].fireRange += 0.5
+				Stack[i].fireRate -= 0.2
+			if num == 2:
+				Stack[i].damage *= 1.3
+				Stack[i].fireRange -= 0.5
+			if num == 3:
+				Stack[i].fireRange += 0.5
+				Stack[i].fireRate += 0.3
+			Stack[i].get_node("Area").get_node("CollisionShape").scale = Vector3(fireRange, fireRange, 1)
 		
