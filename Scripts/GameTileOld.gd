@@ -15,7 +15,7 @@ func _ready():
 	matl.emission_enabled = true
 	matl.emission = Color(0.1, 0.8, 0.1)
 	matl.emission_energy = 1
-	
+
 func _process(delta):
 	if selected == true and moved == false:
 		self.translation.y += 0.3
