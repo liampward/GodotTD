@@ -41,7 +41,7 @@ func get_object_under_mouse():
 	var ray_from = camera.project_ray_origin(mouse_pos)
 	var ray_to = ray_from + camera.project_ray_normal(mouse_pos) * RAY_LENGTH
 	var space_state = camera.get_world().direct_space_state
-	var selection = space_state.intersect_ray(ray_from, ray_to, [], 4)
+	var selection = space_state.intersect_ray(ray_from, ray_to, [], 16)
 	return selection
 
 func _on_GameArea_mouse_entered():
