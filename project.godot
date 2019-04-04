@@ -43,6 +43,7 @@ UPGRADE3=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":
 3d_physics/layer_6="neutBullet"
 3d_physics/layer_7="physBullet"
 3d_physics/layer_8="magBullet"
+3d_physics/layer_9="wall"
 3d_physics/layer_11="tower"
 
 [rendering]
