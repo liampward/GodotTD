@@ -97,6 +97,7 @@ script = ExtResource( 2 )
 
 [node name="AStarNodes" type="GridMap" parent="Board" index="0"]
 
+visible = false
 theme = ExtResource( 3 )
 cell_size = Vector3( 2, 2, 2 )
 cell_octant_size = 8

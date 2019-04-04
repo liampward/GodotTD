@@ -8,15 +8,16 @@ var NEUTRAL
 
 enum Tower {NEUT,PHYS,MAG}
 
-export onready var price = 10
-export onready var type = NEUT
+export onready var price = 10 
+var type = null
 
 var damage = 10
 var fireRange = 3
 var fireRate = 1
 var interval = fireRate
 var canFire = true
-var upgradeLevel = 0;
+var upgradeLevel = 0
+var bottomTower = false
 
 var Stack = []
 var targs = []
@@ -101,12 +102,11 @@ func upgrade(num):
 		Stack.append(tower)
 		var root_node = get_tree().get_root().get_node("Root")
 		var board_node = root_node.get_node("Board")
-		upgradeLevel += 1
 		
 		for i in range(0, Stack.size()):
 			if num == 1:
 				Stack[i].damage *= 1.1
-				Stack[i].fireRange += 0.5
+				Stack[i].fireRange += 0.2
 				Stack[i].fireRate -= 0.2
 			if num == 2:
 				Stack[i].damage *= 1.3
@@ -114,5 +114,48 @@ func upgrade(num):
 			if num == 3:
 				Stack[i].fireRange += 0.5
 				Stack[i].fireRate += 0.3
+			Stack[i].interval = Stack[i].fireRate
 			Stack[i].get_node("Area").get_node("CollisionShape").scale = Vector3(fireRange, fireRange, 1)
-		
+		upgradeLevel += 1
+	if upgradeLevel == 2:
+		if checkStack()[0] == 3:
+				#Neutral Stack
+				for i in range(0, Stack.size()):
+					Stack[i].fireRate = 0.2
+					Stack[i].damage = 2
+					Stack[i].interval = Stack[i].fireRate
+		else: if checkStack()[1] == 3:
+				#Physical Stack
+				for i in range(0, Stack.size()):
+					Stack[i].fireRate = 1.5
+					Stack[i].damage = 33
+					Stack[i].fireRange = 1
+					Stack[i].interval = Stack[i].fireRate
+					Stack[i].get_node("Area").get_node("CollisionShape").scale = Vector3(fireRange, fireRange, 1)
+		else: if checkStack()[2] == 3:
+				#Magical Stack
+				for i in range(0, Stack.size()):
+					Stack[i].fireRate = 2
+					Stack[i].fireRange = 10
+					Stack[i].interval = Stack[i].fireRate
+					Stack[i].get_node("Area").get_node("CollisionShape").scale = Vector3(fireRange, fireRange, 1)
+		else: if checkStack()[0] == 1 && checkStack()[1] == 1 && checkStack()[2] == 1:
+				#Everyone Stack
+				for i in range(0, Stack.size()):
+					Stack[i].fireRate = 0.5
+					Stack[i].damage = 15
+					Stack[i].fireRange = 5
+					Stack[i].interval = Stack[i].fireRate
+					Stack[i].get_node("Area").get_node("CollisionShape").scale = Vector3(fireRange, fireRange, 1)
+func checkStack():
+	var N = 0
+	var P = 0
+	var M = 0
+	for i in range(0, Stack.size()):
+		if Stack[i].type == NEUT:
+			N += 1
+		if Stack[i].type == MAG:
+			M += 1
+		if Stack[i].type == PHYS:
+			P += 1
+	return [N, P, M]

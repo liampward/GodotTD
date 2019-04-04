@@ -2,7 +2,7 @@ extends Spatial
 
 
 var damage = 100
-var speed = 10
+var speed = 30
 var dir
 var lifetime = 10
 var root_node
