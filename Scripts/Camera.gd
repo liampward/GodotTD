@@ -13,7 +13,6 @@ func _process(delta):
 		
 	rotate = Vector2(0, 0)
 
-
 func _input(event):
 	if event is InputEventMouseButton && event.button_index == 3:
 			canMove = !canMove;
