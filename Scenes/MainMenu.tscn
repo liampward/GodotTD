@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://media/ariblk.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/PlayButton.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/ExitButton.gd" type="Script" id=3]
+[ext_resource path="res://media/Bio_Unit_-_10_-_Outer_Reaches.wav" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -146,5 +147,14 @@ flat = false
 align = 1
 script = ExtResource( 3 )
 _sections_unfolded = [ "custom_fonts" ]
+
+[node name="opening theme" type="AudioStreamPlayer" parent="." index="1"]
+
+stream = ExtResource( 4 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 0
+bus = "Master"
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Root.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Game_Board.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Scenes/Pause_Menu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/Enemy Spawner.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/Camera.gd" type="Script" id=7]
+[ext_resource path="res://media/Bio_Unit_-_03_-_Glass_Beach.wav" type="AudioStream" id=8]
 
 [sub_resource type="Environment" id=1]
 
@@ -194,6 +195,15 @@ directional_shadow_bias_split_scale = 0.25
 directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
 _sections_unfolded = [ "Light", "Shadow" ]
+
+[node name="In game Music" type="AudioStreamPlayer" parent="." index="7"]
+
+stream = ExtResource( 8 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 0
+bus = "Master"
 
 [connection signal="mouse_entered" from="GameArea" to="Board" method="_on_GameArea_mouse_entered"]
 
