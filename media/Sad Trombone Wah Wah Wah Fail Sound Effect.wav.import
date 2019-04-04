@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Sad Trombone Wah Wah Wah Fail Sound Effect.wav-5dbcf36854e94eda534f18c38ffd378b.sample"
+
+[deps]
+
+source_file="res://media/Sad Trombone Wah Wah Wah Fail Sound Effect.wav"
+dest_files=[ "res://.import/Sad Trombone Wah Wah Wah Fail Sound Effect.wav-5dbcf36854e94eda534f18c38ffd378b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

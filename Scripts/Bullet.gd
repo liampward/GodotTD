@@ -2,12 +2,13 @@ extends Spatial
 
 
 var damage = 100
-var speed = 10
+var speed = 30
 var dir
 var lifetime = 10
 var root_node
 var board_node
 var targ
+var type
 
 func move(delta):
 	if targ.get_ref():
@@ -17,7 +18,6 @@ func move(delta):
 	lifetime -= delta
 	if (lifetime <= 0):
 		queue_free()
-	
 func _ready():
 	root_node = get_tree().get_root().get_node("Root")
 	board_node = root_node.get_node("Board")

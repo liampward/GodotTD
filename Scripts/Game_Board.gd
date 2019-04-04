@@ -2,7 +2,7 @@ extends Spatial
 
 const RAY_LENGTH = 100
 const BOARD_ROWS = 16
-const BOARD_COLS = 10
+const BOARD_COLS = 11
 
 onready var tile = preload("res://Scenes/GameTile.tscn")
 onready var wall = preload("res://Scenes/Wall.tscn")
@@ -29,8 +29,11 @@ func _ready():
 			var map_pos = gm.world_to_map(pos)
 			gm.set_cell_item(map_pos.x, map_pos.y, map_pos.z, 0)
 	var new_wall = wall.instance()
-	new_wall.set_translation(Vector3((BOARD_ROWS * 2) + 1, 0, BOARD_COLS))
+	var wall_pos = Vector3((BOARD_ROWS * 2) + 1, 1, BOARD_COLS)
+	var wall_node_id = as.get_available_point_id()
+	new_wall.set_translation(wall_pos)
 	add_child(new_wall)
+	as.add_point(wall_node_id, wall_pos)
 
 	# Set camera pivot to the center of the game board
 	var cam_pivot_x = get_parent().get_node("CameraPivotX")
@@ -60,6 +63,7 @@ func _ready():
 					var id2 = points[vec3_to_string(c + offset)]
 					if not as.are_points_connected(id1, id2):
 						as.connect_points(id1, id2, true)
+	as.connect_points(points[vec3_to_string(Vector3(15, 0, 5))], wall_node_id, true)
 
 func _process(delta):
 	if(Input.is_mouse_button_pressed(BUTTON_LEFT) and on_menu == false):

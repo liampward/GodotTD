@@ -37,6 +37,8 @@ func purchase(type):
 			new_tower.setType(new_tower.MAG)
 		
 		if(tile.tower == null && root_node.money >= 10):
+			new_tower.bottomTower = true
+			new_tower.set_translation(Vector3(0, 1, 0))
 			new_tower.set_scale(Vector3(1, 1 / tile_scale.y, 1))
 			tile.add_child(new_tower)
 			tile.tower = new_tower

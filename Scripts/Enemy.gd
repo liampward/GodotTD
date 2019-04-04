@@ -62,7 +62,7 @@ func _on_Area_area_entered(area):
 	if area.get_parent().is_in_group("BULLET"):
 		area.get_parent().queue_free()
 		hurt(area.get_parent().damage)
-	elif (area.get_parent().name == "WALL"):
+	elif (area.get_parent().is_in_group("WALL")):
 		root_node.health -= 1
 		queue_free()
 
