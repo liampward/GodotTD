@@ -33,6 +33,18 @@ UPGRADE2=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":
 UPGRADE3=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":51,"unicode":0,"echo":false,"script":null)
  ]
 
+[layer_names]
+
+3d_physics/layer_1="neutEnemy"
+3d_physics/layer_2="physEnemy"
+3d_physics/layer_3="magEnemy"
+3d_physics/layer_4="bullet"
+3d_physics/layer_5="tile"
+3d_physics/layer_6="neutBullet"
+3d_physics/layer_7="physBullet"
+3d_physics/layer_8="magBullet"
+3d_physics/layer_11="tower"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
