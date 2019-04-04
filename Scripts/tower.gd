@@ -18,6 +18,7 @@ var interval = fireRate
 var canFire = true
 var upgradeLevel = 0
 var bottomTower = false
+var bulletBit = 8
 
 var Stack = []
 var targs = []
@@ -38,6 +39,7 @@ func attack(enemy):
 		var bullet = BULLET.instance()
 		bullet.set_name("myBullet")
 		bullet.set_translation(self.get_translation())
+		bullet.get_node("Area").set_collision_layer_bit(bulletBit,true)
 		bullet.targ = weakref(enemy)
 		bullet.dir = enemy.get_global_transform().origin - self.get_global_transform().origin  
 		bullet.dir.y = 0
@@ -86,14 +88,17 @@ func upgrade(num):
 			#Neutral Tower
 			tower = NEUTRAL.instance()
 			tower.setType(NEUT)
+			self.bulletBit = 5
 		if num == 2:
 			#Neutral Tower
 			tower = PHYSICAL.instance()
 			tower.setType(PHYS)
+			self.bulletBit = 6
 		if num == 3:
 			#Magic Tower
 			tower = MAGIC.instance()
 			tower.setType(MAG)
+			self.bulletBit = 7
 		
 			
 		tower.set_translation(self.get_node("UpgradePoint").get_translation())

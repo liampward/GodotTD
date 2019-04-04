@@ -23,8 +23,8 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 845.0
 margin_top = 1.0
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_right = 1028.0
+margin_bottom = 604.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -46,7 +46,7 @@ rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
-mouse_default_cursor_shape = 0
+mouse_default_cursor_shape = 2
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 1 )
@@ -58,7 +58,7 @@ text = "Next Wave"
 flat = false
 align = 1
 script = ExtResource( 2 )
-_sections_unfolded = [ "Rect", "custom_fonts" ]
+_sections_unfolded = [ "Mouse", "Rect", "custom_fonts" ]
 
 [node name="SellButton" type="Button" parent="." index="1"]
 
@@ -74,7 +74,7 @@ rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
-mouse_default_cursor_shape = 0
+mouse_default_cursor_shape = 2
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 1 )
@@ -86,7 +86,7 @@ text = "SELL"
 flat = false
 align = 1
 script = ExtResource( 3 )
-_sections_unfolded = [ "Rect", "custom_fonts" ]
+_sections_unfolded = [ "Hint", "Rect", "custom_fonts" ]
 
 [node name="GUIContainer" type="Control" parent="." index="2"]
 
@@ -304,14 +304,14 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = -845.0
 margin_top = 478.0
-margin_bottom = 599.0
+margin_bottom = 602.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Mouse", "Rect" ]
 
 [node name="StatContainer" type="Control" parent="DetailPanel" index="0"]
 
@@ -534,7 +534,7 @@ rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
-mouse_default_cursor_shape = 0
+mouse_default_cursor_shape = 2
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 1 )
@@ -546,7 +546,7 @@ text = "NEUTRAL"
 flat = false
 align = 1
 script = ExtResource( 6 )
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Mouse", "Rect", "custom_styles" ]
 
 [node name="UpgradeSelect2" type="Button" parent="DetailPanel" index="2"]
 
@@ -562,7 +562,7 @@ rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
-mouse_default_cursor_shape = 0
+mouse_default_cursor_shape = 2
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 1 )
@@ -574,7 +574,7 @@ text = "PHYSICAL"
 flat = false
 align = 1
 script = ExtResource( 7 )
-_sections_unfolded = [ "Rect", "custom_fonts" ]
+_sections_unfolded = [ "Mouse", "Rect", "custom_fonts" ]
 
 [node name="UpgradeSelect3" type="Button" parent="DetailPanel" index="3"]
 
@@ -590,7 +590,7 @@ rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
-mouse_default_cursor_shape = 0
+mouse_default_cursor_shape = 2
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 1 )
@@ -602,6 +602,6 @@ text = "MAGICAL"
 flat = false
 align = 1
 script = ExtResource( 8 )
-_sections_unfolded = [ "Rect", "custom_fonts" ]
+_sections_unfolded = [ "Mouse", "Rect", "custom_fonts" ]
 
 
