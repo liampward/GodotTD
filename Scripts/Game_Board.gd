@@ -73,6 +73,10 @@ func _process(delta):
 				selected_tile.selected = false
 			collision.collider.get_parent().selected = true
 			selected_tile = collision.collider.get_parent()
+		else:
+			if selected_tile != null:
+				selected_tile.selected = false
+			selected_tile = null
 
 func get_object_under_mouse():
 	var camera = get_node("../CameraPivotX/CameraPivotY/Camera")
