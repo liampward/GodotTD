@@ -15,7 +15,8 @@ func _ready():
 
 func upgrade(num):
 	if board_node.selected_tile != null:
-		if board_node.selected_tile.tower != null && root_node.money >= board_node.selected_tile.tower.price + 10 && board_node.selected_tile.tower.upgradeLevel < 2:
+		var tower = board_node.selected_tile.tower
+		if tower != null && root_node.money >= tower.price + 10 && tower.upgradeLevel < 2:
 			board_node.selected_tile.tower.upgrade(num)
 			root_node.money -= board_node.selected_tile.tower.price
 			

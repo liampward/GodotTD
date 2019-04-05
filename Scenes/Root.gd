@@ -14,9 +14,9 @@ func _ready():
 	wave_num = 0
 	
 	board_node = self.get_node("Board")
-	button1 = self.get_node("main panel/DetailPanel/UpgradeSelect1")
-	button2 = self.get_node("main panel/DetailPanel/UpgradeSelect2")
-	button3 = self.get_node("main panel/DetailPanel/UpgradeSelect3")
+	button1 = self.get_node("MainPanel/DetailPanel/UpgradeSelect1")
+	button2 = self.get_node("MainPanel/DetailPanel/UpgradeSelect2")
+	button3 = self.get_node("MainPanel/DetailPanel/UpgradeSelect3")
 
 
 func _process(delta):

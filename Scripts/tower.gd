@@ -120,13 +120,14 @@ func upgrade(num):
 			Stack[i].get_node("Area").get_node("CollisionShape").scale = Vector3(fireRange, fireRange, 1)
 		upgradeLevel += 1
 	if upgradeLevel == 2:
-		if checkStack()[0] == 3:
+		var checkArr = checkStack()
+		if checkArr[0] == 3:
 				#Neutral Stack
 				for i in range(0, Stack.size()):
 					Stack[i].fireRate = 0.2
 					Stack[i].damage = 2
 					Stack[i].interval = Stack[i].fireRate
-		else: if checkStack()[1] == 3:
+		elif checkArr[1] == 3:
 				#Physical Stack
 				for i in range(0, Stack.size()):
 					Stack[i].fireRate = 1.5
@@ -134,14 +135,14 @@ func upgrade(num):
 					Stack[i].fireRange = 1
 					Stack[i].interval = Stack[i].fireRate
 					Stack[i].get_node("Area").get_node("CollisionShape").scale = Vector3(fireRange, fireRange, 1)
-		else: if checkStack()[2] == 3:
+		elif checkArr[2] == 3:
 				#Magical Stack
 				for i in range(0, Stack.size()):
 					Stack[i].fireRate = 2
 					Stack[i].fireRange = 10
 					Stack[i].interval = Stack[i].fireRate
 					Stack[i].get_node("Area").get_node("CollisionShape").scale = Vector3(fireRange, fireRange, 1)
-		else: if checkStack()[0] == 1 && checkStack()[1] == 1 && checkStack()[2] == 1:
+		elif checkArr[0] == 1 && checkArr[1] == 1 && checkArr[2] == 1:
 				#Everyone Stack
 				for i in range(0, Stack.size()):
 					Stack[i].fireRate = 0.5
