@@ -19,6 +19,7 @@ var canFire = true
 var upgradeLevel = 0
 var bottomTower = false
 var bulletBit = 8
+var stackName = ""
 
 var Stack = []
 var targs = []
@@ -107,49 +108,68 @@ func upgrade(num):
 		
 		for i in range(0, Stack.size()):
 			if num == 1:
+				#Neutral
 				Stack[i].damage *= 1.1
 				Stack[i].fireRange += 0.2
 				Stack[i].fireRate -= 0.2
+				Stack[i].stackName += " Neutral"
 			if num == 2:
+				#Physical
 				Stack[i].damage *= 1.3
 				Stack[i].fireRange -= 0.5
+				Stack[i].stackName += " Physical"
 			if num == 3:
+				#Magical
 				Stack[i].fireRange += 0.5
 				Stack[i].fireRate += 0.3
+				Stack[i].stackName += " Magical"
 			Stack[i].interval = Stack[i].fireRate
 			Stack[i].get_node("Area").get_node("CollisionShape").scale = Vector3(fireRange, fireRange, 1)
 		upgradeLevel += 1
 	if upgradeLevel == 2:
 		var checkArr = checkStack()
 		if checkArr[0] == 3:
-				#Neutral Stack
-				for i in range(0, Stack.size()):
-					Stack[i].fireRate = 0.2
-					Stack[i].damage = 2
-					Stack[i].interval = Stack[i].fireRate
+			#Neutral Stack
+			for i in range(0, Stack.size()):
+				Stack[i].fireRate = 0.2
+				Stack[i].damage = 2
+				Stack[i].interval = Stack[i].fireRate
+				Stack[i].stackName = "Gatling Tower" 
 		elif checkArr[1] == 3:
-				#Physical Stack
-				for i in range(0, Stack.size()):
-					Stack[i].fireRate = 1.5
-					Stack[i].damage = 33
-					Stack[i].fireRange = 1
-					Stack[i].interval = Stack[i].fireRate
-					Stack[i].get_node("Area").get_node("CollisionShape").scale = Vector3(fireRange, fireRange, 1)
+			#Physical Stack
+			for i in range(0, Stack.size()):
+				Stack[i].fireRate = 1.5
+				Stack[i].damage = 33
+				Stack[i].fireRange = 1
+				Stack[i].interval = Stack[i].fireRate
+				Stack[i].stackName = "Blast Cannon"
+				Stack[i].get_node("Area").get_node("CollisionShape").scale = Vector3(fireRange, fireRange, 1)
 		elif checkArr[2] == 3:
-				#Magical Stack
-				for i in range(0, Stack.size()):
-					Stack[i].fireRate = 2
-					Stack[i].fireRange = 10
-					Stack[i].interval = Stack[i].fireRate
-					Stack[i].get_node("Area").get_node("CollisionShape").scale = Vector3(fireRange, fireRange, 1)
+			#Magical Stack
+			for i in range(0, Stack.size()):
+				Stack[i].fireRate = 2
+				Stack[i].fireRange = 10
+				Stack[i].interval = Stack[i].fireRate
+				Stack[i].stackName = "Spell Sniper"
+				Stack[i].get_node("Area").get_node("CollisionShape").scale = Vector3(fireRange, fireRange, 1)
 		elif checkArr[0] == 1 && checkArr[1] == 1 && checkArr[2] == 1:
-				#Everyone Stack
-				for i in range(0, Stack.size()):
-					Stack[i].fireRate = 0.5
-					Stack[i].damage = 15
-					Stack[i].fireRange = 5
-					Stack[i].interval = Stack[i].fireRate
-					Stack[i].get_node("Area").get_node("CollisionShape").scale = Vector3(fireRange, fireRange, 1)
+			#Everyone Stack
+			for i in range(0, Stack.size()):
+				Stack[i].fireRate = 0.5
+				Stack[i].damage = 15
+				Stack[i].fireRange = 5
+				Stack[i].interval = Stack[i].fireRate
+				Stack[i].stackName = "Everyman Tower"
+				Stack[i].get_node("Area").get_node("CollisionShape").scale = Vector3(fireRange, fireRange, 1)		
+		else:
+			#Other Stack
+			for i in range(0, Stack.size()):
+				Stack[i].fireRate -= 0.2
+				Stack[i].damage += 5
+				Stack[i].fireRange += 1
+				Stack[i].interval = Stack[i].fireRate
+				Stack[i].stackName = "Mix and Match"
+				Stack[i].get_node("Area").get_node("CollisionShape").scale = Vector3(fireRange, fireRange, 1)
 func checkStack():
 	var N = 0
 	var P = 0

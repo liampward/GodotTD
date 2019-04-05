@@ -13,12 +13,15 @@ func _process(delta):
 			$Range.text = str(board_node.selected_tile.tower.fireRange)
 			$FireRate.text = str(board_node.selected_tile.tower.fireRate)
 			$Damage.text = str(board_node.selected_tile.tower.damage)
+			$Name.text = board_node.selected_tile.tower.stackName
 		else:
 			$Range.text = ""
 			$FireRate.text = ""
 			$Damage.text = ""
+			$Name.text = ""
 	else:
 		$Range.text = ""
 		$FireRate.text = ""
 		$Damage.text = ""
+		$Name.text = ""
 	pass
