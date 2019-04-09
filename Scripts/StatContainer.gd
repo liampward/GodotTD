@@ -8,17 +8,13 @@ func _ready():
 	board_node = root_node.get_node("Board")
 
 func _process(delta):
-	if board_node.selected_tile != null:
-		if board_node.selected_tile.tower != null:
-			$Range.text = str(board_node.selected_tile.tower.fireRange)
-			$FireRate.text = str(board_node.selected_tile.tower.fireRate)
-			$Damage.text = str(board_node.selected_tile.tower.damage)
-		else:
-			$Range.text = ""
-			$FireRate.text = ""
-			$Damage.text = ""
+	if board_node.selected_tile != null and board_node.selected_tile.tower != null:
+		$Range.text = str(board_node.selected_tile.tower.fireRange)
+		$FireRate.text = str(board_node.selected_tile.tower.fireRate)
+		$Damage.text = str(board_node.selected_tile.tower.damage)
+		$Name.text = board_node.selected_tile.tower.stackName
 	else:
 		$Range.text = ""
 		$FireRate.text = ""
 		$Damage.text = ""
-	pass
+		$Name.text = ""

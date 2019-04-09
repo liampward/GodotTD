@@ -30,12 +30,15 @@ func purchase(type):
 		if(type == "NEUTRAL"):
 			new_tower = NEUTRAL.instance()
 			new_tower.setType(new_tower.NEUT)
+			new_tower.stackName = "Neutral"
 		if(type == "PHYSICAL"):
 			new_tower = PHYSICAL.instance()
 			new_tower.setType(new_tower.PHYS)
+			new_tower.stackName = "Physical"
 		if(type == "MAGIC"):
 			new_tower = MAGIC.instance()
 			new_tower.setType(new_tower.MAG)
+			new_tower.stackName = "Magic"
 		
 		if(tile.tower == null && root_node.money >= 10):
 			new_tower.bottomTower = true
