@@ -60,8 +60,8 @@ disabled = false
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26366, 0 )
 layers = 1
-light_color = Color( 0.269629, 0.227602, 0.996094, 1 )
-light_energy = 2.0
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 1.0
 light_indirect_energy = 1.0
 light_negative = false
 light_specular = 0.5

@@ -10,7 +10,7 @@ var button3
 
 func _ready():
 	money = 10000
-	health = 10
+	health = 100
 	wave_num = 0
 	
 	board_node = self.get_node("Board")
