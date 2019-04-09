@@ -5,6 +5,7 @@ var BULLET
 var MAGIC
 var PHYSICAL
 var NEUTRAL
+var PARTICLES
 
 enum Tower {NEUT,PHYS,MAG}
 
@@ -29,9 +30,16 @@ func _ready():
 	MAGIC = preload("res://Scenes/magicTower.tscn")
 	PHYSICAL = preload("res://Scenes/physTower.tscn")
 	NEUTRAL = preload("res://Scenes/baseTower.tscn")
+	PARTICLES = preload("res://Scenes/spawn_particles.tscn")
 	$Area.connect("area_entered", self, "_on_Area_area_entered")
 	$Area.connect("area_exited", self, "_on_Area_area_exited")
 	Stack.append(self)
+	
+	
+	var particle_spawner = PARTICLES.instance()
+	get_parent().add_child(particle_spawner)
+	particle_spawner.set_translation(self.get_translation() + Vector3(0, 1,0))
+	self.visible = true
 	
 func attack(enemy):
 	self.get_node("AudioStreamPlayer").play()
