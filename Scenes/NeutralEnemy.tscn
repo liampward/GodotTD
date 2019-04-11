@@ -76,6 +76,7 @@ omni_range = 5.0
 omni_attenuation = 1.0
 omni_shadow_mode = 1
 omni_shadow_detail = 1
+_sections_unfolded = [ "Light" ]
 
 [node name="VisibilityNotifier" type="VisibilityNotifier" parent="." index="2"]
 
