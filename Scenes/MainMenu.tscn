@@ -1,16 +1,37 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://media/ariblk.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Scripts/PlayButton.gd" type="Script" id=2]
-[ext_resource path="res://Scripts/ExitButton.gd" type="Script" id=3]
-[ext_resource path="res://media/Bio_Unit_-_10_-_Outer_Reaches.wav" type="AudioStream" id=4]
+[ext_resource path="res://media/gear_selected.png" type="Texture" id=1]
+[ext_resource path="res://media/Gear_button.tres" type="StyleBox" id=2]
+[ext_resource path="res://media/ariblk.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Scripts/PlayButton.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/ExitButton.gd" type="Script" id=5]
+[ext_resource path="res://media/Bio_Unit_-_10_-_Outer_Reaches.wav" type="AudioStream" id=6]
+
+[sub_resource type="StyleBoxTexture" id=4]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 50, 50 )
+margin_left = 0.0
+margin_right = 0.0
+margin_top = 0.0
+margin_bottom = 0.0
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+modulate_color = Color( 1, 1, 1, 1 )
+draw_center = true
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 75
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 1 )
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Settings" ]
 
 [sub_resource type="DynamicFont" id=2]
@@ -18,7 +39,7 @@ _sections_unfolded = [ "Settings" ]
 size = 40
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 1 )
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=3]
@@ -26,10 +47,10 @@ _sections_unfolded = [ "Font", "Settings" ]
 size = 40
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 1 )
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="MainMenu" type="MarginContainer" index="0"]
+[node name="MainMenu" type="Container" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -37,21 +58,45 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -2.0
 margin_right = 1.0
-margin_bottom = 11.0
+margin_bottom = 41.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_constants/margin_right = 120
-custom_constants/margin_top = 80
-custom_constants/margin_left = 120
-custom_constants/margin_bottom = 80
 _sections_unfolded = [ "custom_constants" ]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." index="0"]
+[node name="OptionsMenu" type="Button" parent="." index="0"]
 
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 70.0
+margin_bottom = 70.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/normal = ExtResource( 2 )
+toggle_mode = false
+enabled_focus_mode = 0
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "custom_styles" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="1"]
+
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -118,7 +163,7 @@ group = null
 text = "Play"
 flat = false
 align = 1
-script = ExtResource( 2 )
+script = ExtResource( 4 )
 _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Exit" type="Button" parent="VBoxContainer" index="2"]
@@ -145,12 +190,12 @@ group = null
 text = "Exit"
 flat = false
 align = 1
-script = ExtResource( 3 )
+script = ExtResource( 5 )
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="opening theme" type="AudioStreamPlayer" parent="." index="1"]
+[node name="opening theme" type="AudioStreamPlayer" parent="." index="2"]
 
-stream = ExtResource( 4 )
+stream = ExtResource( 6 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = true
