@@ -1,19 +1,67 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://media/button_font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scripts/SpawnButton.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/Sell Button.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/GUIContainer.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/StatContainer.gd" type="Script" id=5]
-[ext_resource path="res://Scripts/upgrade select 1.gd" type="Script" id=6]
-[ext_resource path="res://Scripts/upgrade select 2.gd" type="Script" id=7]
-[ext_resource path="res://Scripts/upgrade select 3.gd" type="Script" id=8]
+[ext_resource path="res://media/icon_damage_gray.png" type="Texture" id=6]
+[ext_resource path="res://media/icon_damage.png" type="Texture" id=7]
+[ext_resource path="res://media/icon_range_gray.png" type="Texture" id=8]
+[ext_resource path="res://media/icon_range.png" type="Texture" id=9]
+[ext_resource path="res://media/icon_fireRate_gray.png" type="Texture" id=10]
+[ext_resource path="res://media/icon_fireRate.png" type="Texture" id=11]
+[ext_resource path="res://Scripts/upgrade select 1.gd" type="Script" id=12]
+[ext_resource path="res://Scripts/upgrade select 2.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/upgrade select 3.gd" type="Script" id=14]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
 render_priority = 0
 blend_mode = 0
 light_mode = 0
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "on",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "on",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+
+animations = [ {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "on",
+"speed": 5.0
+} ]
 
 [node name="MainPanel" type="Panel" index="0"]
 
@@ -319,8 +367,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 236.0
+margin_bottom = 121.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -332,6 +380,7 @@ script = ExtResource( 5 )
 [node name="Damage" type="Label" parent="DetailPanel/StatContainer" index="0"]
 
 editor/display_folded = true
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -360,7 +409,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 91.0
-margin_bottom = 29.0
+margin_bottom = 30.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -396,6 +445,7 @@ _sections_unfolded = [ "custom_fonts" ]
 [node name="FireRate" type="Label" parent="DetailPanel/StatContainer" index="1"]
 
 editor/display_folded = true
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -520,6 +570,8 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Range" type="Label" parent="DetailPanel/StatContainer" index="3"]
 
+editor/display_folded = true
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -580,6 +632,555 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
+[node name="DamageGrid" type="GridContainer" parent="DetailPanel/StatContainer" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 11.0
+margin_top = 17.0
+margin_right = 107.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 90, 16 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+columns = 5
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="D1" type="Control" parent="DetailPanel/StatContainer/DamageGrid" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="S" type="AnimatedSprite" parent="DetailPanel/StatContainer/DamageGrid/D1" index="0"]
+
+frames = SubResource( 2 )
+animation = "default"
+centered = false
+
+[node name="D2" type="Control" parent="DetailPanel/StatContainer/DamageGrid" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_right = 36.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="S" type="AnimatedSprite" parent="DetailPanel/StatContainer/DamageGrid/D2" index="0"]
+
+frames = SubResource( 2 )
+animation = "default"
+centered = false
+
+[node name="D3" type="Control" parent="DetailPanel/StatContainer/DamageGrid" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 40.0
+margin_right = 56.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="S" type="AnimatedSprite" parent="DetailPanel/StatContainer/DamageGrid/D3" index="0"]
+
+frames = SubResource( 2 )
+animation = "default"
+centered = false
+
+[node name="D4" type="Control" parent="DetailPanel/StatContainer/DamageGrid" index="3"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 60.0
+margin_right = 76.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="S" type="AnimatedSprite" parent="DetailPanel/StatContainer/DamageGrid/D4" index="0"]
+
+frames = SubResource( 2 )
+animation = "default"
+centered = false
+
+[node name="D5" type="Control" parent="DetailPanel/StatContainer/DamageGrid" index="4"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="S" type="AnimatedSprite" parent="DetailPanel/StatContainer/DamageGrid/D5" index="0"]
+
+frames = SubResource( 2 )
+animation = "default"
+centered = false
+
+[node name="RangeGrid" type="GridContainer" parent="DetailPanel/StatContainer" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 11.0
+margin_top = 56.0
+margin_right = 107.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 90, 16 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+columns = 5
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="R1" type="Control" parent="DetailPanel/StatContainer/RangeGrid" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="S" type="AnimatedSprite" parent="DetailPanel/StatContainer/RangeGrid/R1" index="0"]
+
+frames = SubResource( 3 )
+animation = "default"
+centered = false
+
+[node name="R2" type="Control" parent="DetailPanel/StatContainer/RangeGrid" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_right = 36.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="S" type="AnimatedSprite" parent="DetailPanel/StatContainer/RangeGrid/R2" index="0"]
+
+frames = SubResource( 3 )
+animation = "default"
+centered = false
+
+[node name="R3" type="Control" parent="DetailPanel/StatContainer/RangeGrid" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 40.0
+margin_right = 56.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="S" type="AnimatedSprite" parent="DetailPanel/StatContainer/RangeGrid/R3" index="0"]
+
+frames = SubResource( 3 )
+animation = "default"
+centered = false
+
+[node name="R4" type="Control" parent="DetailPanel/StatContainer/RangeGrid" index="3"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 60.0
+margin_right = 76.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="S" type="AnimatedSprite" parent="DetailPanel/StatContainer/RangeGrid/R4" index="0"]
+
+frames = SubResource( 3 )
+animation = "default"
+centered = false
+
+[node name="R5" type="Control" parent="DetailPanel/StatContainer/RangeGrid" index="4"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="S" type="AnimatedSprite" parent="DetailPanel/StatContainer/RangeGrid/R5" index="0"]
+
+frames = SubResource( 3 )
+animation = "default"
+centered = false
+
+[node name="FireRateGrid" type="GridContainer" parent="DetailPanel/StatContainer" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 11.0
+margin_top = 98.0
+margin_right = 107.0
+margin_bottom = 114.0
+rect_min_size = Vector2( 90, 16 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+columns = 5
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="F1" type="Control" parent="DetailPanel/StatContainer/FireRateGrid" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="S" type="AnimatedSprite" parent="DetailPanel/StatContainer/FireRateGrid/F1" index="0"]
+
+frames = SubResource( 4 )
+animation = "default"
+centered = false
+
+[node name="F2" type="Control" parent="DetailPanel/StatContainer/FireRateGrid" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_right = 36.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="S" type="AnimatedSprite" parent="DetailPanel/StatContainer/FireRateGrid/F2" index="0"]
+
+frames = SubResource( 4 )
+animation = "default"
+centered = false
+
+[node name="F3" type="Control" parent="DetailPanel/StatContainer/FireRateGrid" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 40.0
+margin_right = 56.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="S" type="AnimatedSprite" parent="DetailPanel/StatContainer/FireRateGrid/F3" index="0"]
+
+frames = SubResource( 4 )
+animation = "default"
+centered = false
+
+[node name="F4" type="Control" parent="DetailPanel/StatContainer/FireRateGrid" index="3"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 60.0
+margin_right = 76.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="S" type="AnimatedSprite" parent="DetailPanel/StatContainer/FireRateGrid/F4" index="0"]
+
+frames = SubResource( 4 )
+animation = "default"
+centered = false
+
+[node name="F5" type="Control" parent="DetailPanel/StatContainer/FireRateGrid" index="4"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="S" type="AnimatedSprite" parent="DetailPanel/StatContainer/FireRateGrid/F5" index="0"]
+
+frames = SubResource( 4 )
+animation = "default"
+centered = false
+
+[node name="DamageLabel" type="Label" parent="DetailPanel/StatContainer" index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 12.0
+margin_top = 5.0
+margin_right = 68.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Damage:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="RangeLabel" type="Label" parent="DetailPanel/StatContainer" index="8"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 12.0
+margin_top = 42.0
+margin_right = 68.0
+margin_bottom = 56.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Range:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="FireRateLabel" type="Label" parent="DetailPanel/StatContainer" index="9"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 12.0
+margin_top = 87.0
+margin_right = 72.0
+margin_bottom = 101.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Fire Rate:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="UpgradeSelect1" type="Button" parent="DetailPanel" index="1"]
 
 anchor_left = 0.0
@@ -605,7 +1206,7 @@ group = null
 text = "NEUTRAL"
 flat = false
 align = 1
-script = ExtResource( 6 )
+script = ExtResource( 12 )
 _sections_unfolded = [ "Mouse", "Rect", "custom_styles" ]
 
 [node name="UpgradeSelect2" type="Button" parent="DetailPanel" index="2"]
@@ -633,7 +1234,7 @@ group = null
 text = "PHYSICAL"
 flat = false
 align = 1
-script = ExtResource( 7 )
+script = ExtResource( 13 )
 _sections_unfolded = [ "Mouse", "Rect", "custom_fonts" ]
 
 [node name="UpgradeSelect3" type="Button" parent="DetailPanel" index="3"]
@@ -661,7 +1262,7 @@ group = null
 text = "MAGICAL"
 flat = false
 align = 1
-script = ExtResource( 8 )
+script = ExtResource( 14 )
 _sections_unfolded = [ "Mouse", "Rect", "custom_fonts" ]
 
 
