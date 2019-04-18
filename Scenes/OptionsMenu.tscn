@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://media/ariblk.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://media/button_font.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Scripts/Fullscreen.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/NumStats.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Fullscreen.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -12,7 +13,7 @@ use_filter = false
 font_data = ExtResource( 1 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="OptionsMenu" type="Container" index="0"]
+[node name="OptionsMenu" type="Container"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -162,6 +163,7 @@ group = null
 text = "Numerical Stats"
 flat = false
 align = 0
+script = ExtResource( 3 )
 _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Fullscreen" type="CheckButton" parent="VBoxContainer" index="3"]
@@ -188,7 +190,7 @@ group = null
 text = "Fullscreen"
 flat = false
 align = 0
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 _sections_unfolded = [ "custom_fonts" ]
 
 
