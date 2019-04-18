@@ -177,7 +177,6 @@ script = ExtResource( 4 )
 
 [node name="CameraPivotX" type="Position3D" parent="." index="2"]
 
-editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="CameraPivotY" type="Position3D" parent="CameraPivotX" index="0"]
@@ -186,7 +185,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Camera" type="Camera" parent="CameraPivotX/CameraPivotY" index="0"]
 
-transform = Transform( 1, 0, 0, 0, 0.866026, 0.5, 0, -0.5, 0.866026, 5, 15, 30 )
+transform = Transform( 1, 0, 0, 0, 0.866026, 0.5, 0, -0.5, 0.866026, 0, 13.5294, 28.1715 )
 keep_aspect = 1
 cull_mask = 1048575
 environment = SubResource( 1 )

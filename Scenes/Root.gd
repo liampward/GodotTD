@@ -11,7 +11,7 @@ var button4
 var button5
 
 func _ready():
-	money = 10000
+	money = 1000
 	health = 100
 	wave_num = 0
 	
