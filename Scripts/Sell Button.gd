@@ -8,6 +8,7 @@ func _ready():
 	board_node = root_node.get_node("Board")
 
 func _pressed():
+	var tile = board_node.selected_tile;
 
 	if(tile.tower != null):
 		board_node.as.add_point(
