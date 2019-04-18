@@ -49,6 +49,7 @@ func _ready():
 		as.add_point(id, gm.map_to_world(c.x, c.y, c.z))
 		points[vec3_to_string(c)] = id
 		tile_list[idx].astar_node_id = id
+		tile_list[idx].astar_node_pos = Vector3(c.x, c.y, c.z)
 		idx += 1
 
 	# Connect all the nodes on the graph to their neighbors
