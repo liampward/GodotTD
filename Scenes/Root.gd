@@ -7,17 +7,20 @@ var board_node
 var button1
 var button2
 var button3
+var button4
+var button5
 
 func _ready():
 	money = 10000
-	health = 10
+	health = 100
 	wave_num = 0
 	
 	board_node = self.get_node("Board")
-	button1 = self.get_node("MainPanel/DetailPanel/UpgradeSelect1")
-	button2 = self.get_node("MainPanel/DetailPanel/UpgradeSelect2")
-	button3 = self.get_node("MainPanel/DetailPanel/UpgradeSelect3")
-
+	button1 = self.get_node("MainPanel/UpgradeSelect1")
+	button2 = self.get_node("MainPanel/UpgradeSelect2")
+	button3 = self.get_node("MainPanel/UpgradeSelect3")
+	button4 = self.get_node("MainPanel/SellButton")
+	button5 = self.get_node("MainPanel/SpawnButton")
 
 func _process(delta):
 	Global.Wave_Count = wave_num
@@ -29,5 +32,9 @@ func _process(delta):
 		button2._pressed()
 	if(Input.is_action_just_pressed("UPGRADE3")):
 		button3._pressed()
+	if(Input.is_action_just_pressed("SELL")):
+		button4._pressed()
+	if(Input.is_action_just_pressed("SPAWN")):
+		button5._pressed()
 	if(health <= 0):
 		get_tree().change_scene("res://Scenes/GameOver.tscn")

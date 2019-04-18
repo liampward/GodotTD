@@ -176,7 +176,7 @@ func upgrade(num):
 		else:
 			#Other Stack
 			for i in range(0, size):
-				Stack[i].fireRate -= 0.2
+				#Stack[i].fireRate -= 0.2
 				Stack[i].damage += 5
 				Stack[i].fireRange += 1
 				Stack[i].interval = Stack[i].fireRate
@@ -194,3 +194,9 @@ func checkStack():
 		if Stack[i].type == PHYS:
 			P += 1
 	return [N, P, M]
+
+func _enter_tree():
+	get_tree().call_group("ENEMY", "move_to", Vector3(33, 0, 10))
+
+func _exiting_tree():
+	get_tree().call_group("ENEMY", "move_to", Vector3(33, 0, 10))

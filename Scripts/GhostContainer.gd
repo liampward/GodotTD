@@ -8,17 +8,17 @@ func _ready():
 	root_node = get_tree().get_root().get_node("Root")
 	board_node = root_node.get_node("Board")
 	
-	var button = root_node.get_node("./MainPanel/DetailPanel/UpgradeSelect1")
+	var button = root_node.get_node("./MainPanel/UpgradeSelect1")
 	button.connect("mouse_entered", self, "_on_button1_entered")
 	button.connect("mouse_exited", self, "_on_button1_exited")
 	button.connect("pressed", self, "_on_button_press1")
 	
-	button = root_node.get_node("./MainPanel/DetailPanel/UpgradeSelect2")
+	button = root_node.get_node("./MainPanel/UpgradeSelect2")
 	button.connect("mouse_entered", self, "_on_button2_entered")
 	button.connect("mouse_exited", self, "_on_button2_exited")
 	button.connect("pressed", self, "_on_button_press2")
 	
-	button = root_node.get_node("./MainPanel/DetailPanel/UpgradeSelect3")
+	button = root_node.get_node("./MainPanel/UpgradeSelect3")
 	button.connect("mouse_entered", self, "_on_button3_entered")
 	button.connect("mouse_exited", self, "_on_button3_exited")
 	button.connect("pressed", self, "_on_button_press3")

@@ -38,7 +38,7 @@ func purchase(type):
 		if(type == "MAGIC"):
 			new_tower = MAGIC.instance()
 			new_tower.setType(new_tower.MAG)
-			new_tower.stackName = "Magic"
+			new_tower.stackName = "Magical"
 		
 		if(tile.tower == null && root_node.money >= 10):
 			new_tower.bottomTower = true
