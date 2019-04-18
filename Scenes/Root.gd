@@ -16,9 +16,9 @@ func _ready():
 	wave_num = 0
 	
 	board_node = self.get_node("Board")
-	button1 = self.get_node("MainPanel/DetailPanel/UpgradeSelect1")
-	button2 = self.get_node("MainPanel/DetailPanel/UpgradeSelect2")
-	button3 = self.get_node("MainPanel/DetailPanel/UpgradeSelect3")
+	button1 = self.get_node("MainPanel/UpgradeSelect1")
+	button2 = self.get_node("MainPanel/UpgradeSelect2")
+	button3 = self.get_node("MainPanel/UpgradeSelect3")
 	button4 = self.get_node("MainPanel/SellButton")
 	button5 = self.get_node("MainPanel/SpawnButton")
 

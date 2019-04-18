@@ -8,8 +8,8 @@ func _ready():
 	board_node = root_node.get_node("Board")
 
 func _pressed():
-	var tile = board_node.selected_tile;
 
+<<<<<<< HEAD
 	if(tile.tower != null):
 		board_node.as.add_point(
 					tile.astar_node_id, 
@@ -26,6 +26,10 @@ func _pressed():
 					if not board_node.as.are_points_connected(tile.astar_node_id, id2):
 						board_node.as.connect_points(tile.astar_node_id, id2, true)
 		
+=======
+	if(board_node.selected_tile != null and board_node.selected_tile.tower != null):
+		var tile = board_node.selected_tile;
+>>>>>>> ce74f67b1bf26047bb60b0ad7e4b514921ac440a
 		root_node.money += (tile.tower.price - (tile.tower.price / 3));
 		tile.tower.queue_free();
 		tile.tower = null;
