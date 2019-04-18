@@ -1027,7 +1027,6 @@ _sections_unfolded = [ "Hint", "Rect", "custom_fonts" ]
 
 [node name="GUIContainer" type="Control" parent="." index="6"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1043,12 +1042,10 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 15 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Lives_num" type="Label" parent="GUIContainer" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1069,36 +1066,20 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="ColorRect" type="ColorRect" parent="GUIContainer" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 70.0
-margin_top = 44.0
-margin_right = 165.0
-margin_bottom = 71.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-color = Color( 0.570313, 0.570313, 0.570313, 0.16 )
-_sections_unfolded = [ "Rect" ]
-
-[node name="Lives" type="Label" parent="GUIContainer" index="2"]
+[node name="Lives" type="Label" parent="GUIContainer/Lives_num" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 14.0
-margin_top = 47.0
-margin_right = 63.0
-margin_bottom = 68.0
+margin_left = -56.0
+margin_top = 3.0
+margin_right = -7.0
+margin_bottom = 24.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -1112,8 +1093,156 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect" ]
 
+[node name="ColorRect" type="ColorRect" parent="GUIContainer/Lives_num" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 95.0
+margin_bottom = 27.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0.570313, 0.570313, 0.570313, 0.16 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="buy_num" type="Label" parent="GUIContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -550.0
+margin_top = 80.0
+margin_right = -455.0
+margin_bottom = 107.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ColorRect4" type="ColorRect" parent="GUIContainer/buy_num" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 95.0
+margin_bottom = 27.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0.570313, 0.570313, 0.570313, 0.16 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="Buy" type="Label" parent="GUIContainer/buy_num" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = -17.0
+margin_right = 73.0
+margin_bottom = 4.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 2 )
+text = "Buy Price"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="sell_num" type="Label" parent="GUIContainer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -295.0
+margin_top = 80.0
+margin_right = -200.0
+margin_bottom = 107.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ColorRect4" type="ColorRect" parent="GUIContainer/sell_num" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 95.0
+margin_bottom = 27.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0.570313, 0.570313, 0.570313, 0.16 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="Sell" type="Label" parent="GUIContainer/sell_num" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = -17.0
+margin_right = 73.0
+margin_bottom = 4.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 2 )
+text = "Sell Price"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
 [node name="Money_num" type="Label" parent="GUIContainer" index="3"]
 
+editor/display_folded = true
 material = SubResource( 4 )
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1135,17 +1264,18 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Material", "Rect" ]
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="ColorRect2" type="ColorRect" parent="GUIContainer" index="4"]
+[node name="ColorRect2" type="ColorRect" parent="GUIContainer/Money_num" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 70.0
-margin_top = 14.0
-margin_right = 165.0
-margin_bottom = 41.0
+margin_right = 95.0
+margin_bottom = 27.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -1155,16 +1285,16 @@ size_flags_vertical = 1
 color = Color( 0.570313, 0.570313, 0.570313, 0.16 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="Money" type="Label" parent="GUIContainer" index="5"]
+[node name="Money" type="Label" parent="GUIContainer/Money_num" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 14.0
-margin_top = 17.0
-margin_right = 63.0
-margin_bottom = 38.0
+margin_left = -56.0
+margin_top = 3.0
+margin_right = -7.0
+margin_bottom = 24.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -1178,8 +1308,9 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="WaveCount" type="Label" parent="GUIContainer" index="6"]
+[node name="WaveCount" type="Label" parent="GUIContainer" index="4"]
 
+editor/display_folded = true
 material = SubResource( 4 )
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1201,17 +1332,18 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Material", "Rect" ]
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="ColorRect3" type="ColorRect" parent="GUIContainer" index="7"]
+[node name="ColorRect3" type="ColorRect" parent="GUIContainer/WaveCount" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 70.0
-margin_top = 74.0
-margin_right = 165.0
-margin_bottom = 101.0
+margin_right = 95.0
+margin_bottom = 27.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -1221,16 +1353,16 @@ size_flags_vertical = 1
 color = Color( 0.570313, 0.570313, 0.570313, 0.16 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="Wave" type="Label" parent="GUIContainer" index="8"]
+[node name="Wave" type="Label" parent="GUIContainer/WaveCount" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 14.0
-margin_top = 77.0
-margin_right = 63.0
-margin_bottom = 98.0
+margin_left = -56.0
+margin_top = 3.0
+margin_right = -7.0
+margin_bottom = 24.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
