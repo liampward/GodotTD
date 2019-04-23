@@ -146,7 +146,9 @@ align = 1
 script = ExtResource( 3 )
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="opening theme" type="AudioStreamPlayer" parent="." index="1"]
+[node name="opening theme" type="AudioStreamPlayer" parent="." index="1" groups=[
+"MUSIC",
+]]
 
 stream = ExtResource( 4 )
 volume_db = 0.0

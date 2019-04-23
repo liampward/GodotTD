@@ -13,7 +13,7 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Extra Spacing", "Settings" ]
 
-[node name="ColorRect" type="ColorRect"]
+[node name="ColorRect" type="ColorRect" index="0"]
 
 pause_mode = 2
 anchor_left = 0.0
