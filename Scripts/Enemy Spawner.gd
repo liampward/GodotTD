@@ -60,7 +60,7 @@ func Spawn(Type):
 	Clone.hp_max *= stat_scale
 	Clone.hp_cur = Clone.hp_max 
 	Root_Node.add_child(Clone)
-	Clone.set_translation(Vector3(0, 0, 0))
+	Clone.set_translation(Vector3(1, 0, 11))
 	
 func ParseWave():
 	done_spawning = false

@@ -64,7 +64,7 @@ render_priority = 0
 blend_mode = 0
 light_mode = 0
 
-[node name="MainPanel" type="Panel"]
+[node name="MainPanel" type="Panel" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -231,6 +231,7 @@ max_lines_visible = -1
 [node name="IconStats" type="Control" parent="StatContainer" index="4"]
 
 editor/display_folded = true
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -735,8 +736,6 @@ centered = false
 
 [node name="NumberStats" type="Control" parent="StatContainer" index="5"]
 
-editor/display_folded = true
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -802,9 +801,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = -80.0
-margin_top = 220.0
+margin_top = 260.0
 margin_right = 10.0
-margin_bottom = 240.0
+margin_bottom = 280.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -845,9 +844,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = -80.0
-margin_top = 260.0
+margin_top = 220.0
 margin_right = 10.0
-margin_bottom = 280.0
+margin_bottom = 240.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2

@@ -23,6 +23,10 @@ func _ready():
 		for x in range(BOARD_ROWS):
 			var new_tile = tile.instance()
 			var pos = Vector3((x * 2) + 1, 0, (z * 2) + 1)
+			if pos == Vector3(1, 0, 11):
+				var matl = SpatialMaterial.new()
+				new_tile.set_material_override(matl)
+				matl.albedo_color = Color(1, 0, 0)
 			new_tile.set_translation(pos)
 			add_child(new_tile)
 			tile_list.append(new_tile)
