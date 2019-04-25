@@ -46,6 +46,7 @@ func _ready():
 	self.visible = true
 	
 func attack(enemy):
+	self.get_node("AudioStreamPlayer").volume_db = Global.volume
 	self.get_node("AudioStreamPlayer").play()
 	var bullet = BULLET.instance()
 	bullet.set_name("myBullet")

@@ -8,6 +8,7 @@ func _ready():
 	board_node = root_node.get_node("Board")
 
 func _pressed():
+<<<<<<< HEAD
 	var tile = board_node.selected_tile
 	
 	if(tile != null and tile.tower != null):
@@ -15,6 +16,11 @@ func _pressed():
 		tile.tower.queue_free();
 		tile.tower = null;
 		
+=======
+	var tile = board_node.selected_tile;
+
+	if(tile.tower != null):
+>>>>>>> 1ff0a9ebb94e2583bbf1f39d877a40aec1decf09
 		board_node.as.add_point(
 					tile.astar_node_id,
 		            board_node.gm.map_to_world(tile.astar_node_pos.x,

@@ -3,15 +3,15 @@
 [ext_resource path="res://Scenes/Root.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Game_Board.gd" type="Script" id=2]
 [ext_resource path="res://AStarNode.meshlib" type="MeshLibrary" id=3]
-[ext_resource path="res://Scenes/Pause_Menu.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scripts/Enemy Spawner.gd" type="Script" id=5]
-[ext_resource path="res://Scripts/Camera.gd" type="Script" id=6]
-[ext_resource path="res://Scripts/GhostContainer.gd" type="Script" id=7]
-[ext_resource path="res://media/BaseTower.obj" type="ArrayMesh" id=8]
-[ext_resource path="res://media/PhysicalTower.obj" type="ArrayMesh" id=9]
-[ext_resource path="res://media/MagicalTower.obj" type="ArrayMesh" id=10]
-[ext_resource path="res://media/Bio_Unit_-_03_-_Glass_Beach.wav" type="AudioStream" id=11]
-[ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scripts/Enemy Spawner.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Camera.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/GhostContainer.gd" type="Script" id=6]
+[ext_resource path="res://media/BaseTower.obj" type="ArrayMesh" id=7]
+[ext_resource path="res://media/PhysicalTower.obj" type="ArrayMesh" id=8]
+[ext_resource path="res://media/MagicalTower.obj" type="ArrayMesh" id=9]
+[ext_resource path="res://media/Bio_Unit_-_03_-_Glass_Beach.wav" type="AudioStream" id=10]
+[ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Pause_Menu.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Environment" id=1]
 
@@ -171,17 +171,12 @@ __meta__ = {
 "_editor_clip_": 0
 }
 
-[node name="PauseMenu" parent="." index="1" instance=ExtResource( 4 )]
+[node name="EnemySpawner" type="Spatial" parent="." index="1"]
 
-visible = false
+script = ExtResource( 4 )
 
-[node name="EnemySpawner" type="Spatial" parent="." index="2"]
+[node name="CameraPivotX" type="Position3D" parent="." index="2"]
 
-script = ExtResource( 5 )
-
-[node name="CameraPivotX" type="Position3D" parent="." index="3"]
-
-editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="CameraPivotY" type="Position3D" parent="CameraPivotX" index="0"]
@@ -190,7 +185,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Camera" type="Camera" parent="CameraPivotX/CameraPivotY" index="0"]
 
-transform = Transform( 1, 0, 0, 0, 0.866026, 0.5, 0, -0.5, 0.866026, 5, 15, 30 )
+transform = Transform( 1, 0, 0, 0, 0.866026, 0.5, 0, -0.5, 0.866026, 0, 13.5294, 28.1715 )
 keep_aspect = 1
 cull_mask = 1048575
 environment = SubResource( 1 )
@@ -203,10 +198,10 @@ fov = 70.0
 size = 1.0
 near = 0.05
 far = 100.0
-script = ExtResource( 6 )
+script = ExtResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="GameArea" type="ColorRect" parent="." index="4"]
+[node name="GameArea" type="ColorRect" parent="." index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -222,7 +217,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 color = Color( 1, 1, 1, 0 )
 
-[node name="DirectionalLight" type="DirectionalLight" parent="." index="5"]
+[node name="DirectionalLight" type="DirectionalLight" parent="." index="4"]
 
 transform = Transform( 1, 0, 0, 0, -0.179973, 0.983672, 0, -0.983672, -0.179973, 26.3726, 23.0266, -5.72842 )
 layers = 1
@@ -250,9 +245,9 @@ directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
 _sections_unfolded = [ "Light", "Shadow" ]
 
-[node name="GhostContainer" type="Spatial" parent="." index="6"]
+[node name="GhostContainer" type="Spatial" parent="." index="5"]
 
-script = ExtResource( 7 )
+script = ExtResource( 6 )
 
 [node name="GhostNeut" type="MeshInstance" parent="GhostContainer" index="0"]
 
@@ -266,7 +261,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 8 )
+mesh = ExtResource( 7 )
 skeleton = NodePath("..")
 material/0 = SubResource( 2 )
 material/1 = SubResource( 2 )
@@ -291,7 +286,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 9 )
+mesh = ExtResource( 8 )
 skeleton = NodePath("..")
 material/0 = SubResource( 2 )
 material/1 = SubResource( 2 )
@@ -320,7 +315,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 10 )
+mesh = ExtResource( 9 )
 skeleton = NodePath("..")
 material/0 = SubResource( 2 )
 material/1 = SubResource( 2 )
@@ -331,16 +326,22 @@ material/5 = SubResource( 2 )
 material/6 = SubResource( 2 )
 _sections_unfolded = [ "material" ]
 
-[node name="In game Music" type="AudioStreamPlayer" parent="." index="7"]
+[node name="In game Music" type="AudioStreamPlayer" parent="." index="6" groups=[
+"MUSIC",
+]]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = true
 mix_target = 0
 bus = "Master"
 
-[node name="MainPanel" parent="." index="8" instance=ExtResource( 12 )]
+[node name="MainPanel" parent="." index="7" instance=ExtResource( 11 )]
+
+[node name="PauseMenu" parent="." index="8" instance=ExtResource( 12 )]
+
+visible = false
 
 [connection signal="mouse_entered" from="GameArea" to="Board" method="_on_GameArea_mouse_entered"]
 
