@@ -28,8 +28,9 @@ func purchase(type):
 		var new_tower
 		##Super hacky way of making sure the player
 		##doesn't break the path when they buy a tower
+		
 		board_node.as.remove_point(tile.astar_node_id)
-		if(board_node.as.get_point_path(1, 2).size() == 0):
+		if(board_node.as.get_point_path(1, 82).size() == 0):
 			board_node.as.add_point(
 			tile.astar_node_id,
 			board_node.gm.map_to_world(tile.astar_node_pos.x,
