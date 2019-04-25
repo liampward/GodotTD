@@ -26,8 +26,6 @@ func _ready():
 	if(type == 3):
 		matl.albedo_color = Color(0, 0, 1)
 
-	move_to(Vector3(33, 0, 10))
-
 func _physics_process(delta):
 	if path_idx < path.size():
 		var move_vec = path[path_idx] - global_transform.origin
