@@ -3,7 +3,7 @@
 [ext_resource path="res://media/hit.wav" type="AudioStream" id=1]
 [ext_resource path="res://Scripts/EnemyDeathSound.gd" type="Script" id=2]
 
-[node name="EnemyDeathSound" type="AudioStreamPlayer"]
+[node name="EnemyDeathSound" type="AudioStreamPlayer" index="0"]
 
 stream = ExtResource( 1 )
 volume_db = -30.0
