@@ -21,11 +21,35 @@ func upgrade(num):
 			root_node.money -= board_node.selected_tile.tower.price
 			
 func purchase(type):
+
 	if(board_node.selected_tile != null):
 		var tile = board_node.selected_tile
 		var tile_scale = tile.get_scale()
 		var new_tower
-
+		##Super hacky way of making sure the player
+		##doesn't break the path when they buy a tower
+		board_node.as.remove_point(tile.astar_node_id)
+		if(board_node.as.get_point_path(1, 2).size() == 0):
+			board_node.as.add_point(
+			tile.astar_node_id,
+			board_node.gm.map_to_world(tile.astar_node_pos.x,
+										tile.astar_node_pos.y,
+										tile.astar_node_pos.z))
+	
+			var c = tile.astar_node_pos
+			for x in [-1, 0, 1]:
+				for z in [-1, 0, 1]:
+					if x == 0 and z == 0:
+						continue
+					var offset = Vector3(x, 0, z)
+					if board_node.vec3_to_string(c + offset) in board_node.points:
+						var id2 = board_node.points[board_node.vec3_to_string(c + offset)]
+						if not board_node.as.are_points_connected(tile.astar_node_id, id2):
+							print("CONNECTING " + str(id2) + " AND " + str(tile.astar_node_id))
+							board_node.as.connect_points(tile.astar_node_id, id2, true)
+			if(tile.astar_node_id == 97):
+				board_node.as.connect_points(tile.astar_node_id, 1, true)
+			return
 		# Replace this with a switch?
 		if(type == "NEUTRAL"):
 			new_tower = NEUTRAL.instance()
