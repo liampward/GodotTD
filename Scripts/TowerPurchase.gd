@@ -2,6 +2,7 @@ extends Button
 
 var root_node
 var board_node
+var text_node
 var NEUTRAL
 var PHYSICAL
 var MAGIC
@@ -9,6 +10,7 @@ var MAGIC
 func _ready():
 	root_node = get_tree().get_root().get_node("Root")
 	board_node = root_node.get_node("Board")
+	text_node = root_node.get_node("MainPanel/DisplayText")
 	NEUTRAL = preload("res://Scenes/baseTower.tscn")
 	PHYSICAL = preload("res://Scenes/physTower.tscn")
 	MAGIC = preload("res://Scenes/magicTower.tscn")
@@ -49,6 +51,7 @@ func purchase(type):
 							board_node.as.connect_points(tile.astar_node_id, id2, true)
 			if(tile.astar_node_id == 97):
 				board_node.as.connect_points(tile.astar_node_id, 1, true)
+			text_node.display_text("That would block the path")
 			return
 			
 			

@@ -2,6 +2,7 @@ extends Spatial
 
 var Root_Node
 var Board_Node
+var counter_node
 
 var NeutralEnemy
 var MagicEnemy
@@ -20,6 +21,7 @@ var spawn_configuration
 func _ready():
 	Root_Node = get_tree().get_root().get_node("Root")
 	Board_Node = Root_Node.get_node("Board")
+	counter_node = Root_Node.get_node("MainPanel/EnemyCount")
 	NeutralEnemy = load("res://Scenes/NeutralEnemy.tscn")
 	MagicEnemy = load("res://Scenes/MagicEnemy.tscn")
 	PhysicalEnemy = load("res://Scenes/PhysicalEnemy.tscn")
@@ -43,6 +45,7 @@ func _process(delta):
 			Spawn(3)
 			spawn_mag -= 1
 		timer = 1.0
+	counter_node.set_count(spawn_neut, spawn_phys, spawn_mag)
 	if(spawn_neut == 0 and spawn_phys == 0 and spawn_mag == 0):
 		done_spawning = true
 

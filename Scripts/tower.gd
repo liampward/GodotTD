@@ -28,6 +28,8 @@ var stackName = ""
 var Stack = []
 var targs = []
 
+var text_node
+
 func _ready():
 	preload("res://Scripts/Bullet.gd")
 	BULLET = preload("res://Scenes/Bullet.tscn")
@@ -39,6 +41,7 @@ func _ready():
 	$Area.connect("area_exited", self, "_on_Area_area_exited")
 	Stack.append(self)
 	
+
 	
 	var particle_spawner = PARTICLES.instance()
 	get_parent().add_child(particle_spawner)
