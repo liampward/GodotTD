@@ -46,6 +46,7 @@ func _ready():
 	self.visible = true
 	
 func attack(enemy):
+	self.get_node("AudioStreamPlayer").volume_db = Global.volume
 	self.get_node("AudioStreamPlayer").play()
 	var bullet = BULLET.instance()
 	bullet.set_name("myBullet")
@@ -194,9 +195,3 @@ func checkStack():
 		if Stack[i].type == PHYS:
 			P += 1
 	return [N, P, M]
-
-func _enter_tree():
-	get_tree().call_group("ENEMY", "move_to", Vector3(33, 0, 10))
-
-func _exiting_tree():
-	get_tree().call_group("ENEMY", "move_to", Vector3(33, 0, 10))

@@ -14,7 +14,7 @@ func _process(delta):
 	rotate = Vector2(0, 0)
 
 func _input(event):
-	if event is InputEventMouseButton && event.button_index == 3:
+	if event is InputEventMouseButton && event.button_index == 2:
 		canMove = !canMove;
 	if Input.is_key_pressed(KEY_SHIFT):
 		canMove = !canMove;

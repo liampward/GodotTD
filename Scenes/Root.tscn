@@ -326,7 +326,9 @@ material/5 = SubResource( 2 )
 material/6 = SubResource( 2 )
 _sections_unfolded = [ "material" ]
 
-[node name="In game Music" type="AudioStreamPlayer" parent="." index="6"]
+[node name="In game Music" type="AudioStreamPlayer" parent="." index="6" groups=[
+"MUSIC",
+]]
 
 stream = ExtResource( 10 )
 volume_db = 0.0
