@@ -5,6 +5,7 @@ extends AudioStreamPlayer
 # var b = "textvar"
 
 func _ready():
+	self.volume_db = Global.volume
 	self.play();
 
 func _process(delta):
