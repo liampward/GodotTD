@@ -43,7 +43,7 @@ func _process(delta):
 		get_parent().add_child(particle_spawner)
 		particle_spawner.set_translation(self.get_translation() + Vector3(0, 3, 0))
 		var root_node = get_tree().get_root().get_node("Root")
-		root_node.money += 3
+		root_node.money += 3 + (Global.Wave_Count / 3)
 
 func hurt(dmg):
 	hp_cur -= dmg
@@ -64,4 +64,4 @@ func _on_Area_area_entered(area):
 func _on_VisibilityNotifier_screen_exited():
 	queue_free()
 	var root_node = get_tree().get_root().get_node("Root")
-	root_node.money += 3
+	root_node.money += 3 + (Global.Wave_Count / 5)
