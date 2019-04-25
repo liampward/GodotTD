@@ -45,11 +45,12 @@ func purchase(type):
 					if board_node.vec3_to_string(c + offset) in board_node.points:
 						var id2 = board_node.points[board_node.vec3_to_string(c + offset)]
 						if not board_node.as.are_points_connected(tile.astar_node_id, id2):
-							print("CONNECTING " + str(id2) + " AND " + str(tile.astar_node_id))
 							board_node.as.connect_points(tile.astar_node_id, id2, true)
 			if(tile.astar_node_id == 97):
 				board_node.as.connect_points(tile.astar_node_id, 1, true)
 			return
+			
+			
 		# Replace this with a switch?
 		if(type == "NEUTRAL"):
 			new_tower = NEUTRAL.instance()
