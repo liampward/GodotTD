@@ -47,3 +47,4 @@ func purchase(type):
 			tile.tower = new_tower
 			root_node.money -= board_node.selected_tile.tower.price
 			board_node.as.remove_point(tile.astar_node_id)
+			get_tree().call_group("ENEMY", "move_to", Vector3(33, 0, 10))
