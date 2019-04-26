@@ -18,12 +18,17 @@ func _ready():
 func upgrade(num):
 	if board_node.selected_tile != null:
 		var tower = board_node.selected_tile.tower
-		if tower != null && root_node.money >= tower.price + 10 && tower.upgradeLevel < 2:
-			board_node.selected_tile.tower.upgrade(num)
-			root_node.money -= board_node.selected_tile.tower.price
+		if tower != null:
+			if tower.upgradeLevel < 2:
+				if root_node.money >= tower.price + 10:
+					board_node.selected_tile.tower.upgrade(num)
+					root_node.money -= board_node.selected_tile.tower.price
+				else:
+					text_node.display_text("Out of money")
+			else:
+				text_node.display_text("Can't stack higher")
 			
 func purchase(type):
-
 	if(board_node.selected_tile != null):
 		var tile = board_node.selected_tile
 		var tile_scale = tile.get_scale()

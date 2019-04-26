@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://media/ariblk.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/PlayButton.gd" type="Script" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://media/Bio_Unit_-_10_-_Outer_Reaches.wav" type="AudioStream" id=4]
 [ext_resource path="res://Scenes/OptionsMenu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/OptionsButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://media/icon_question_selected.png" type="Texture" id=7]
+[ext_resource path="res://media/questino.tres" type="StyleBox" id=8]
+[ext_resource path="res://Scenes/TutorialButton.gd" type="Script" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -31,7 +34,45 @@ use_filter = false
 font_data = ExtResource( 1 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="MainMenu" type="Container"]
+[sub_resource type="StyleBoxTexture" id=5]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 16, 16 )
+margin_left = 0.0
+margin_right = 0.0
+margin_top = 0.0
+margin_bottom = 0.0
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+modulate_color = Color( 1, 1, 1, 1 )
+draw_center = true
+
+[sub_resource type="StyleBoxTexture" id=4]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 16, 16 )
+margin_left = 0.0
+margin_right = 0.0
+margin_top = 0.0
+margin_bottom = 0.0
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+modulate_color = Color( 1, 1, 1, 1 )
+draw_center = true
+
+[node name="MainMenu" type="Container" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -50,6 +91,7 @@ _sections_unfolded = [ "custom_constants" ]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -163,5 +205,66 @@ visible = false
 _sections_unfolded = [ "Rect" ]
 
 [node name="OptionsButton" parent="." index="3" instance=ExtResource( 6 )]
+
+_sections_unfolded = [ "Rect", "custom_styles" ]
+
+[node name="TutorialScreen" type="Container" parent="." index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1030.0
+margin_bottom = 599.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="ColorRect" type="ColorRect" parent="TutorialScreen" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1052.0
+margin_bottom = 609.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0.407843, 0.407843, 0.407843, 1 )
+
+[node name="TutorialButton" type="Button" parent="." index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 952.0
+margin_top = 18.0
+margin_right = 1002.0
+margin_bottom = 68.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/normal = ExtResource( 8 )
+toggle_mode = false
+enabled_focus_mode = 0
+shortcut = null
+group = null
+flat = false
+align = 1
+script = ExtResource( 9 )
+_sections_unfolded = [ "custom_styles" ]
 
 

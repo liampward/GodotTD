@@ -14,5 +14,7 @@ func _pressed():
 	if Spawn_Node.done_spawning == true:
 		Root_Node.wave_num += 1
 		Spawn_Node.ParseWave()
+		get_node("../EnemyCount").visible = true
+		self.visible = false
 	
 

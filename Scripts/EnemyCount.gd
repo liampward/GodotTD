@@ -10,6 +10,9 @@ func _ready():
 	pass
 
 func set_count(neut, phys, mag):
+	if((neut + phys + mag) == 0):
+		get_node("../SpawnButton").visible = true
+		self.visible = false
 	$NumNeut.text = str(neut)
 	$NumPhys.text = str(phys)
 	$NumMag.text = str(mag)

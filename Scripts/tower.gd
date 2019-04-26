@@ -41,7 +41,6 @@ func _ready():
 	$Area.connect("area_exited", self, "_on_Area_area_exited")
 	Stack.append(self)
 	
-
 	
 	var particle_spawner = PARTICLES.instance()
 	get_parent().add_child(particle_spawner)
