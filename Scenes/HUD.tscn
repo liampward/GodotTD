@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Scripts/StatContainer.gd" type="Script" id=1]
 [ext_resource path="res://media/button_font.tres" type="DynamicFont" id=2]
@@ -16,8 +16,11 @@
 [ext_resource path="res://Scripts/EnemyCount.gd" type="Script" id=14]
 [ext_resource path="res://Scripts/Sell Button.gd" type="Script" id=15]
 [ext_resource path="res://Scripts/GUIContainer.gd" type="Script" id=16]
-[ext_resource path="res://Scripts/DisplayText.gd" type="Script" id=17]
-[ext_resource path="res://media/ariblk.ttf" type="DynamicFontData" id=18]
+[ext_resource path="res://media/icon_heart.png" type="Texture" id=17]
+[ext_resource path="res://media/icon_coin.png" type="Texture" id=18]
+[ext_resource path="res://media/icon_wave.png" type="Texture" id=19]
+[ext_resource path="res://Scripts/DisplayText.gd" type="Script" id=20]
+[ext_resource path="res://media/ariblk.ttf" type="DynamicFontData" id=21]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -72,7 +75,7 @@ light_mode = 0
 size = 30
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 18 )
+font_data = ExtResource( 21 )
 _sections_unfolded = [ "Settings" ]
 
 [node name="MainPanel" type="Panel"]
@@ -985,9 +988,9 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -333.0
+margin_left = -353.0
 margin_top = -51.5
-margin_right = -183.0
+margin_right = -203.0
 margin_bottom = 48.5
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -1223,7 +1226,6 @@ _sections_unfolded = [ "Hint", "Rect", "custom_fonts" ]
 
 [node name="GUIContainer" type="Control" parent="." index="7"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1240,7 +1242,140 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 16 )
 
-[node name="Lives_num" type="Label" parent="GUIContainer" index="0"]
+[node name="buy_num" type="Label" parent="GUIContainer" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -550.0
+margin_top = 80.0
+margin_right = -455.0
+margin_bottom = 107.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ColorRect4" type="ColorRect" parent="GUIContainer/buy_num" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 95.0
+margin_bottom = 27.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0.570313, 0.570313, 0.570313, 0.16 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="Buy" type="Label" parent="GUIContainer/buy_num" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = -17.0
+margin_right = 73.0
+margin_bottom = 4.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 2 )
+text = "Buy Price"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="sell_num" type="Label" parent="GUIContainer" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -295.0
+margin_top = 80.0
+margin_right = -200.0
+margin_bottom = 107.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ColorRect4" type="ColorRect" parent="GUIContainer/sell_num" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 95.0
+margin_bottom = 27.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0.570313, 0.570313, 0.570313, 0.16 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="Sell" type="Label" parent="GUIContainer/sell_num" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 22.0
+margin_top = -17.0
+margin_right = 95.0
+margin_bottom = 4.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 2 )
+text = "Sell Price"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Lives_num" type="Label" parent="GUIContainer" index="2"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -1307,138 +1442,11 @@ size_flags_vertical = 1
 color = Color( 0.570313, 0.570313, 0.570313, 0.16 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="buy_num" type="Label" parent="GUIContainer" index="1"]
+[node name="Sprite" type="Sprite" parent="GUIContainer/Lives_num" index="2"]
 
-editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -550.0
-margin_top = 80.0
-margin_right = -455.0
-margin_bottom = 107.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-align = 1
-valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect" ]
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="ColorRect4" type="ColorRect" parent="GUIContainer/buy_num" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 95.0
-margin_bottom = 27.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-color = Color( 0.570313, 0.570313, 0.570313, 0.16 )
-_sections_unfolded = [ "Rect" ]
-
-[node name="Buy" type="Label" parent="GUIContainer/buy_num" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = -17.0
-margin_right = 73.0
-margin_bottom = 4.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = ExtResource( 2 )
-text = "Buy Price"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect" ]
-
-[node name="sell_num" type="Label" parent="GUIContainer" index="2"]
-
-editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -295.0
-margin_top = 80.0
-margin_right = -200.0
-margin_bottom = 107.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-align = 1
-valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect" ]
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="ColorRect4" type="ColorRect" parent="GUIContainer/sell_num" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 95.0
-margin_bottom = 27.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-color = Color( 0.570313, 0.570313, 0.570313, 0.16 )
-_sections_unfolded = [ "Rect" ]
-
-[node name="Sell" type="Label" parent="GUIContainer/sell_num" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 22.0
-margin_top = -17.0
-margin_right = 95.0
-margin_bottom = 4.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = ExtResource( 2 )
-text = "Sell Price"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect" ]
+position = Vector2( -71.9216, 14.4458 )
+texture = ExtResource( 17 )
+_sections_unfolded = [ "Visibility" ]
 
 [node name="Money_num" type="Label" parent="GUIContainer" index="3"]
 
@@ -1508,6 +1516,11 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
+[node name="Sprite" type="Sprite" parent="GUIContainer/Money_num" index="2"]
+
+position = Vector2( -72.6762, 14.3032 )
+texture = ExtResource( 18 )
+
 [node name="WaveCount" type="Label" parent="GUIContainer" index="4"]
 
 editor/display_folded = true
@@ -1576,8 +1589,14 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
+[node name="Sprite" type="Sprite" parent="GUIContainer/WaveCount" index="2"]
+
+position = Vector2( -69.7701, 14.7532 )
+texture = ExtResource( 19 )
+
 [node name="DisplayText" type="Panel" parent="." index="8"]
 
+editor/display_folded = true
 visible = false
 modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
@@ -1594,7 +1613,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 17 )
+script = ExtResource( 20 )
 _sections_unfolded = [ "Mouse" ]
 
 [node name="Label" type="Label" parent="DisplayText" index="0"]

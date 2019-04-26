@@ -81,7 +81,7 @@ expand_margin_bottom = 0.0
 modulate_color = Color( 1, 1, 1, 1 )
 draw_center = true
 
-[node name="MainMenu" type="Container" index="0"]
+[node name="MainMenu" type="Container"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -337,7 +337,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Label3" type="Label" parent="TutorialScreen/VBoxContainer" index="2"]
+[node name="Label7" type="Label" parent="TutorialScreen/VBoxContainer" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -352,7 +352,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "The enemies will walk to your base and try to destroy it. Towers block them so you can use them to build a long path for them
+text = "While neutral towers can hit everything they are weaker overall than the other two. Diversity is the key to victory.
 "
 align = 1
 autowrap = true
@@ -360,7 +360,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Label4" type="Label" parent="TutorialScreen/VBoxContainer" index="3"]
+[node name="Label3" type="Label" parent="TutorialScreen/VBoxContainer" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -375,7 +375,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "Towers can be stacked on top of eachother to boost their power. Stacking three of the same results in special, powerful towers.
+text = "The enemies will walk to your base and try to destroy it. Towers block them so you can use them to build a long path for them
 "
 align = 1
 autowrap = true
@@ -383,7 +383,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Label5" type="Label" parent="TutorialScreen/VBoxContainer" index="4"]
+[node name="Label4" type="Label" parent="TutorialScreen/VBoxContainer" index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -398,7 +398,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "Right click + drag controls the camera. P pauses the game. 1, 2, and 3 are shortcuts to buy the three towers.
+text = "Towers can be stacked on top of eachother to boost their power. Stacking three of the same results in special, powerful towers.
 "
 align = 1
 autowrap = true
@@ -406,7 +406,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Label6" type="Label" parent="TutorialScreen/VBoxContainer" index="5"]
+[node name="Label5" type="Label" parent="TutorialScreen/VBoxContainer" index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -421,7 +421,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "There are 3 types of enemies, neutral, physical and magical. They are colored gray, red and blue respectively.
+text = "Right click + drag controls the camera. P pauses the game. 1, 2, and 3 are shortcuts to buy the three towers.
 "
 align = 1
 autowrap = true
@@ -429,15 +429,16 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Label7" type="Label" parent="TutorialScreen/VBoxContainer" index="6"]
+[node name="Label6" type="Label" parent="TutorialScreen/VBoxContainer" index="6"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 244.0
+margin_top = 209.0
 margin_right = 1026.0
-margin_bottom = 275.0
+margin_bottom = 240.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2

@@ -38,3 +38,5 @@ func _process(delta):
 		button5._pressed()
 	if(health <= 0):
 		get_tree().change_scene("res://Scenes/GameOver.tscn")
+	if(wave_num == 40):
+		get_tree().change_scene("res://Scenes/GameVictory.tscn")
