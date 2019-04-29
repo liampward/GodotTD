@@ -78,7 +78,7 @@ use_filter = false
 font_data = ExtResource( 21 )
 _sections_unfolded = [ "Settings" ]
 
-[node name="MainPanel" type="Panel"]
+[node name="MainPanel" type="Panel" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -907,14 +907,13 @@ margin_right = 400.0
 margin_bottom = 75.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 2 )
 toggle_mode = false
-enabled_focus_mode = 2
+enabled_focus_mode = 0
 shortcut = null
 group = null
 text = "NEUTRAL"
@@ -936,14 +935,13 @@ margin_right = 520.0
 margin_bottom = 75.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 2 )
 toggle_mode = false
-enabled_focus_mode = 2
+enabled_focus_mode = 0
 shortcut = null
 group = null
 text = "PHYSICAL"
@@ -965,14 +963,13 @@ margin_right = 640.0
 margin_bottom = 75.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 2 )
 toggle_mode = false
-enabled_focus_mode = 2
+enabled_focus_mode = 0
 shortcut = null
 group = null
 text = "MAGICAL"
@@ -994,14 +991,13 @@ margin_right = -203.0
 margin_bottom = 48.5
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 2 )
 toggle_mode = false
-enabled_focus_mode = 2
+enabled_focus_mode = 0
 shortcut = null
 group = null
 text = "Next Wave"
@@ -1208,14 +1204,13 @@ margin_right = -483.0
 margin_bottom = 48.5
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 2 )
 toggle_mode = false
-enabled_focus_mode = 2
+enabled_focus_mode = 0
 shortcut = null
 group = null
 text = "SELL"
@@ -1226,6 +1221,7 @@ _sections_unfolded = [ "Hint", "Rect", "custom_fonts" ]
 
 [node name="GUIContainer" type="Control" parent="." index="7"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1614,7 +1610,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 20 )
-_sections_unfolded = [ "Mouse" ]
+_sections_unfolded = [ "Mouse", "Visibility" ]
 
 [node name="Label" type="Label" parent="DisplayText" index="0"]
 
